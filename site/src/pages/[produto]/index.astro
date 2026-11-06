@@ -1,0 +1,109 @@
+---
+import Base from '../../layouts/Base.astro';
+import Busca from '../../components/Busca.astro';
+import CartaoArtigo from '../../components/CartaoArtigo.astro';
+import { produtos, produto as obter, modulosPorArea, urlModulo } from '../../lib/dados';
+import { icone } from '../../lib/icone';
+
+export function getStaticPaths() {
+  return produtos().map(p => ({ params: { produto: p.slug } }));
+}
+const p = obter(Astro.params.produto!);
+const tarefas = p.artigos.filter(a => a.fm.tipo === 'procedimento').slice(0, 8);
+const contar = (tipo: string) => p.artigos.filter(a => a.fm.tipo === tipo).length;
+const videos = p.artigos.filter(a => a.fm.videos.length).length;
+const suporte = import.meta.env.PUBLIC_SUPORTE_URL as string | undefined;
+const atalhos = [
+  { href: `/${p.slug}/problemas/`, icone: 'wrench', titulo: 'Problemas frequentes', texto: 'Mensagens de erro e como resolver', n: contar('solucao') },
+  { href: `/${p.slug}/perguntas/`, icone: 'circle-help', titulo: 'Perguntas frequentes', texto: 'Respostas rápidas', n: contar('faq') },
+  { href: `/${p.slug}/videos/`, icone: 'play-circle', titulo: 'Vídeos', texto: 'Procedimentos em vídeo', n: videos },
+  { href: `/${p.slug}/novidades/`, icone: 'sparkles', titulo: 'Novidades', texto: 'O que mudou em cada versão', n: contar('novidade') },
+];
+---
+<Base titulo="Início" produto={p.slug} busca={false} descricao={`Ajuda do ${p.nome}: passo a passo, vídeos, perguntas frequentes e soluções de problemas.`}>
+  <section class="bg-marca">
+    <div class="max-w-3xl mx-auto px-4 py-14 sm:py-16 text-center">
+      <h1 class="text-3xl sm:text-4xl font-bold text-white">O que você precisa fazer?</h1>
+      <p class="mt-3 text-white/85">Ajuda do {p.nome} — guias por tarefa, vídeos e soluções de problemas.</p>
+      <div class="mt-8 text-left"><Busca produto={p.slug} grande /></div>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-4 py-10 space-y-12">
+    {p.artigos.length === 0 && (
+      <section class="bg-white border border-slate-200 rounded-lg p-8 text-center">
+        <span class="inline-block text-primary-600" set:html={icone('book-open', 32)} />
+        <h2 class="mt-3 text-xl font-semibold text-slate-900">Conteúdo em produção</h2>
+        <p class="mt-2 text-sm text-slate-600">Os guias do {p.nome} estão sendo preparados e aparecem aqui assim que forem publicados.</p>
+      </section>
+    )}
+
+    {tarefas.length > 0 && (
+      <section>
+        <h2 class="text-xl font-semibold text-slate-900">Tarefas mais procuradas</h2>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2">
+          {tarefas.map(a => <CartaoArtigo artigo={a} produto={p.slug} />)}
+        </div>
+      </section>
+    )}
+
+    {p.perfis.length > 0 && (
+      <section>
+        <h2 class="text-xl font-semibold text-slate-900">Ajuda pela sua função</h2>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {p.perfis.map(pf => (
+            <a href={`/${p.slug}/perfil/${pf.id}/`} class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-2 text-sm font-medium text-slate-700 hover:border-primary-500 hover:text-primary-700">
+              <Fragment set:html={icone('user-round', 16)} />{pf.nome}
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {p.modulos.length > 0 && (
+      <section>
+        <h2 class="text-xl font-semibold text-slate-900">Módulos</h2>
+        <div class="mt-4 space-y-8">
+          {modulosPorArea(p).map(([area, mods]) => (
+            <div>
+              <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider">{area}</h3>
+              <div class="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {mods.map(m => (
+                  <a href={urlModulo(p.slug, m.slug)} class="group flex gap-4 bg-white border border-slate-200 rounded-lg shadow-sm p-5 hover:border-primary-500 hover:shadow transition">
+                    <span class="size-10 shrink-0 rounded-lg bg-primary-50 text-primary-600 grid place-items-center" set:html={icone(m.icone, 20)} />
+                    <span class="min-w-0">
+                      <span class="block font-semibold text-slate-900 group-hover:text-primary-700">{m.nome}</span>
+                      {m.descricao && <span class="block text-sm text-slate-600 mt-1">{m.descricao}</span>}
+                      <span class="block text-xs text-slate-500 mt-2">{m.artigos.length} artigo{m.artigos.length > 1 ? 's' : ''}</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <section class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {atalhos.map(a => (
+        <a href={a.href} class="group bg-white border border-slate-200 rounded-lg shadow-sm p-5 hover:border-primary-500 transition">
+          <span class="text-primary-600" set:html={icone(a.icone, 20)} />
+          <span class="block mt-3 font-semibold text-slate-900 group-hover:text-primary-700">{a.titulo}</span>
+          <span class="block text-sm text-slate-600 mt-1">{a.texto}</span>
+          <span class="block text-xs text-slate-500 mt-2">{a.n ? `${a.n} item${a.n > 1 ? 's' : ''}` : 'Em breve'}</span>
+        </a>
+      ))}
+    </section>
+
+    {suporte && (
+      <section class="bg-white border border-slate-200 rounded-lg p-6 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+        <div>
+          <h2 class="text-base font-semibold text-slate-900">Não encontrou o que procurava?</h2>
+          <p class="text-sm text-slate-600 mt-1">Fale com o suporte. Informe a tela e, se houver, a mensagem exata que apareceu.</p>
+        </div>
+        <a href={suporte} class="bg-primary-600 hover:bg-primary-700 text-white text-sm font-medium px-4 py-2 rounded-md text-center">Falar com o suporte</a>
+      </section>
+    )}
+  </div>
+</Base>

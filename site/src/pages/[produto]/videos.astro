@@ -1,0 +1,10 @@
+---
+import PaginaLista from '../../components/PaginaLista.astro';
+import { produtos, produto } from '../../lib/dados';
+export function getStaticPaths() { return produtos().map(p => ({ params: { produto: p.slug } })); }
+const p = produto(Astro.params.produto!);
+---
+<PaginaLista p={p} titulo="Vídeos" iconeNome="play-circle"
+  descricao="Procedimentos em vídeo, organizados por módulo."
+  artigos={p.artigos.filter(a => a.fm.videos.length > 0)}
+  vazio="Os vídeos estão sendo gravados e aparecem aqui assim que forem publicados." />

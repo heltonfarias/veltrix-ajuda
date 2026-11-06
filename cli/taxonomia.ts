@@ -4,7 +4,8 @@ import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import type { Manifesto } from './esquema.ts';
 
-export const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// AJUDA_RAIZ permite que o site (que empacota este módulo) aponte a raiz do repositório.
+export const RAIZ = process.env.AJUDA_RAIZ ?? path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 export interface ConfigProduto {
   slug: string;
@@ -22,6 +23,9 @@ const lerYaml = <T>(arquivo: string): T => YAML.parse(fs.readFileSync(path.join(
 
 export const carregarProdutos = () => lerYaml<ConfigProduto[]>('produtos.yml');
 export const carregarPerfis = () => lerYaml<Perfil[]>('perfis.yml');
+
+export interface InfoModulo { nome?: string; descricao?: string; icone?: string }
+export const carregarModulos = () => lerYaml<Record<string, Record<string, InfoModulo>>>('modulos.yml') ?? {};
 
 export function carregarProduto(slug: string | undefined): ConfigProduto {
   const produtos = carregarProdutos();

@@ -1,0 +1,53 @@
+# Nome, descrição e ícone de cada módulo na central, por produto.
+# O slug é o mesmo usado em `modulo:` no front-matter dos artigos.
+# Módulo ausente daqui usa o nome da tela principal no menu do produto.
+# Ícones: nomes do lucide (https://lucide.dev/icons), em kebab-case.
+one:
+  pedidos:
+    nome: Pedidos
+    descricao: Lançar, acompanhar, expedir e faturar pedidos de venda.
+    icone: shopping-cart
+  prevenda:
+    nome: Pré-venda
+    descricao: Registrar no balcão a mercadoria que sai com o cliente e agrupar no pedido.
+    icone: clipboard-list
+  caixa:
+    nome: Caixa
+    descricao: Abrir e fechar o caixa, receber pedidos e conferir os recebimentos.
+    icone: dollar-sign
+  fiscal:
+    nome: Fiscal
+    descricao: Emitir, corrigir e cancelar notas fiscais eletrônicas.
+    icone: file-text
+  financeiro:
+    nome: Financeiro
+    descricao: Contas a pagar e a receber, bancos e fluxo de caixa.
+    icone: wallet
+  producao:
+    nome: Produção
+    descricao: Lotes, transferências entre setores e painéis de produção.
+    icone: factory
+  estoque:
+    nome: Estoque
+    descricao: Movimentações, consultas e inventários.
+    icone: package
+  compras:
+    nome: Compras
+    descricao: Entrada de notas fiscais por XML e monitor de DF-e.
+    icone: truck
+
+varejo:
+  pdv:
+    nome: PDV
+    descricao: Frente de caixa, vendas, sangria e suprimento.
+    icone: shopping-cart
+
+decor:
+  orcamentos:
+    nome: Orçamentos
+    descricao: Elaborar, enviar e aprovar orçamentos.
+    icone: file-text
+  ordens-servico:
+    nome: Ordens de serviço
+    descricao: Agendar, executar e concluir serviços de instalação.
+    icone: wrench

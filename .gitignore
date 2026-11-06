@@ -3,3 +3,6 @@ node_modules/
 impacto.md
 cobertura.md
 relatorio.md
+site/node_modules/
+site/dist/
+site/.astro/

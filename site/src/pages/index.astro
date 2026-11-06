@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { produtos } from '../lib/dados';
+import { icone } from '../lib/icone';
+const lista = produtos();
+---
+<Base titulo="Central de Ajuda" descricao="Manuais, passo a passo, vídeos e soluções de problemas dos sistemas Veltrix.">
+  <section class="bg-marca text-white">
+    <div class="max-w-7xl mx-auto px-4 py-16 sm:py-20">
+      <h1 class="text-3xl sm:text-4xl font-bold">Central de Ajuda Veltrix</h1>
+      <p class="mt-3 text-lg text-white/85 max-w-2xl">Escolha o sistema que você usa para ver os guias, vídeos e soluções de problemas.</p>
+    </div>
+  </section>
+  <section class="max-w-7xl mx-auto px-4 -mt-8 grid gap-4 sm:grid-cols-3">
+    {lista.map(p => (
+      <a href={`/${p.slug}/`} class="group bg-white border border-slate-200 rounded-lg shadow-sm p-6 hover:border-primary-500 hover:shadow transition">
+        <span class="flex items-center justify-between">
+          <span class="text-lg font-semibold text-slate-900 group-hover:text-primary-700">{p.nome}</span>
+          <span class="text-slate-400 group-hover:text-primary-600" set:html={icone('arrow-right', 18)} />
+        </span>
+        <span class="block mt-2 text-sm text-slate-600">{p.descricao}</span>
+        <span class="block mt-4 text-xs text-slate-500">
+          {p.artigos.length ? `${p.artigos.length} artigo${p.artigos.length > 1 ? 's' : ''} · ${p.modulos.length} módulo${p.modulos.length > 1 ? 's' : ''}` : 'Conteúdo em produção'}
+        </span>
+      </a>
+    ))}
+  </section>
+</Base>

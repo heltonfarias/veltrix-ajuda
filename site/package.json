@@ -1,0 +1,24 @@
+{
+  "name": "veltrix-ajuda-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Central pública de ajuda dos produtos Veltrix (ajuda.veltrixlabs.com.br).",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "rascunhos": "cross-env AJUDA_RASCUNHOS=1 npm run build && astro preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "4.3.4",
+    "astro": "7.4.7",
+    "lucide-static": "1.69.0",
+    "marked": "18.1.3",
+    "pagefind": "1.6.0",
+    "tailwindcss": "4.3.4"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}

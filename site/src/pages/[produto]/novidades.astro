@@ -1,0 +1,14 @@
+---
+import PaginaLista from '../../components/PaginaLista.astro';
+import { produtos, produto } from '../../lib/dados';
+export function getStaticPaths() { return produtos().map(p => ({ params: { produto: p.slug } })); }
+const p = produto(Astro.params.produto!);
+// Mais recentes primeiro (versão em valido_desde).
+const versao = (v?: string) => (v ?? '0.0.0').split('.').map(n => n.padStart(5, '0')).join('.');
+const novidades = p.artigos.filter(a => a.fm.tipo === 'novidade')
+  .sort((a, b) => versao(b.fm.valido_desde).localeCompare(versao(a.fm.valido_desde)));
+---
+<PaginaLista p={p} titulo="Novidades" iconeNome="sparkles" agruparPorModulo={false}
+  descricao={`O que mudou em cada versão do ${p.nome}.`}
+  artigos={novidades}
+  vazio="O histórico de novidades começa a ser publicado na próxima versão." />

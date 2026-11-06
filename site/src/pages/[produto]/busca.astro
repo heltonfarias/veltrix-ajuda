@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import Busca from '../../components/Busca.astro';
+import { produtos, produto } from '../../lib/dados';
+export function getStaticPaths() { return produtos().map(p => ({ params: { produto: p.slug } })); }
+const p = produto(Astro.params.produto!);
+const suporte = import.meta.env.PUBLIC_SUPORTE_URL as string | undefined;
+---
+<Base titulo="Buscar" produto={p.slug} busca={false} noindex>
+  <div class="max-w-3xl mx-auto px-4 py-8" data-produto={p.slug} id="pagina-busca">
+    <h1 class="text-3xl font-bold text-slate-900">Buscar na ajuda do {p.nome}</h1>
+    <div class="mt-6"><Busca produto={p.slug} grande /></div>
+    <p id="busca-status" class="mt-6 text-sm text-slate-500" aria-live="polite"></p>
+    <ol id="busca-lista" class="mt-4 space-y-3"></ol>
+    <div id="busca-vazia" class="hidden mt-6 bg-white border border-slate-200 rounded-lg p-6 text-sm text-slate-600">
+      <p>Nada encontrado. Tente descrever a tarefa com outras palavras — por exemplo, “emitir nota” em vez de “NF-e”.</p>
+      {suporte && <p class="mt-3"><a href={suporte} class="text-primary-600 font-medium hover:text-primary-700">Falar com o suporte</a></p>}
+    </div>
+  </div>
+</Base>
+
+<script>
+  const raiz = document.getElementById('pagina-busca')!;
+  const produto = raiz.dataset.produto!;
+  const input = raiz.querySelector<HTMLInputElement>('input[name="q"]')!;
+  const status = document.getElementById('busca-status')!;
+  const lista = document.getElementById('busca-lista')!;
+  const vazia = document.getElementById('busca-vazia')!;
+  const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+
+  type R = { url: string; excerpt: string; meta: { title?: string; modulo?: string }; filters?: { tipo?: string[] } };
+  let pf: any;
+  async function buscar(q: string) {
+    history.replaceState(null, '', q ? `?q=${encodeURIComponent(q)}` : location.pathname);
+    lista.innerHTML = ''; vazia.classList.add('hidden');
+    if (q.length < 2) { status.textContent = ''; return; }
+    try { pf ??= await import(/* @vite-ignore */ '/pagefind/pagefind.js'); }
+    catch { status.textContent = 'A busca fica disponível depois do build do site.'; return; }
+    const r = await pf.search(q, { filters: { produto } });
+    if (input.value.trim() !== q) return;
+    const itens: R[] = await Promise.all(r.results.slice(0, 20).map((x: any) => x.data()));
+    status.textContent = itens.length ? `${r.results.length} resultado${r.results.length > 1 ? 's' : ''} para “${q}”` : '';
+    vazia.classList.toggle('hidden', itens.length > 0);
+    lista.innerHTML = itens.map(i => `<li><a href="${i.url}" class="block bg-white border border-slate-200 rounded-lg p-4 hover:border-primary-500">
+      <span class="block text-xs text-slate-500">${esc(i.meta.modulo ?? '')}${i.filters?.tipo?.[0] ? ' · ' + esc(i.filters.tipo[0]) : ''}</span>
+      <span class="block mt-1 font-semibold text-slate-900">${esc(i.meta.title ?? '')}</span>
+      <span class="block mt-1 text-sm text-slate-600">${i.excerpt}</span></a></li>`).join('');
+  }
+  let t: number | undefined;
+  input.addEventListener('input', () => { clearTimeout(t); t = window.setTimeout(() => buscar(input.value.trim()), 250); });
+  input.form?.addEventListener('submit', e => { e.preventDefault(); buscar(input.value.trim()); });
+  const inicial = new URLSearchParams(location.search).get('q') ?? '';
+  if (inicial) { input.value = inicial; buscar(inicial); }
+  input.focus();
+</script>
