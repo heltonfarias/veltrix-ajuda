@@ -100,7 +100,22 @@ Este repositório é **público**. Os produtos continuam privados, e o que está
      - Block force pushes;
      - Require a pull request, com 1 aprovação, **Require review from Code Owners** e *Dismiss stale approvals*;
      - Require status checks: `validar` (adicione depois do primeiro PR, quando o check já existir).
-3. Crie o bot como **GitHub App** "Veltrix Ajuda Bot", com acesso aos 4 repositórios e permissões de leitura e escrita em Contents, Pull requests e Issues. **Não use um token pessoal seu**: os PRs do bot sairiam no seu nome e você não conseguiria aprová-los.
-4. Cadastre o secret `AJUDA_BOT_TOKEN` nos 4 repositórios. Em conta pessoal, os secrets são por repositório.
+3. Crie o bot como **GitHub App**. **Não use um token pessoal seu**: os PRs do bot sairiam no seu nome e você não conseguiria aprová-los.
+   1. Acesse `github.com/settings/apps` e clique em **New GitHub App**.
+   2. Preencha:
+      - **GitHub App name:** `Veltrix Ajuda Bot`. O nome é único em todo o GitHub; se já existir, use `veltrix-ajuda-bot-hf`.
+      - **Homepage URL:** `https://github.com/heltonfarias/veltrix-ajuda`.
+      - **Webhook:** desmarque **Active**.
+   3. Em **Repository permissions**, marque *Read and write* em **Contents**, **Pull requests** e **Issues**. **Metadata** fica em *Read-only*, que é automático.
+   4. Em **Where can this GitHub App be installed?**, escolha **Only on this account** e clique em **Create GitHub App**.
+   5. Na página do App:
+      - anote o **App ID**, que aparece no topo;
+      - em **Private keys**, clique em **Generate a private key**. O navegador baixa um arquivo `.pem`.
+   6. No menu lateral, clique em **Install App**, depois em **Install** na sua conta. Escolha **Only select repositories**, marque `veltrix-ajuda`, `veltrixone`, `veltrix` e `innoair` e confirme.
+4. Cadastre os dois secrets nos **4 repositórios**, em *Settings › Secrets and variables › Actions › New repository secret*. Em conta pessoal, os secrets são por repositório.
+   - `AJUDA_APP_ID`: o número do App ID.
+   - `AJUDA_APP_PRIVATE_KEY`: o conteúdo inteiro do `.pem`, incluindo as linhas `-----BEGIN…` e `-----END…`.
+
+   Depois de cadastrar, apague o `.pem` do computador ou guarde num cofre de senhas. Se ele vazar, gere outra chave e revogue a antiga na página do App.
 5. Crie os labels `manifesto` e `revisao-ajuda` neste repositório.
 6. Em cada produto, faça commit de `.github/workflows/ajuda.yml` e de `ajuda/manifesto.json`.
