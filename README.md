@@ -96,6 +96,8 @@ Com isso dá para responder:
 
 ## Escrever um artigo
 
+O processo completo está em [docs/fluxo-de-conteudo.md](docs/fluxo-de-conteudo.md): como gerar o conteúdo de um produto, como atualizar a ajuda quando uma tela muda e como documentar um módulo novo. Em resumo:
+
 1. Copie o modelo de `modelos/` (procedimento, referência, solução, conceito, FAQ, aula).
 2. Preencha o front-matter. O schema está em `cli/esquema.ts` e o CI valida cada campo.
 3. Use os nomes **exatos** dos botões e campos da tela, em negrito.
