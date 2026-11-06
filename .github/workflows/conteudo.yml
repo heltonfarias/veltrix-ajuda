@@ -45,6 +45,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Disparar deploy no Coolify
+        env:
+          WEBHOOK: ${{ secrets.COOLIFY_DEPLOY_WEBHOOK }}
+          TOKEN: ${{ secrets.COOLIFY_TOKEN }}
         run: |
-          curl -fsS -X GET "${{ secrets.COOLIFY_DEPLOY_WEBHOOK }}" \
-            -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}"
+          status=$(curl -sS -o resposta.txt -w '%{http_code}' "$WEBHOOK" -H "Authorization: Bearer $TOKEN")
+          echo "HTTP $status"; cat resposta.txt; echo
+          test "$status" -lt 300
