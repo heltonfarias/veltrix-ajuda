@@ -1,0 +1,1502 @@
+{
+  "produto": "varejo",
+  "versao": "1.0.0",
+  "funcionalidades": [
+    {
+      "id": "varejo.admin.perfis",
+      "rota": "/admin/perfis",
+      "titulo": "Perfis e Permissões",
+      "modulo": "perfis",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "perfis:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/perfis/",
+        "packages/frontend/src/pages/admin/Perfis.tsx"
+      ]
+    },
+    {
+      "id": "varejo.admin.usuarios",
+      "rota": "/admin/usuarios",
+      "titulo": "Usuários",
+      "modulo": "usuarios",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "usuarios:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/usuarios/",
+        "packages/frontend/src/pages/admin/Usuarios.tsx"
+      ]
+    },
+    {
+      "id": "varejo.agenda.dashboard",
+      "rota": "/agenda/dashboard",
+      "titulo": "Dashboard",
+      "modulo": "agenda",
+      "area": "Agenda",
+      "contexto": "interno",
+      "permissoes": [
+        "agenda:dashboard:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/agenda/",
+        "packages/frontend/src/pages/agenda/AgendaDashboard.tsx"
+      ]
+    },
+    {
+      "id": "varejo.agenda.grafica",
+      "rota": "/agenda/grafica",
+      "titulo": "Agenda Gráfica",
+      "modulo": "agenda",
+      "area": "Agenda",
+      "contexto": "interno",
+      "permissoes": [
+        "agenda:reservas:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/agenda/",
+        "packages/frontend/src/pages/agenda/AgendaGrafica.tsx"
+      ]
+    },
+    {
+      "id": "varejo.agenda.hoje",
+      "rota": "/agenda/hoje",
+      "titulo": "Agenda do Dia",
+      "modulo": "agenda",
+      "area": "Agenda",
+      "contexto": "interno",
+      "permissoes": [
+        "agenda:reservas:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/agenda/",
+        "packages/frontend/src/pages/agenda/AgendaHoje.tsx"
+      ]
+    },
+    {
+      "id": "varejo.agenda.lista-espera",
+      "rota": "/agenda/lista-espera",
+      "titulo": "Lista de Espera",
+      "modulo": "agenda",
+      "area": "Agenda",
+      "contexto": "interno",
+      "permissoes": [
+        "agenda:reservas:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/agenda/",
+        "packages/frontend/src/pages/agenda/ListaEspera.tsx"
+      ]
+    },
+    {
+      "id": "varejo.agenda.profissionais",
+      "rota": "/agenda/profissionais",
+      "titulo": "Profissionais",
+      "modulo": "agenda",
+      "area": "Agenda",
+      "contexto": "interno",
+      "permissoes": [
+        "agenda:profissionais:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/agenda/",
+        "packages/frontend/src/pages/agenda/Profissionais.tsx"
+      ]
+    },
+    {
+      "id": "varejo.agenda.profissionais.item.jornada",
+      "rota": "/agenda/profissionais/:id/jornada",
+      "titulo": "Profissionais › detalhe › jornada",
+      "modulo": "agenda",
+      "area": "Agenda",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/agenda/JornadaHorarios.tsx"
+      ]
+    },
+    {
+      "id": "varejo.agenda.profissionais.item.servicos",
+      "rota": "/agenda/profissionais/:id/servicos",
+      "titulo": "Profissionais › detalhe › servicos",
+      "modulo": "agenda",
+      "area": "Agenda",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/agenda/ProfissionalServicos.tsx"
+      ]
+    },
+    {
+      "id": "varejo.agenda.reservas",
+      "rota": "/agenda/reservas",
+      "titulo": "Reservas",
+      "modulo": "agenda",
+      "area": "Agenda",
+      "contexto": "interno",
+      "permissoes": [
+        "agenda:reservas:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/agenda/",
+        "packages/frontend/src/pages/agenda/Reservas.tsx"
+      ]
+    },
+    {
+      "id": "varejo.agenda.servicos",
+      "rota": "/agenda/servicos",
+      "titulo": "Serviços",
+      "modulo": "agenda",
+      "area": "Agenda",
+      "contexto": "interno",
+      "permissoes": [
+        "agenda:servicos:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/agenda/",
+        "packages/frontend/src/pages/agenda/Servicos.tsx"
+      ]
+    },
+    {
+      "id": "varejo.autorizacoes",
+      "rota": "/autorizacoes",
+      "titulo": "Painel",
+      "modulo": "autorizacoes",
+      "area": "Administração",
+      "submenu": "Autorizações",
+      "contexto": "interno",
+      "permissoes": [
+        "autorizacoes:aprovar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/autorizacoes/",
+        "packages/frontend/src/pages/autorizacoes/PainelAutorizacao.tsx"
+      ]
+    },
+    {
+      "id": "varejo.autorizacoes.config",
+      "rota": "/autorizacoes/config",
+      "titulo": "Configurações",
+      "modulo": "autorizacoes",
+      "area": "Administração",
+      "submenu": "Autorizações",
+      "contexto": "interno",
+      "permissoes": [
+        "autorizacoes:configurar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/autorizacoes/",
+        "packages/frontend/src/pages/autorizacoes/ConfigAutorizacoes.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.agentes",
+      "rota": "/cadastros/agentes",
+      "titulo": "Agentes",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:agentes:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Agentes.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.areas-atuacao",
+      "rota": "/cadastros/areas-atuacao",
+      "titulo": "Profissões / Áreas",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:areas-atuacao:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/AreasAtuacao.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.condicoes-pagamento",
+      "rota": "/cadastros/condicoes-pagamento",
+      "titulo": "Cond. Pagamento",
+      "modulo": "condicoes-pagamento",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "condicoes-pagamento:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/condicoes-pagamento/",
+        "packages/frontend/src/pages/cadastros/CondicoesPagamento.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.entregadores",
+      "rota": "/cadastros/entregadores",
+      "titulo": "Entregadores",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:entregadores:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Entregadores.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.fornecedores",
+      "rota": "/cadastros/fornecedores",
+      "titulo": "Fornecedores",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:fornecedores:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Fornecedores.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.grupos",
+      "rota": "/cadastros/grupos",
+      "titulo": "Grupos de Produto",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:grupos-produto:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Grupos.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.grupos-clientes",
+      "rota": "/cadastros/grupos-clientes",
+      "titulo": "Grupos de Clientes",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:grupos-clientes:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/GruposClientes.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.mercadorias",
+      "rota": "/cadastros/mercadorias",
+      "titulo": "Mercadorias",
+      "modulo": "mercadorias",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "mercadorias:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/mercadorias/",
+        "packages/frontend/src/pages/cadastros/Mercadorias.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.pessoas",
+      "rota": "/cadastros/pessoas",
+      "titulo": "Pessoas",
+      "modulo": "pessoas",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "pessoas:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pessoas/",
+        "packages/frontend/src/pages/cadastros/Pessoas.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.tipos-despesa",
+      "rota": "/cadastros/tipos-despesa",
+      "titulo": "Tipos de Despesa",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:tipos-despesa:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/TiposDespesa.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.tipos-recebimento",
+      "rota": "/cadastros/tipos-recebimento",
+      "titulo": "Tipos Recebimento",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:tipos-recebimento:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/TiposRecebimento.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.tipos-receita",
+      "rota": "/cadastros/tipos-receita",
+      "titulo": "Tipos de Receita",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:tipos-receita:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/TiposReceita.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.transportadoras",
+      "rota": "/cadastros/transportadoras",
+      "titulo": "Transportadoras",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:transportadoras:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Transportadoras.tsx"
+      ]
+    },
+    {
+      "id": "varejo.cadastros.vendedores",
+      "rota": "/cadastros/vendedores",
+      "titulo": "Vendedores",
+      "modulo": "vendedores",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "vendedores:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/vendedores/",
+        "packages/frontend/src/pages/cadastros/Vendedores.tsx"
+      ]
+    },
+    {
+      "id": "varejo.comercial.carteira",
+      "rota": "/comercial/carteira",
+      "titulo": "Carteira de Clientes",
+      "modulo": "carteira",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "carteira:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/carteira/",
+        "packages/frontend/src/pages/comercial/carteira/CockpitCarteira.tsx"
+      ]
+    },
+    {
+      "id": "varejo.comercial.carteira.cliente.item",
+      "rota": "/comercial/carteira/cliente/:codigo",
+      "titulo": "Carteira de Clientes › cliente › detalhe",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/comercial/carteira/CockpitCarteira.tsx"
+      ]
+    },
+    {
+      "id": "varejo.comercial.dashboard",
+      "rota": "/comercial/dashboard",
+      "titulo": "Dashboard Comercial",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "comercial:dashboard:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/comercial/",
+        "packages/frontend/src/pages/comercial/DashboardComercial.tsx"
+      ]
+    },
+    {
+      "id": "varejo.comercial.painel-orcamentos",
+      "rota": "/comercial/painel-orcamentos",
+      "titulo": "Painel de Orçamentos",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "comercial:painel-orcamentos:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/comercial/",
+        "packages/frontend/src/pages/comercial/PainelOrcamentos.tsx"
+      ]
+    },
+    {
+      "id": "varejo.comercial.painel-orcamentos.imprimir",
+      "rota": "/comercial/painel-orcamentos/imprimir",
+      "titulo": "Painel de Orçamentos › impressão",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/comercial/PainelOrcamentosImprimir.tsx"
+      ]
+    },
+    {
+      "id": "varejo.compras.entrada-cte",
+      "rota": "/compras/entrada-cte",
+      "titulo": "Importação de CT-e",
+      "modulo": "dfe-monitor",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "dfe-monitor:listar",
+        "entrada-produtos:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/entrada-produtos/",
+        "packages/frontend/src/pages/compras/EntradaCte.tsx"
+      ]
+    },
+    {
+      "id": "varejo.compras.entrada-nf",
+      "rota": "/compras/entrada-nf",
+      "titulo": "Entrada de NF",
+      "modulo": "entrada-produtos",
+      "area": "Compras",
+      "contexto": "interno",
+      "permissoes": [
+        "entrada-produtos:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/entrada-produtos/",
+        "packages/frontend/src/pages/compras/EntradaNF.tsx"
+      ]
+    },
+    {
+      "id": "varejo.compras.monitor-dfe",
+      "rota": "/compras/monitor-dfe",
+      "titulo": "Monitor de DF-e",
+      "modulo": "dfe-monitor",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "dfe-monitor:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/compras/MonitorDfe.tsx"
+      ]
+    },
+    {
+      "id": "varejo.config.empresa",
+      "rota": "/config/empresa",
+      "titulo": "Empresa",
+      "modulo": "empresa",
+      "area": "Configurações",
+      "contexto": "interno",
+      "permissoes": [
+        "empresa:configurar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/config/Empresa.tsx"
+      ]
+    },
+    {
+      "id": "varejo.consignacao",
+      "rota": "/consignacao",
+      "titulo": "Consignação",
+      "modulo": "consignacao",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "consignacao:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/consignacao/",
+        "packages/frontend/src/pages/consignacao/ConsignacaoConsulta.tsx"
+      ]
+    },
+    {
+      "id": "varejo.consignacao.imprimir",
+      "rota": "/consignacao/imprimir",
+      "titulo": "Consignação › impressão",
+      "modulo": "consignacao",
+      "area": "Comercial",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/consignacao/ConsignacaoRelatorioImprimir.tsx"
+      ]
+    },
+    {
+      "id": "varejo.consignacao.prestacoes.item.imprimir",
+      "rota": "/consignacao/prestacoes/:ncontrole/imprimir",
+      "titulo": "Consignação › prestacoes › detalhe › impressão",
+      "modulo": "consignacao",
+      "area": "Comercial",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/consignacao/ConsignacaoImprimir.tsx"
+      ]
+    },
+    {
+      "id": "varejo.crm.agenda",
+      "rota": "/crm/agenda",
+      "titulo": "Agenda",
+      "modulo": "crm",
+      "area": "CRM",
+      "contexto": "interno",
+      "permissoes": [
+        "crm:agenda:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/crm/",
+        "packages/frontend/src/pages/crm/Agenda.tsx"
+      ]
+    },
+    {
+      "id": "varejo.crm.dashboard",
+      "rota": "/crm/dashboard",
+      "titulo": "Dashboard CRM",
+      "modulo": "crm",
+      "area": "CRM",
+      "contexto": "interno",
+      "permissoes": [
+        "crm:dashboard:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/crm/",
+        "packages/frontend/src/pages/crm/CrmDashboard.tsx"
+      ]
+    },
+    {
+      "id": "varejo.crm.leads",
+      "rota": "/crm/leads",
+      "titulo": "Leads",
+      "modulo": "crm",
+      "area": "CRM",
+      "contexto": "interno",
+      "permissoes": [
+        "crm:leads:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/crm/",
+        "packages/frontend/src/pages/crm/LeadsList.tsx"
+      ]
+    },
+    {
+      "id": "varejo.crm.pipeline",
+      "rota": "/crm/pipeline",
+      "titulo": "Pipeline",
+      "modulo": "crm",
+      "area": "CRM",
+      "contexto": "interno",
+      "permissoes": [
+        "crm:oportunidades:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/crm/",
+        "packages/frontend/src/pages/crm/Pipeline.tsx"
+      ]
+    },
+    {
+      "id": "varejo.crm.propostas",
+      "rota": "/crm/propostas",
+      "titulo": "Propostas",
+      "modulo": "crm",
+      "area": "CRM",
+      "contexto": "interno",
+      "permissoes": [
+        "crm:propostas:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/crm/",
+        "packages/frontend/src/pages/crm/Propostas.tsx"
+      ]
+    },
+    {
+      "id": "varejo.crm.tarefas",
+      "rota": "/crm/tarefas",
+      "titulo": "Tarefas",
+      "modulo": "crm",
+      "area": "CRM",
+      "contexto": "interno",
+      "permissoes": [
+        "crm:tarefas:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/crm/",
+        "packages/frontend/src/pages/crm/Tarefas.tsx"
+      ]
+    },
+    {
+      "id": "varejo.dashboard",
+      "rota": "/dashboard",
+      "titulo": "Dashboard",
+      "modulo": "dashboard",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/Dashboard.tsx"
+      ]
+    },
+    {
+      "id": "varejo.entrega.item",
+      "rota": "/entrega/:codigo",
+      "titulo": "EntregaPublica",
+      "modulo": "entrega",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/EntregaPublica.tsx"
+      ]
+    },
+    {
+      "id": "varejo.entregas",
+      "rota": "/entregas",
+      "titulo": "Entregas",
+      "modulo": "entregas",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "entregas:visualizar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/orcamento/MonitorEntregas.tsx"
+      ]
+    },
+    {
+      "id": "varejo.esqueci-senha",
+      "rota": "/esqueci-senha",
+      "titulo": "EsqueciSenha",
+      "modulo": "esqueci-senha",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/EsqueciSenha.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque",
+      "rota": "/estoque",
+      "titulo": "Saldo",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/EstoqueDashboard.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.extrato",
+      "rota": "/estoque/extrato",
+      "titulo": "Extrato de Produto",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/ExtratoEstoque.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.imprimir",
+      "rota": "/estoque/imprimir",
+      "titulo": "Saldo › impressão",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/estoque/SaldoEstoqueImprimir.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.inventarios",
+      "rota": "/estoque/inventarios",
+      "titulo": "Inventários",
+      "modulo": "inventario",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "inventario:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/inventario/",
+        "packages/frontend/src/pages/estoque/InventariosList.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.inventarios.item",
+      "rota": "/estoque/inventarios/:id",
+      "titulo": "Inventários › detalhe",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/estoque/InventarioDetalhe.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.inventarios.item.contar",
+      "rota": "/estoque/inventarios/:id/contar",
+      "titulo": "Inventários › detalhe › contar",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/estoque/InventarioContagem.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.lancamento",
+      "rota": "/estoque/lancamento",
+      "titulo": "Entrada / Saída",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:criar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/LancamentoEstoque.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.locais",
+      "rota": "/estoque/locais",
+      "titulo": "Locais",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/LocaisEstoque.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.minhas-contagens",
+      "rota": "/estoque/minhas-contagens",
+      "titulo": "Minhas contagens",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/estoque/MinhasContagens.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.movimentacoes",
+      "rota": "/estoque/movimentacoes",
+      "titulo": "Movimentações",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/MovimentacoesEstoque.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.reservas",
+      "rota": "/estoque/reservas",
+      "titulo": "Reservas",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/ReservasEstoque.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.bancos",
+      "rota": "/financeiro/bancos",
+      "titulo": "Bancos",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:bancos:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/Bancos.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.conciliacao",
+      "rota": "/financeiro/conciliacao",
+      "titulo": "Conciliação Bancária",
+      "modulo": "conciliacao-bancaria",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "conciliacao-bancaria:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/financeiro/ConciliacaoBancaria.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.contas-pagar",
+      "rota": "/financeiro/contas-pagar",
+      "titulo": "Contas a Pagar",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:contas-pagar:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/ContasPagar.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.contas-pagar.recibo",
+      "rota": "/financeiro/contas-pagar/recibo",
+      "titulo": "Contas a Pagar › recibo",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/financeiro/ReciboContaPagarImprimir.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.contas-receber",
+      "rota": "/financeiro/contas-receber",
+      "titulo": "Contas a Receber",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:contas-receber:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/ContasReceber.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.convenios-bancarios",
+      "rota": "/financeiro/convenios-bancarios",
+      "titulo": "Convênios Bancários",
+      "modulo": "banking",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "banking:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/banking/",
+        "packages/frontend/src/pages/financeiro/BancosConvenios.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.dashboard",
+      "rota": "/financeiro/dashboard",
+      "titulo": "Dashboard",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:dashboard:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/DashboardFinanceiro.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.extrato",
+      "rota": "/financeiro/extrato",
+      "titulo": "Extrato Bancário",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:extrato:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/ExtratoBancario.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.extrato.imprimir",
+      "rota": "/financeiro/extrato/imprimir",
+      "titulo": "Extrato Bancário › impressão",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/financeiro/ExtratoBancarioImprimir.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.fluxo-caixa",
+      "rota": "/financeiro/fluxo-caixa",
+      "titulo": "Fluxo de Caixa",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:fluxo-caixa:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/FluxoCaixa.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.lancamentos-bancarios",
+      "rota": "/financeiro/lancamentos-bancarios",
+      "titulo": "Lançamentos Bancários",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:lancamentos-bancarios:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/LancamentosBancarios.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.relatorios.contas-pagar",
+      "rota": "/financeiro/relatorios/contas-pagar",
+      "titulo": "Contas a Pagar",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:relatorios:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/RelatorioContasPagar.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.relatorios.contas-pagar.imprimir",
+      "rota": "/financeiro/relatorios/contas-pagar/imprimir",
+      "titulo": "Contas a Pagar › impressão",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Relatórios",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/financeiro/RelatorioContasPagarImprimir.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.relatorios.contas-receber",
+      "rota": "/financeiro/relatorios/contas-receber",
+      "titulo": "Contas a Receber",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:relatorios:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/RelatorioContasReceber.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.relatorios.contas-receber.imprimir",
+      "rota": "/financeiro/relatorios/contas-receber/imprimir",
+      "titulo": "Contas a Receber › impressão",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Relatórios",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/financeiro/RelatorioContasReceberImprimir.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.relatorios.direito-autoral",
+      "rota": "/financeiro/relatorios/direito-autoral",
+      "titulo": "Direito Autoral",
+      "modulo": "direito-autoral",
+      "area": "Financeiro",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "direito-autoral:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/direito-autoral/",
+        "packages/frontend/src/pages/financeiro/DireitoAutoral.tsx"
+      ]
+    },
+    {
+      "id": "varejo.financeiro.transferencias",
+      "rota": "/financeiro/transferencias",
+      "titulo": "Transferência entre Bancos",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:transferencias:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/TransferenciaBancaria.tsx"
+      ]
+    },
+    {
+      "id": "varejo.fiscal",
+      "rota": "/fiscal",
+      "titulo": "Monitor Fiscal",
+      "modulo": "fiscal",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "fiscal:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/fiscal/",
+        "packages/frontend/src/pages/fiscal/FiscalMonitor.tsx"
+      ]
+    },
+    {
+      "id": "varejo.fiscal.editar.item",
+      "rota": "/fiscal/editar/:id",
+      "titulo": "Monitor Fiscal › edição › detalhe",
+      "modulo": "fiscal",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/fiscal/NotaFiscalForm.tsx"
+      ]
+    },
+    {
+      "id": "varejo.fiscal.naturezas-operacao",
+      "rota": "/fiscal/naturezas-operacao",
+      "titulo": "Natureza da Operação",
+      "modulo": "cadastros",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:naturezas-cfop:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/fiscal/NaturezasOperacao.tsx"
+      ]
+    },
+    {
+      "id": "varejo.fiscal.nova",
+      "rota": "/fiscal/nova",
+      "titulo": "Monitor Fiscal › nova",
+      "modulo": "fiscal",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/fiscal/NotaFiscalForm.tsx"
+      ]
+    },
+    {
+      "id": "varejo.fiscal.operacoes",
+      "rota": "/fiscal/operacoes",
+      "titulo": "Operações",
+      "modulo": "cadastros",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:operacoes:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/fiscal/Operacoes.tsx"
+      ]
+    },
+    {
+      "id": "varejo.ia.chat",
+      "rota": "/ia/chat",
+      "titulo": "Chat IA / ERP",
+      "modulo": "ia",
+      "area": "Inteligência",
+      "contexto": "interno",
+      "permissoes": [
+        "ia:usar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/ia/",
+        "packages/frontend/src/pages/ia/ChatIA.tsx"
+      ]
+    },
+    {
+      "id": "varejo.login",
+      "rota": "/login",
+      "titulo": "Login",
+      "modulo": "login",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/Login.tsx"
+      ]
+    },
+    {
+      "id": "varejo.m.item",
+      "rota": "/m/:codigo",
+      "titulo": "OrcamentoMobile",
+      "modulo": "m",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/OrcamentoMobile.tsx"
+      ]
+    },
+    {
+      "id": "varejo.master.empresas",
+      "rota": "/master/empresas",
+      "titulo": "Empresas",
+      "modulo": "master",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/master/MasterEmpresas.tsx"
+      ]
+    },
+    {
+      "id": "varejo.master.logins",
+      "rota": "/master/logins",
+      "titulo": "Logins Globais",
+      "modulo": "master",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/master/MasterLogins.tsx"
+      ]
+    },
+    {
+      "id": "varejo.mdfe",
+      "rota": "/mdfe",
+      "titulo": "MDF-e",
+      "modulo": "mdfe",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "mdfe:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/mdfe/",
+        "packages/frontend/src/pages/mdfe/Mdfe.tsx"
+      ]
+    },
+    {
+      "id": "varejo.mdfe.veiculos-condutores",
+      "rota": "/mdfe/veiculos-condutores",
+      "titulo": "Veículos e Condutores",
+      "modulo": "mdfe",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "mdfe:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/mdfe/",
+        "packages/frontend/src/pages/mdfe/VeiculosCondutores.tsx"
+      ]
+    },
+    {
+      "id": "varejo.o.item",
+      "rota": "/o/:codigo",
+      "titulo": "LinkPublico",
+      "modulo": "o",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/LinkPublico.tsx"
+      ]
+    },
+    {
+      "id": "varejo.orcamento-publico.item",
+      "rota": "/orcamento-publico/:token",
+      "titulo": "OrcamentoPublico",
+      "modulo": "orcamento-publico",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/OrcamentoPublico.tsx"
+      ]
+    },
+    {
+      "id": "varejo.orcamentos",
+      "rota": "/orcamentos",
+      "titulo": "Orçamentos",
+      "modulo": "orcamentos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "orcamentos:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/orcamento/OrcamentoList.tsx"
+      ]
+    },
+    {
+      "id": "varejo.orcamentos.item",
+      "rota": "/orcamentos/:numero",
+      "titulo": "Orçamentos › detalhe",
+      "modulo": "orcamentos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/orcamento/OrcamentoEditor.tsx"
+      ]
+    },
+    {
+      "id": "varejo.orcamentos.item.fatura",
+      "rota": "/orcamentos/:numero/fatura",
+      "titulo": "Orçamentos › detalhe › fatura",
+      "modulo": "orcamentos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/orcamento/FaturaOrcamento.tsx"
+      ]
+    },
+    {
+      "id": "varejo.orcamentos.item.imprimir",
+      "rota": "/orcamentos/:numero/imprimir",
+      "titulo": "Orçamentos › detalhe › impressão",
+      "modulo": "orcamentos",
+      "area": "Comercial",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/orcamento/OrcamentoImprimir.tsx"
+      ]
+    },
+    {
+      "id": "varejo.orcamentos.item.imprimir-thermal",
+      "rota": "/orcamentos/:numero/imprimir-thermal",
+      "titulo": "Orçamentos › detalhe › imprimir thermal",
+      "modulo": "orcamentos",
+      "area": "Comercial",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/orcamento/OrcamentoImprimirThermal.tsx"
+      ]
+    },
+    {
+      "id": "varejo.pdv",
+      "rota": "/pdv",
+      "titulo": "Caixa",
+      "modulo": "pdv",
+      "area": "PDV",
+      "contexto": "interno",
+      "permissoes": [
+        "pdv:vender"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pdv/",
+        "packages/frontend/src/pages/pdv/PdvHome.tsx"
+      ]
+    },
+    {
+      "id": "varejo.pdv.caixa",
+      "rota": "/pdv/caixa",
+      "titulo": "Caixa › caixa",
+      "modulo": "pdv",
+      "area": "PDV",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/pdv/PdvCaixa.tsx"
+      ]
+    },
+    {
+      "id": "varejo.pdv.relatorio",
+      "rota": "/pdv/relatorio",
+      "titulo": "Relatório",
+      "modulo": "pdv",
+      "area": "PDV",
+      "contexto": "interno",
+      "permissoes": [
+        "pdv:relatorio"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pdv/",
+        "packages/frontend/src/pages/pdv/PdvRelatorio.tsx"
+      ]
+    },
+    {
+      "id": "varejo.pdv.tef",
+      "rota": "/pdv/tef",
+      "titulo": "TEF",
+      "modulo": "tef",
+      "area": "PDV",
+      "contexto": "interno",
+      "permissoes": [
+        "tef:administrar",
+        "tef:cancelar",
+        "tef:operar",
+        "tef:resolver_pendencia",
+        "tef:terminais"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/tef/",
+        "packages/frontend/src/pages/pdv/PdvTef.tsx"
+      ]
+    },
+    {
+      "id": "varejo.redefinir-senha",
+      "rota": "/redefinir-senha",
+      "titulo": "RedefinirSenha",
+      "modulo": "redefinir-senha",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/RedefinirSenha.tsx"
+      ]
+    },
+    {
+      "id": "varejo.rota.-",
+      "rota": "/rota/*",
+      "titulo": "RotaEntregador",
+      "modulo": "rota",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/RotaEntregador.tsx"
+      ]
+    },
+    {
+      "id": "varejo.selecionar-empresa",
+      "rota": "/selecionar-empresa",
+      "titulo": "EmpresaSelector",
+      "modulo": "selecionar-empresa",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/EmpresaSelector.tsx"
+      ]
+    },
+    {
+      "id": "varejo.vendas.consulta",
+      "rota": "/vendas/consulta",
+      "titulo": "Consulta de Vendas",
+      "modulo": "vendas",
+      "area": "Comercial",
+      "submenu": "Consulta",
+      "contexto": "interno",
+      "permissoes": [
+        "vendas:consulta:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/vendas/",
+        "packages/frontend/src/pages/vendas/ConsultaVendas.tsx"
+      ]
+    },
+    {
+      "id": "varejo.vendas.consulta-produto",
+      "rota": "/vendas/consulta-produto",
+      "titulo": "Consulta por Produto",
+      "modulo": "vendas",
+      "area": "Comercial",
+      "submenu": "Consulta",
+      "contexto": "interno",
+      "permissoes": [
+        "vendas:consulta:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/vendas/",
+        "packages/frontend/src/pages/vendas/ConsultaVendasPorProduto.tsx"
+      ]
+    },
+    {
+      "id": "varejo.vendas.imprimir",
+      "rota": "/vendas/imprimir",
+      "titulo": "VendasImprimir",
+      "modulo": "vendas",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/vendas/VendasImprimir.tsx"
+      ]
+    },
+    {
+      "id": "varejo.vendas.imprimir-produto",
+      "rota": "/vendas/imprimir-produto",
+      "titulo": "VendasImprimirProduto",
+      "modulo": "vendas",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/vendas/VendasImprimirProduto.tsx"
+      ]
+    }
+  ]
+}

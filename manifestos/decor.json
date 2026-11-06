@@ -1,0 +1,1523 @@
+{
+  "produto": "decor",
+  "versao": "1.0.0",
+  "funcionalidades": [
+    {
+      "id": "decor.admin.autorizacao-regras",
+      "rota": "/admin/autorizacao-regras",
+      "titulo": "Regras de Autorização",
+      "modulo": "autorizacoes",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "autorizacoes:regras",
+        "autorizacoes:regras:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/autorizacoes/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.admin.autorizacoes",
+      "rota": "/admin/autorizacoes",
+      "titulo": "Autorizações",
+      "modulo": "autorizacoes",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "autorizacoes:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/autorizacoes/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.admin.categorias",
+      "rota": "/admin/categorias",
+      "titulo": "Categorias",
+      "modulo": "categorias",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "categorias:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/categorias/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.admin.colaboradores",
+      "rota": "/admin/colaboradores",
+      "titulo": "Colaboradores",
+      "modulo": "colaboradores",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "colaboradores:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/colaboradores/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.admin.config-empresa",
+      "rota": "/admin/config-empresa",
+      "titulo": "Config. Empresa",
+      "modulo": "empresa",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "empresa:configurar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.admin.filiais",
+      "rota": "/admin/filiais",
+      "titulo": "Filiais",
+      "modulo": "filiais",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "filiais:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/filiais/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.admin.fluxos-posvenda",
+      "rota": "/admin/fluxos-posvenda",
+      "titulo": "Fluxos P.Venda",
+      "modulo": "fluxos",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "fluxos:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.admin.perfis",
+      "rota": "/admin/perfis",
+      "titulo": "Perfis & Permissões",
+      "modulo": "perfis",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "perfis:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/perfis/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.admin.tiposdespesa",
+      "rota": "/admin/tiposdespesa",
+      "titulo": "Tipos de Despesa",
+      "modulo": "tiposdespesa",
+      "area": "Financeiro",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "tiposdespesa:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/tiposdespesa/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.admin.usuarios",
+      "rota": "/admin/usuarios",
+      "titulo": "Usuários",
+      "modulo": "usuarios",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "usuarios:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/usuarios/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.atendimento-os.item",
+      "rota": "/atendimento-os/:token",
+      "titulo": "AtendimentoOs",
+      "modulo": "atendimento-os",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/AtendimentoOs.tsx"
+      ]
+    },
+    {
+      "id": "decor.campo.item",
+      "rota": "/campo/:token",
+      "titulo": "CampoInstalador",
+      "modulo": "campo",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/CampoInstalador.tsx"
+      ]
+    },
+    {
+      "id": "decor.campo.item.protocolo.item",
+      "rota": "/campo/:token/protocolo/:ncontrole",
+      "titulo": "CampoInstalador",
+      "modulo": "campo",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/CampoInstalador.tsx"
+      ]
+    },
+    {
+      "id": "decor.carteira",
+      "rota": "/carteira",
+      "titulo": "Carteira",
+      "modulo": "carteira",
+      "contexto": "interno",
+      "permissoes": [
+        "carteira:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/carteira/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.cfop-devolucao",
+      "rota": "/comercial/cadastro/cfop-devolucao",
+      "titulo": "CFOP de Devolução",
+      "modulo": "cfop-devolucao",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "cfop-devolucao:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.formaspagamento",
+      "rota": "/comercial/cadastro/formaspagamento",
+      "titulo": "Formas de Pagamento",
+      "modulo": "formaspagamento",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "formaspagamento:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/formaspagamento/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.icms-uf",
+      "rota": "/comercial/cadastro/icms-uf",
+      "titulo": "Alíquotas de ICMS por UF",
+      "modulo": "icms-uf",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "icms-uf:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/icms-uf/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.natureza-operacao",
+      "rota": "/comercial/cadastro/natureza-operacao",
+      "titulo": "Naturezas de Operação",
+      "modulo": "natureza-operacao",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "natureza-operacao:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/natureza-operacao/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.ocorrencias",
+      "rota": "/comercial/cadastro/ocorrencias",
+      "titulo": "Ocorrências",
+      "modulo": "ocorrencias",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "ocorrencias:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/ocorrencias/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.operacoes",
+      "rota": "/comercial/cadastro/operacoes",
+      "titulo": "Operações Fiscais",
+      "modulo": "operacao",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "operacao:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/operacao/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.pessoas",
+      "rota": "/comercial/cadastro/pessoas",
+      "titulo": "Pessoas",
+      "modulo": "pessoas",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "pessoas:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pessoas/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.procedencias",
+      "rota": "/comercial/cadastro/procedencias",
+      "titulo": "Procedências",
+      "modulo": "procedencias",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "procedencias:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/procedencias/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.situacoes",
+      "rota": "/comercial/cadastro/situacoes",
+      "titulo": "Situações",
+      "modulo": "situacoes",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "situacoes:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/situacoes/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.tiposproduto",
+      "rota": "/comercial/cadastro/tiposproduto",
+      "titulo": "Tipos de Produto",
+      "modulo": "tiposproduto",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "tiposproduto:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/tiposproduto/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.cadastro.transportadoras",
+      "rota": "/comercial/cadastro/transportadoras",
+      "titulo": "Transportadoras",
+      "modulo": "transportadoras",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "transportadoras:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/transportadoras/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.fabricantes-indices",
+      "rota": "/comercial/fabricantes-indices",
+      "titulo": "PrivateRoute",
+      "modulo": "comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "comercial:tabela-precos"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.fornecedores",
+      "rota": "/comercial/fornecedores",
+      "titulo": "Fornecedores",
+      "modulo": "fornecedores",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "fornecedores:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/fornecedores/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.orcamentos",
+      "rota": "/comercial/orcamentos",
+      "titulo": "Orçamentos",
+      "modulo": "orcamentos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "orcamentos:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/orcamentos/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.orcamentos.item",
+      "rota": "/comercial/orcamentos/:num",
+      "titulo": "Orçamentos › detalhe",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.orcamentos.item.editar",
+      "rota": "/comercial/orcamentos/:num/editar",
+      "titulo": "Orçamentos › detalhe › edição",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.orcamentos.item.fluxos",
+      "rota": "/comercial/orcamentos/:num/fluxos",
+      "titulo": "Orçamentos › detalhe › fluxos",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.orcamentos.item.preview",
+      "rota": "/comercial/orcamentos/:num/preview",
+      "titulo": "Orçamentos › detalhe › preview",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/comercial/OrcamentoPreview.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.orcamentos.novo",
+      "rota": "/comercial/orcamentos/novo",
+      "titulo": "Orçamentos › novo",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.produtos",
+      "rota": "/comercial/produtos",
+      "titulo": "Produtos",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:produtos",
+        "estoque:produtos:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.relatorios.orcamentos",
+      "rota": "/comercial/relatorios/orcamentos",
+      "titulo": "Orçamentos",
+      "modulo": "relatorios-comercial",
+      "area": "Comercial",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "relatorios-comercial:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/relatorios-comercial/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.relatorios.orcamentos.imprimir",
+      "rota": "/comercial/relatorios/orcamentos/imprimir",
+      "titulo": "Orçamentos › impressão",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "submenu": "Relatórios",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/comercial/RelatorioOrcamentosImprimir.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.relatorios.ordens-servico",
+      "rota": "/comercial/relatorios/ordens-servico",
+      "titulo": "Ordens de Serviço",
+      "modulo": "relatorios-os",
+      "area": "Comercial",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "relatorios-os:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/relatorios-os/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.relatorios.ordens-servico.imprimir",
+      "rota": "/comercial/relatorios/ordens-servico/imprimir",
+      "titulo": "Ordens de Serviço › impressão",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "submenu": "Relatórios",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/comercial/RelatorioOrdensServicoImprimir.tsx"
+      ]
+    },
+    {
+      "id": "decor.comercial.tabela-precos",
+      "rota": "/comercial/tabela-precos",
+      "titulo": "Tabela de Preços",
+      "modulo": "comercial",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "comercial:tabela-precos",
+        "comercial:tabela-precos:visualizar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.compras.devolucoes",
+      "rota": "/compras/devolucoes",
+      "titulo": "Devoluções",
+      "modulo": "compras",
+      "area": "Compras",
+      "contexto": "interno",
+      "permissoes": [
+        "compras:devolucoes",
+        "compras:devolucoes:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.compras.entrada-nf",
+      "rota": "/compras/entrada-nf",
+      "titulo": "Entrada de NF-e",
+      "modulo": "compras",
+      "area": "Compras",
+      "contexto": "interno",
+      "permissoes": [
+        "compras:entrada-nf",
+        "compras:entrada-nf:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.compras.monitor-cte",
+      "rota": "/compras/monitor-cte",
+      "titulo": "Monitor de CT-e",
+      "modulo": "cte-monitor",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "cte-monitor:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.compras.monitor-dfe",
+      "rota": "/compras/monitor-dfe",
+      "titulo": "Monitor de DF-e",
+      "modulo": "dfe-monitor",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "dfe-monitor:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.compras.otif",
+      "rota": "/compras/otif",
+      "titulo": "OTIF Fornecedores",
+      "modulo": "compras",
+      "area": "Compras",
+      "contexto": "interno",
+      "permissoes": [
+        "compras:otif",
+        "compras:otif:visualizar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.compras.painel",
+      "rota": "/compras/painel",
+      "titulo": "Painel de Compras",
+      "modulo": "compras",
+      "area": "Compras",
+      "contexto": "interno",
+      "permissoes": [
+        "compras:painel",
+        "compras:painel:visualizar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.compras.pedidos",
+      "rota": "/compras/pedidos",
+      "titulo": "Pedidos de Compra",
+      "modulo": "pedidos-compra",
+      "area": "Compras",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos-compra:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos-compra/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.compras.pedidos.item",
+      "rota": "/compras/pedidos/:numero",
+      "titulo": "Pedidos de Compra › detalhe",
+      "modulo": "compras",
+      "area": "Compras",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.confirmar-pedido.item",
+      "rota": "/confirmar-pedido/:token",
+      "titulo": "ConfirmarPedidoCompra",
+      "modulo": "confirmar-pedido",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/ConfirmarPedidoCompra.tsx"
+      ]
+    },
+    {
+      "id": "decor.dashboard",
+      "rota": "/dashboard",
+      "titulo": "Dashboard",
+      "modulo": "dashboard",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/Dashboard.tsx"
+      ]
+    },
+    {
+      "id": "decor.entrega-instalador.item",
+      "rota": "/entrega-instalador/:token",
+      "titulo": "EntregaInstalador",
+      "modulo": "entrega-instalador",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/EntregaInstalador.tsx"
+      ]
+    },
+    {
+      "id": "decor.esqueci-senha",
+      "rota": "/esqueci-senha",
+      "titulo": "EsqueciSenha",
+      "modulo": "esqueci-senha",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/EsqueciSenha.tsx"
+      ]
+    },
+    {
+      "id": "decor.estoque",
+      "rota": "/estoque",
+      "titulo": "Saldo",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:saldo",
+        "estoque:saldo:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.estoque.locais",
+      "rota": "/estoque/locais",
+      "titulo": "Locais",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:locais",
+        "estoque:locais:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.estoque.movimentacoes",
+      "rota": "/estoque/movimentacoes",
+      "titulo": "Movimentações",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:movimentacoes",
+        "estoque:movimentacoes:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.estoque.reservas",
+      "rota": "/estoque/reservas",
+      "titulo": "Reservas",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:reservas",
+        "estoque:reservas:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.agentes",
+      "rota": "/financeiro/agentes",
+      "titulo": "Agentes",
+      "modulo": "agentes",
+      "area": "Financeiro",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "agentes:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/agentes/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.bancos",
+      "rota": "/financeiro/bancos",
+      "titulo": "Bancos",
+      "modulo": "bancos",
+      "area": "Financeiro",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "bancos:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/bancos/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.conciliacao",
+      "rota": "/financeiro/conciliacao",
+      "titulo": "Conciliação Bancária",
+      "modulo": "conciliacao-bancaria",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "conciliacao-bancaria:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.contas-pagar",
+      "rota": "/financeiro/contas-pagar",
+      "titulo": "Contas a Pagar",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:contas-pagar",
+        "financeiro:contas-pagar:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.contas-pagar.item.item",
+      "rota": "/financeiro/contas-pagar/:id/:codigofor",
+      "titulo": "Contas a Pagar › detalhe › detalhe",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:contas-pagar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.contas-receber",
+      "rota": "/financeiro/contas-receber",
+      "titulo": "Contas a Receber",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:contas-receber",
+        "financeiro:contas-receber:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.contas-receber.item.item.item",
+      "rota": "/financeiro/contas-receber/:pedido/:parcela/:serie",
+      "titulo": "Contas a Receber › detalhe › detalhe › detalhe",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:contas-receber"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.convenios-bancarios",
+      "rota": "/financeiro/convenios-bancarios",
+      "titulo": "Convênios Bancários",
+      "modulo": "banking",
+      "area": "Financeiro",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "banking:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/banking/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.dashboard",
+      "rota": "/financeiro/dashboard",
+      "titulo": "Dashboard",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:dashboard",
+        "financeiro:dashboard:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.fluxo-caixa",
+      "rota": "/financeiro/fluxo-caixa",
+      "titulo": "Fluxo de Caixa",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:fluxo-caixa",
+        "financeiro:fluxo-caixa:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.lancamentos",
+      "rota": "/financeiro/lancamentos",
+      "titulo": "Extrato Bancário",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:extrato",
+        "financeiro:extrato:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.relatorios.contas-pagar",
+      "rota": "/financeiro/relatorios/contas-pagar",
+      "titulo": "Contas a Pagar",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:relatorio-contas-pagar",
+        "financeiro:relatorio-contas-pagar:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.relatorios.contas-pagar.imprimir",
+      "rota": "/financeiro/relatorios/contas-pagar/imprimir",
+      "titulo": "Contas a Pagar › impressão",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Relatórios",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/financeiro/RelatorioContasPagarImprimir.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.relatorios.contas-receber",
+      "rota": "/financeiro/relatorios/contas-receber",
+      "titulo": "Contas a Receber",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:relatorio-contas-receber",
+        "financeiro:relatorio-contas-receber:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.relatorios.contas-receber.imprimir",
+      "rota": "/financeiro/relatorios/contas-receber/imprimir",
+      "titulo": "Contas a Receber › impressão",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Relatórios",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/financeiro/RelatorioContasReceberImprimir.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.tipos-receita",
+      "rota": "/financeiro/tipos-receita",
+      "titulo": "Tipos de Receita",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:tipos-receita",
+        "financeiro:tipos-receita:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.financeiro.transferencias",
+      "rota": "/financeiro/transferencias",
+      "titulo": "Transferências",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:transferencias",
+        "financeiro:transferencias:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.fiscal.config",
+      "rota": "/fiscal/config",
+      "titulo": "PrivateRoute",
+      "modulo": "fiscal",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.fiscal.monitor",
+      "rota": "/fiscal/monitor",
+      "titulo": "Monitor Fiscal",
+      "modulo": "fiscal",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "fiscal:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/fiscal/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.fiscal.monitor-nfse",
+      "rota": "/fiscal/monitor-nfse",
+      "titulo": "Monitor NFS-e",
+      "modulo": "nfse",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "nfse:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/nfse/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.fiscal.notas",
+      "rota": "/fiscal/notas",
+      "titulo": "PrivateRoute",
+      "modulo": "fiscal",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.fiscal.notas.item",
+      "rota": "/fiscal/notas/:id",
+      "titulo": "PrivateRoute",
+      "modulo": "fiscal",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.fiscal.notas.nova",
+      "rota": "/fiscal/notas/nova",
+      "titulo": "PrivateRoute",
+      "modulo": "fiscal",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.fluxos.dashboard",
+      "rota": "/fluxos/dashboard",
+      "titulo": "Fluxo de Venda",
+      "modulo": "fluxos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "fluxos:dashboard",
+        "fluxos:dashboard:visualizar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.fluxos.painel",
+      "rota": "/fluxos/painel",
+      "titulo": "Painel Fluxos",
+      "modulo": "fluxos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "fluxos:painel",
+        "fluxos:painel:visualizar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.ia.chat",
+      "rota": "/ia/chat",
+      "titulo": "Chat IA / ERP",
+      "modulo": "ia",
+      "area": "Inteligência",
+      "contexto": "interno",
+      "permissoes": [
+        "ia:usar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/ia/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.ia.treinamento",
+      "rota": "/ia/treinamento",
+      "titulo": "Treinamento IA",
+      "modulo": "ia",
+      "area": "Inteligência",
+      "contexto": "interno",
+      "permissoes": [
+        "ia:treinamento",
+        "ia:treinamento:treinar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/ia/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.login",
+      "rota": "/login",
+      "titulo": "Login",
+      "modulo": "login",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/Login.tsx"
+      ]
+    },
+    {
+      "id": "decor.master.empresas",
+      "rota": "/master/empresas",
+      "titulo": "Empresas",
+      "modulo": "master",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/master/MasterEmpresas.tsx"
+      ]
+    },
+    {
+      "id": "decor.master.logins",
+      "rota": "/master/logins",
+      "titulo": "Logins Globais",
+      "modulo": "master",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/master/MasterLogins.tsx"
+      ]
+    },
+    {
+      "id": "decor.o.item",
+      "rota": "/o/:codigo",
+      "titulo": "LinkPublico",
+      "modulo": "o",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/LinkPublico.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.agenda",
+      "rota": "/operacional/agenda",
+      "titulo": "Agenda",
+      "modulo": "agendamentos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "agendamentos:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/agendamentos/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.agenda.impressao",
+      "rota": "/operacional/agenda/impressao",
+      "titulo": "Agenda › impressao",
+      "modulo": "operacional",
+      "area": "Comercial",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/operacional/AgendaImpressao.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.atendimentos",
+      "rota": "/operacional/atendimentos",
+      "titulo": "Atendimentos",
+      "modulo": "atendimentos",
+      "area": "Logística",
+      "contexto": "interno",
+      "permissoes": [
+        "atendimentos:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/atendimentos/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.entregas",
+      "rota": "/operacional/entregas",
+      "titulo": "Painel de Entregas",
+      "modulo": "entregas",
+      "area": "Logística",
+      "contexto": "interno",
+      "permissoes": [
+        "entregas:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/entregas/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.entregas.item.protocolo",
+      "rota": "/operacional/entregas/:ncontrole/protocolo",
+      "titulo": "Painel de Entregas › detalhe › protocolo",
+      "modulo": "operacional",
+      "area": "Logística",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.formularios",
+      "rota": "/operacional/formularios",
+      "titulo": "Formulários Dinâmicos",
+      "modulo": "formularios",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "formularios:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/formularios/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.formularios.item",
+      "rota": "/operacional/formularios/:id",
+      "titulo": "Formulários Dinâmicos › detalhe",
+      "modulo": "operacional",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.funil-entregas",
+      "rota": "/operacional/funil-entregas",
+      "titulo": "Funil de Entregas",
+      "modulo": "entregas",
+      "area": "Logística",
+      "contexto": "interno",
+      "permissoes": [
+        "entregas:funil",
+        "entregas:funil:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/entregas/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.instaladores",
+      "rota": "/operacional/instaladores",
+      "titulo": "Instaladores",
+      "modulo": "instaladores",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "instaladores:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/instaladores/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.ordens-servico",
+      "rota": "/operacional/ordens-servico",
+      "titulo": "Ordens de Serviço",
+      "modulo": "ordens-servico",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "ordens-servico:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/ordens-servico/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.ordens-servico.item",
+      "rota": "/operacional/ordens-servico/:numero",
+      "titulo": "Ordens de Serviço › detalhe",
+      "modulo": "operacional",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.ordens-servico.item.preview",
+      "rota": "/operacional/ordens-servico/:numero/preview",
+      "titulo": "Ordens de Serviço › detalhe › preview",
+      "modulo": "operacional",
+      "area": "Comercial",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/operacional/OrdemServicoPreview.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.ordens-servico.nova",
+      "rota": "/operacional/ordens-servico/nova",
+      "titulo": "Ordens de Serviço › nova",
+      "modulo": "operacional",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.produtos-servicos",
+      "rota": "/operacional/produtos-servicos",
+      "titulo": "Produtos e Serviços (OS)",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:produtos-servicos",
+        "cadastros:produtos-servicos:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.profissionais",
+      "rota": "/operacional/profissionais",
+      "titulo": "Profissionais",
+      "modulo": "profissionais",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "profissionais:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/profissionais/",
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.operacional.tipos-atendimento",
+      "rota": "/operacional/tipos-atendimento",
+      "titulo": "Tipos de Atendimento",
+      "modulo": "tipos-atendimento",
+      "area": "Comercial",
+      "submenu": "Cadastro",
+      "contexto": "interno",
+      "permissoes": [
+        "tipos-atendimento:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/components/PrivateRoute.tsx"
+      ]
+    },
+    {
+      "id": "decor.orcamento.item",
+      "rota": "/orcamento/:token",
+      "titulo": "OrcamentoPublico",
+      "modulo": "orcamento",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/OrcamentoPublico.tsx"
+      ]
+    },
+    {
+      "id": "decor.os.item",
+      "rota": "/os/:token",
+      "titulo": "OrdemServicoPublico",
+      "modulo": "os",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/OrdemServicoPublico.tsx"
+      ]
+    },
+    {
+      "id": "decor.redefinir-senha",
+      "rota": "/redefinir-senha",
+      "titulo": "RedefinirSenha",
+      "modulo": "redefinir-senha",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/RedefinirSenha.tsx"
+      ]
+    },
+    {
+      "id": "decor.selecionar-empresa",
+      "rota": "/selecionar-empresa",
+      "titulo": "EmpresaSelector",
+      "modulo": "selecionar-empresa",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/EmpresaSelector.tsx"
+      ]
+    },
+    {
+      "id": "decor.transportadora-pedido.item",
+      "rota": "/transportadora-pedido/:tokenTransp",
+      "titulo": "TransportadoraPedido",
+      "modulo": "transportadora-pedido",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/publico/TransportadoraPedido.tsx"
+      ]
+    }
+  ]
+}

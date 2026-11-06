@@ -1,0 +1,4 @@
+# Todo conteúdo publicado passa pela aprovação do usuário master.
+# Com "Require review from Code Owners" ativo na proteção de main,
+# nenhum artigo, modelo ou taxonomia entra sem esse aprovador.
+*  @heltonfarias

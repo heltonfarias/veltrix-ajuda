@@ -1,0 +1,31 @@
+{
+  "name": "veltrix-ajuda",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Base de conhecimento central dos produtos Veltrix (One, Varejo, Decor): conteúdo versionado, CLI editorial e workflows de CI.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "bin": {
+    "ajuda": "./cli/index.ts"
+  },
+  "scripts": {
+    "ajuda": "tsx cli/index.ts",
+    "validar": "tsx cli/index.ts validar",
+    "cobertura": "tsx cli/index.ts cobertura",
+    "desatualizados": "tsx cli/index.ts desatualizados",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "fast-glob": "^3.3.2",
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "yaml": "^2.6.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0"
+  }
+}

@@ -1,0 +1,40 @@
+# Toda segunda-feira: abre/atualiza a issue com artigos a revisar e telas sem artigo.
+name: revisao-semanal
+
+on:
+  schedule:
+    - cron: '0 11 * * 1'   # 08:00 em Brasília
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  relatorio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { repository: heltonfarias/veltrixone, path: produtos/one, fetch-depth: 0, token: '${{ secrets.AJUDA_BOT_TOKEN }}' }
+      - uses: actions/checkout@v4
+        with: { repository: heltonfarias/veltrix, path: produtos/varejo, fetch-depth: 0, token: '${{ secrets.AJUDA_BOT_TOKEN }}' }
+      - uses: actions/checkout@v4
+        with: { repository: heltonfarias/innoair, path: produtos/decor, fetch-depth: 0, token: '${{ secrets.AJUDA_BOT_TOKEN }}' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - name: Gerar relatório
+        run: |
+          npx tsx cli/index.ts desatualizados \
+            --repos one=produtos/one,varejo=produtos/varejo,decor=produtos/decor --saida relatorio.md
+          npx tsx cli/index.ts cobertura --saida cobertura.md
+          cat cobertura.md >> relatorio.md
+      - name: Abrir ou atualizar issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          titulo="Revisão da Central de Ajuda"
+          num=$(gh issue list --state open --label revisao-ajuda --json number -q '.[0].number')
+          if [ -n "$num" ]; then gh issue edit "$num" --body-file relatorio.md
+          else gh issue create --title "$titulo" --label revisao-ajuda --body-file relatorio.md; fi

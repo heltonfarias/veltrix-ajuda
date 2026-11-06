@@ -1,0 +1,41 @@
+# Valida todo PR de conteúdo. A publicação só acontece no merge em main,
+# que exige a aprovação do usuário master (CODEOWNERS + proteção de branch).
+name: conteudo
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run typecheck
+      - name: Validar artigos
+        run: npx tsx cli/index.ts validar
+      - name: Cobertura
+        run: npx tsx cli/index.ts cobertura --saida cobertura.md && cat cobertura.md >> "$GITHUB_STEP_SUMMARY"
+
+  publicar:
+    # Fase 2: build do site (Astro) + reindexação + deploy no Coolify.
+    # Fica desligado até a central pública existir — basta definir a variável
+    # de repositório PUBLICAR=true e os segredos COOLIFY_*.
+    needs: validar
+    if: github.event_name == 'push' && vars.PUBLICAR == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Disparar deploy no Coolify
+        run: |
+          curl -fsS -X GET "${{ secrets.COOLIFY_DEPLOY_WEBHOOK }}" \
+            -H "Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}"

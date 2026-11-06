@@ -1,0 +1,34 @@
+# Perfis de operador. Filtram a central, montam as trilhas da academia
+# e definem o que a ajuda contextual mostra primeiro.
+# `permissoes`: prefixos 'modulo' ou 'modulo:acao' que caracterizam o perfil
+# (usado para sugerir o perfil a partir das permissões do usuário no ERP).
+- id: vendedor
+  nome: Vendedor
+  permissoes: [pedidos, prevenda, orcamentos, carteira, crm, clientes]
+- id: caixa
+  nome: Operador de caixa
+  permissoes: [caixa, pdv, tef]
+- id: faturista
+  nome: Faturista
+  permissoes: [pedidos:faturar, fiscal]
+- id: comprador
+  nome: Comprador
+  permissoes: [compras, entradas, dfe, pedidos-compra]
+- id: financeiro
+  nome: Financeiro
+  permissoes: [financeiro, banking, recebimentos]
+- id: producao
+  nome: PCP / Produção
+  permissoes: [producao]
+- id: estoque
+  nome: Estoque e expedição
+  permissoes: [estoque, inventario, pedidos:expedicao, etiqueta]
+- id: servicos
+  nome: Serviços e instalação
+  permissoes: [ordens-servico, agendamentos, instaladores, ocorrencias]
+- id: gestor
+  nome: Gestor
+  permissoes: []
+- id: administrador
+  nome: Administrador do sistema
+  permissoes: [usuarios, perfis, empresa]

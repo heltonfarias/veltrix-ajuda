@@ -1,0 +1,1511 @@
+{
+  "produto": "one",
+  "versao": "1.0.0",
+  "funcionalidades": [
+    {
+      "id": "one.admin.autorizacoes",
+      "rota": "/admin/autorizacoes",
+      "titulo": "Autorizações",
+      "modulo": "autorizacoes",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "autorizacoes:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/autorizacoes/",
+        "packages/frontend/src/pages/admin/Autorizacoes.tsx"
+      ]
+    },
+    {
+      "id": "one.admin.conexoes-ia",
+      "rota": "/admin/conexoes-ia",
+      "titulo": "Conexões de IA",
+      "modulo": "mcp",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "mcp:administrar",
+        "mcp:usar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/admin/ConexoesIA.tsx"
+      ]
+    },
+    {
+      "id": "one.admin.integracoes",
+      "rota": "/admin/integracoes",
+      "titulo": "Integrações",
+      "modulo": "integracoes",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "integracoes:administrar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/integracoes/",
+        "packages/frontend/src/pages/admin/Integracoes.tsx"
+      ]
+    },
+    {
+      "id": "one.admin.perfis",
+      "rota": "/admin/perfis",
+      "titulo": "Perfis e Permissões",
+      "modulo": "perfis",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "perfis:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/perfis/",
+        "packages/frontend/src/pages/admin/Perfis.tsx"
+      ]
+    },
+    {
+      "id": "one.admin.usuarios",
+      "rota": "/admin/usuarios",
+      "titulo": "Usuários",
+      "modulo": "usuarios",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "usuarios:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/usuarios/",
+        "packages/frontend/src/pages/admin/Usuarios.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.agentes",
+      "rota": "/cadastros/agentes",
+      "titulo": "Agentes",
+      "modulo": "cadastros",
+      "area": "Financeiro",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/cadastros/",
+        "packages/frontend/src/pages/cadastros/Agentes.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.bancos",
+      "rota": "/cadastros/bancos",
+      "titulo": "Bancos",
+      "modulo": "cadastros",
+      "area": "Financeiro",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/cadastros/",
+        "packages/frontend/src/pages/cadastros/Bancos.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.categorias",
+      "rota": "/cadastros/categorias",
+      "titulo": "Categorias",
+      "modulo": "categorias",
+      "area": "Comercial",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "categorias:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Categorias.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.clientes",
+      "rota": "/cadastros/clientes",
+      "titulo": "Clientes",
+      "modulo": "clientes",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "clientes:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Clientes.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.clientes.editar",
+      "rota": "/cadastros/clientes/editar",
+      "titulo": "Clientes › edição",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/ClienteForm.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.clientes.novo",
+      "rota": "/cadastros/clientes/novo",
+      "titulo": "Clientes › novo",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/ClienteForm.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.condicoes-pagamento",
+      "rota": "/cadastros/condicoes-pagamento",
+      "titulo": "Condições de Pagamento",
+      "modulo": "condicoes-pagamento",
+      "area": "Comercial",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "condicoes-pagamento:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/CondicoesPagamento.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.cores-mp",
+      "rota": "/cadastros/cores-mp",
+      "titulo": "Cores",
+      "modulo": "materiais",
+      "area": "Estoque",
+      "submenu": "Matéria Prima",
+      "contexto": "interno",
+      "permissoes": [
+        "materiais:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/CoresMp.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.funcionarios",
+      "rota": "/cadastros/funcionarios",
+      "titulo": "Funcionários",
+      "modulo": "cadastros",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/cadastros/",
+        "packages/frontend/src/pages/cadastros/Funcionarios.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.funcionarios.item",
+      "rota": "/cadastros/funcionarios/:ccodigo",
+      "titulo": "Funcionários › detalhe",
+      "modulo": "cadastros",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/FuncionarioForm.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.funcionarios.novo",
+      "rota": "/cadastros/funcionarios/novo",
+      "titulo": "Funcionários › novo",
+      "modulo": "cadastros",
+      "area": "Administração",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/FuncionarioForm.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.grupos-empresa",
+      "rota": "/cadastros/grupos-empresa",
+      "titulo": "Grupos Empresariais",
+      "modulo": "grupos-empresa",
+      "area": "Comercial",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "grupos-empresa:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/GruposEmpresa.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.grupos-mp",
+      "rota": "/cadastros/grupos-mp",
+      "titulo": "Grupos",
+      "modulo": "materiais",
+      "area": "Estoque",
+      "submenu": "Matéria Prima",
+      "contexto": "interno",
+      "permissoes": [
+        "materiais:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/GruposMp.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.icms-uf",
+      "rota": "/cadastros/icms-uf",
+      "titulo": "ICMS por UF",
+      "modulo": "cadastros",
+      "area": "Fiscal",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/cadastros/",
+        "packages/frontend/src/pages/cadastros/IcmsUf.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.linhas",
+      "rota": "/cadastros/linhas",
+      "titulo": "Linhas",
+      "modulo": "produtos",
+      "area": "Estoque",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "produtos:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Linhas.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.materia-prima",
+      "rota": "/cadastros/materia-prima",
+      "titulo": "Matéria Prima",
+      "modulo": "materiais",
+      "area": "Estoque",
+      "submenu": "Matéria Prima",
+      "contexto": "interno",
+      "permissoes": [
+        "materiais:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/MateriasPrimas.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.materia-prima.item",
+      "rota": "/cadastros/materia-prima/:codigo",
+      "titulo": "Matéria Prima › detalhe",
+      "modulo": "cadastros",
+      "area": "Estoque",
+      "submenu": "Matéria Prima",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/MateriaPrimaForm.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.materia-prima.novo",
+      "rota": "/cadastros/materia-prima/novo",
+      "titulo": "Matéria Prima › novo",
+      "modulo": "cadastros",
+      "area": "Estoque",
+      "submenu": "Matéria Prima",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/MateriaPrimaForm.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.naturezas-operacao",
+      "rota": "/cadastros/naturezas-operacao",
+      "titulo": "Natureza da Operação",
+      "modulo": "cadastros",
+      "area": "Fiscal",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/cadastros/",
+        "packages/frontend/src/pages/cadastros/NaturezasOperacao.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.ocorrencias",
+      "rota": "/cadastros/ocorrencias",
+      "titulo": "Tipos de Ocorrência",
+      "modulo": "ocorrencias",
+      "area": "Comercial",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "ocorrencias:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/TiposOcorrencia.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.operacoes",
+      "rota": "/cadastros/operacoes",
+      "titulo": "Operações",
+      "modulo": "cadastros",
+      "area": "Fiscal",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/cadastros/",
+        "packages/frontend/src/pages/cadastros/Operacoes.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.produtos",
+      "rota": "/cadastros/produtos",
+      "titulo": "Produtos",
+      "modulo": "produtos",
+      "area": "Estoque",
+      "submenu": "Produtos",
+      "contexto": "interno",
+      "permissoes": [
+        "produtos:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Produtos.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.produtos.item",
+      "rota": "/cadastros/produtos/:creferencia",
+      "titulo": "Produtos › detalhe",
+      "modulo": "cadastros",
+      "area": "Estoque",
+      "submenu": "Produtos",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/ProdutoForm.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.produtos.novo",
+      "rota": "/cadastros/produtos/novo",
+      "titulo": "Produtos › novo",
+      "modulo": "cadastros",
+      "area": "Estoque",
+      "submenu": "Produtos",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/ProdutoForm.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.segmentos",
+      "rota": "/cadastros/segmentos",
+      "titulo": "Segmentos",
+      "modulo": "produtos",
+      "area": "Estoque",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "produtos:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Segmentos.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.setores",
+      "rota": "/cadastros/setores",
+      "titulo": "Setores",
+      "modulo": "cadastros",
+      "area": "Produção",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/cadastros/",
+        "packages/frontend/src/pages/cadastros/Setores.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.tabelas-preco",
+      "rota": "/cadastros/tabelas-preco",
+      "titulo": "Tabelas de Preço",
+      "modulo": "tabelas-preco",
+      "area": "Comercial",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "tabelas-preco:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/TabelasPreco.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.tabelas-preco.item",
+      "rota": "/cadastros/tabelas-preco/:ctabela",
+      "titulo": "Tabelas de Preço › detalhe",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/TabelaPrecoDetalhe.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.tipos-mp",
+      "rota": "/cadastros/tipos-mp",
+      "titulo": "Tipos",
+      "modulo": "materiais",
+      "area": "Estoque",
+      "submenu": "Matéria Prima",
+      "contexto": "interno",
+      "permissoes": [
+        "materiais:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/TiposMp.tsx"
+      ]
+    },
+    {
+      "id": "one.cadastros.vendedores",
+      "rota": "/cadastros/vendedores",
+      "titulo": "Vendedores",
+      "modulo": "vendedores",
+      "area": "Comercial",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "vendedores:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Vendedores.tsx"
+      ]
+    },
+    {
+      "id": "one.caixa",
+      "rota": "/caixa",
+      "titulo": "Caixa",
+      "modulo": "caixa",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "caixa:operar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/caixa/",
+        "packages/frontend/src/pages/caixa/Caixa.tsx"
+      ]
+    },
+    {
+      "id": "one.caixa.tipos-recebimento",
+      "rota": "/caixa/tipos-recebimento",
+      "titulo": "Tipos de Recebimento",
+      "modulo": "caixa",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "caixa:configurar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/caixa/",
+        "packages/frontend/src/pages/caixa/TiposRecebimento.tsx"
+      ]
+    },
+    {
+      "id": "one.comercial.carteira",
+      "rota": "/comercial/carteira",
+      "titulo": "Carteira de Clientes",
+      "modulo": "carteira",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "carteira:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/carteira/",
+        "packages/frontend/src/pages/comercial/carteira/CockpitCarteira.tsx"
+      ]
+    },
+    {
+      "id": "one.comercial.carteira.cliente",
+      "rota": "/comercial/carteira/cliente",
+      "titulo": "Carteira de Clientes › cliente",
+      "modulo": "carteira",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "carteira:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/carteira/",
+        "packages/frontend/src/pages/comercial/carteira/CockpitCarteira.tsx"
+      ]
+    },
+    {
+      "id": "one.comercial.pre-vendas",
+      "rota": "/comercial/pre-vendas",
+      "titulo": "Pré-vendas",
+      "modulo": "prevenda",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "prevenda:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/prevenda/",
+        "packages/frontend/src/pages/comercial/prevendas/PrevendasList.tsx"
+      ]
+    },
+    {
+      "id": "one.comercial.pre-vendas.item",
+      "rota": "/comercial/pre-vendas/:numero",
+      "titulo": "Pré-vendas › detalhe",
+      "modulo": "prevenda",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "prevenda:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/prevenda/",
+        "packages/frontend/src/pages/comercial/prevendas/PrevendaForm.tsx"
+      ]
+    },
+    {
+      "id": "one.comercial.pre-vendas.nova",
+      "rota": "/comercial/pre-vendas/nova",
+      "titulo": "Pré-vendas › nova",
+      "modulo": "prevenda",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "prevenda:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/prevenda/",
+        "packages/frontend/src/pages/comercial/prevendas/PrevendaForm.tsx"
+      ]
+    },
+    {
+      "id": "one.comercial.pre-vendas.pendentes",
+      "rota": "/comercial/pre-vendas/pendentes",
+      "titulo": "Pré-vendas Pendentes",
+      "modulo": "prevenda",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "prevenda:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/prevenda/",
+        "packages/frontend/src/pages/comercial/prevendas/PrevendasPendentes.tsx"
+      ]
+    },
+    {
+      "id": "one.compras.dfe",
+      "rota": "/compras/dfe",
+      "titulo": "Monitor DF-e",
+      "modulo": "entradas",
+      "area": "Compras",
+      "contexto": "interno",
+      "permissoes": [
+        "entradas:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/entradas/",
+        "packages/frontend/src/pages/compras/MonitorDfe.tsx"
+      ]
+    },
+    {
+      "id": "one.compras.entradas",
+      "rota": "/compras/entradas",
+      "titulo": "Entrada de Notas",
+      "modulo": "entradas",
+      "area": "Compras",
+      "contexto": "interno",
+      "permissoes": [
+        "entradas:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/entradas/",
+        "packages/frontend/src/pages/compras/EntradasList.tsx"
+      ]
+    },
+    {
+      "id": "one.compras.entradas.importar",
+      "rota": "/compras/entradas/importar",
+      "titulo": "Entrada de Notas › importar",
+      "modulo": "entradas",
+      "area": "Compras",
+      "contexto": "interno",
+      "permissoes": [
+        "entradas:importar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/entradas/",
+        "packages/frontend/src/pages/compras/ImportarNota.tsx"
+      ]
+    },
+    {
+      "id": "one.config.empresa",
+      "rota": "/config/empresa",
+      "titulo": "Empresa",
+      "modulo": "empresa",
+      "area": "Configurações",
+      "contexto": "interno",
+      "permissoes": [
+        "empresa:editar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/config/Empresa.tsx"
+      ]
+    },
+    {
+      "id": "one.dashboard",
+      "rota": "/dashboard",
+      "titulo": "Dashboard",
+      "modulo": "dashboard",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/Dashboard.tsx"
+      ]
+    },
+    {
+      "id": "one.esqueci-senha",
+      "rota": "/esqueci-senha",
+      "titulo": "EsqueciSenha",
+      "modulo": "esqueci-senha",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/EsqueciSenha.tsx"
+      ]
+    },
+    {
+      "id": "one.estoque.consulta",
+      "rota": "/estoque/consulta",
+      "titulo": "Consulta de Estoque",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "submenu": "Produtos",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/ConsultaEstoque.tsx"
+      ]
+    },
+    {
+      "id": "one.estoque.extrato",
+      "rota": "/estoque/extrato",
+      "titulo": "Extrato de Produtos",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/ExtratoProduto.tsx"
+      ]
+    },
+    {
+      "id": "one.estoque.inventarios",
+      "rota": "/estoque/inventarios",
+      "titulo": "Inventário",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "submenu": "Produtos",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:inventario"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/InventariosList.tsx"
+      ]
+    },
+    {
+      "id": "one.estoque.inventarios.item",
+      "rota": "/estoque/inventarios/:id",
+      "titulo": "Inventário › detalhe",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "submenu": "Produtos",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:inventario"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/InventarioDetalhe.tsx"
+      ]
+    },
+    {
+      "id": "one.estoque.movimentacao",
+      "rota": "/estoque/movimentacao",
+      "titulo": "Movimentação Manual",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:movimentar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/MovimentacaoEstoque.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.bancos",
+      "rota": "/financeiro/bancos",
+      "titulo": "Bancos",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/Bancos.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.contas-pagar",
+      "rota": "/financeiro/contas-pagar",
+      "titulo": "Contas a Pagar",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/ContasPagar.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.contas-pagar.relatorio",
+      "rota": "/financeiro/contas-pagar/relatorio",
+      "titulo": "Relatório Contas a Pagar",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/RelatorioContasPagar.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.contas-receber",
+      "rota": "/financeiro/contas-receber",
+      "titulo": "Contas a Receber",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/ContasReceber.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.contas-receber.relatorio",
+      "rota": "/financeiro/contas-receber/relatorio",
+      "titulo": "Relatório Contas a Receber",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/RelatorioContasReceber.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.convenios-bancarios",
+      "rota": "/financeiro/convenios-bancarios",
+      "titulo": "Convênios Bancários (API)",
+      "modulo": "banking",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "banking:configurar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/banking/",
+        "packages/frontend/src/pages/financeiro/ConveniosBancarios.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.dashboard",
+      "rota": "/financeiro/dashboard",
+      "titulo": "Dashboard Financeiro",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/DashboardFinanceiro.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.extrato",
+      "rota": "/financeiro/extrato",
+      "titulo": "Extrato Bancário",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/ExtratoBancario.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.fluxo-caixa",
+      "rota": "/financeiro/fluxo-caixa",
+      "titulo": "Fluxo de Caixa",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/FluxoCaixa.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.fornecedores",
+      "rota": "/financeiro/fornecedores",
+      "titulo": "Fornecedores",
+      "modulo": "fornecedores",
+      "area": "Comercial",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "fornecedores:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/financeiro/Fornecedores.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.lancamentos",
+      "rota": "/financeiro/lancamentos",
+      "titulo": "Lançamentos Bancários",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/LancamentosBancarios.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.tipos-despesa",
+      "rota": "/financeiro/tipos-despesa",
+      "titulo": "Tipos de Despesa",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/TiposDespesa.tsx"
+      ]
+    },
+    {
+      "id": "one.financeiro.tipos-receita",
+      "rota": "/financeiro/tipos-receita",
+      "titulo": "Tipos de Receita",
+      "modulo": "financeiro",
+      "area": "Financeiro",
+      "submenu": "Tabelas",
+      "contexto": "interno",
+      "permissoes": [
+        "financeiro:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/financeiro/",
+        "packages/frontend/src/pages/financeiro/TiposReceita.tsx"
+      ]
+    },
+    {
+      "id": "one.fiscal",
+      "rota": "/fiscal",
+      "titulo": "Monitor Fiscal",
+      "modulo": "fiscal",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "fiscal:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/fiscal/",
+        "packages/frontend/src/pages/fiscal/FiscalMonitor.tsx"
+      ]
+    },
+    {
+      "id": "one.fiscal.editar.item",
+      "rota": "/fiscal/editar/:id",
+      "titulo": "Monitor Fiscal › edição › detalhe",
+      "modulo": "fiscal",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "fiscal:editar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/fiscal/",
+        "packages/frontend/src/pages/fiscal/NotaFiscalForm.tsx"
+      ]
+    },
+    {
+      "id": "one.fiscal.nova",
+      "rota": "/fiscal/nova",
+      "titulo": "Monitor Fiscal › nova",
+      "modulo": "fiscal",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "fiscal:emitir"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/fiscal/",
+        "packages/frontend/src/pages/fiscal/NotaFiscalForm.tsx"
+      ]
+    },
+    {
+      "id": "one.ia.chat",
+      "rota": "/ia/chat",
+      "titulo": "Chat IA / ERP",
+      "modulo": "ia",
+      "area": "Inteligência",
+      "contexto": "interno",
+      "permissoes": [
+        "ia:usar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/ia/",
+        "packages/frontend/src/pages/ia/ChatIA.tsx"
+      ]
+    },
+    {
+      "id": "one.inventario.c.item",
+      "rota": "/inventario/c/:token",
+      "titulo": "InventarioContagem",
+      "modulo": "inventario",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/pub/InventarioContagem.tsx"
+      ]
+    },
+    {
+      "id": "one.login",
+      "rota": "/login",
+      "titulo": "Login",
+      "modulo": "login",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/Login.tsx"
+      ]
+    },
+    {
+      "id": "one.master.empresas",
+      "rota": "/master/empresas",
+      "titulo": "Empresas",
+      "modulo": "master",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/master/MasterEmpresas.tsx"
+      ]
+    },
+    {
+      "id": "one.master.logins",
+      "rota": "/master/logins",
+      "titulo": "Logins Globais",
+      "modulo": "master",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/master/MasterLogins.tsx"
+      ]
+    },
+    {
+      "id": "one.monitor.item",
+      "rota": "/monitor/:token",
+      "titulo": "MonitorProducao",
+      "modulo": "monitor",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/pub/MonitorProducao.tsx"
+      ]
+    },
+    {
+      "id": "one.oauth.consentimento",
+      "rota": "/oauth/consentimento",
+      "titulo": "ConsentimentoOAuth",
+      "modulo": "oauth",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/oauth/Consentimento.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos",
+      "rota": "/pedidos",
+      "titulo": "Pedidos",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/Pedidos.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.comercial",
+      "rota": "/pedidos/comercial",
+      "titulo": "Dashboard Comercial",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/DashboardComercial.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.expedicao",
+      "rota": "/pedidos/expedicao",
+      "titulo": "Expedição",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:expedicao"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/Expedicao.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.faturamento",
+      "rota": "/pedidos/faturamento",
+      "titulo": "Faturamento",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:faturar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/Faturamento.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.item",
+      "rota": "/pedidos/:cnumpedido",
+      "titulo": "Pedidos › detalhe",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/PedidoForm.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.novo",
+      "rota": "/pedidos/novo",
+      "titulo": "Pedidos › novo",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/pedidos/PedidoForm.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.prioridades",
+      "rota": "/pedidos/prioridades",
+      "titulo": "Prioridades",
+      "modulo": "prioridades",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "prioridades:ver"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/pedidos/PrioridadePedidos.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.relacao",
+      "rota": "/pedidos/relacao",
+      "titulo": "Relação de Pedidos",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/RelacaoPedidos.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.relatorio",
+      "rota": "/pedidos/relatorio",
+      "titulo": "Curva ABC",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/RelatorioItensVendidos.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.reservas-pedido",
+      "rota": "/pedidos/reservas-pedido",
+      "titulo": "Reservas por Pedido",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/RelatorioReservasPedido.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.responsavel-analitico",
+      "rota": "/pedidos/responsavel-analitico",
+      "titulo": "Pedidos por Responsável — Analítico",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/RelatorioPedidosResponsavel.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.responsavel-sintetico",
+      "rota": "/pedidos/responsavel-sintetico",
+      "titulo": "Pedidos por Responsável — Sintético",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "submenu": "Relatórios",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/RelatorioPedidosResponsavel.tsx"
+      ]
+    },
+    {
+      "id": "one.pedidos.romaneio-transportadora",
+      "rota": "/pedidos/romaneio-transportadora",
+      "titulo": "Romaneio",
+      "modulo": "pedidos",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "pedidos:faturar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pedidos/",
+        "packages/frontend/src/pages/pedidos/RomaneioTransportadora.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.carencias",
+      "rota": "/producao/carencias",
+      "titulo": "Carências",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [
+        "producao:carencias"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/producao/",
+        "packages/frontend/src/pages/producao/CarenciasProducao.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.dashboard",
+      "rota": "/producao/dashboard",
+      "titulo": "Painel",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [
+        "producao:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/producao/",
+        "packages/frontend/src/pages/producao/ProducaoDashboard.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.demandas",
+      "rota": "/producao/demandas",
+      "titulo": "Demandas",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [
+        "producao:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/producao/",
+        "packages/frontend/src/pages/producao/DemandasProducao.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.lotes",
+      "rota": "/producao/lotes",
+      "titulo": "Lotes",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [
+        "producao:ver"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/producao/",
+        "packages/frontend/src/pages/producao/LotesList.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.lotes.item",
+      "rota": "/producao/lotes/:numero",
+      "titulo": "Lotes › detalhe",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/producao/LoteDetalhe.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.lotes.item.embalagem",
+      "rota": "/producao/lotes/:numero/embalagem",
+      "titulo": "Lotes › detalhe › embalagem",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/producao/EmbalagemLote.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.lotes.item.revisao",
+      "rota": "/producao/lotes/:numero/revisao",
+      "titulo": "Lotes › detalhe › revisao",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/producao/RevisaoLote.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.painel-estrategico",
+      "rota": "/producao/painel-estrategico",
+      "titulo": "Painel Estratégico",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [
+        "producao:painel-estrategico"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/producao/",
+        "packages/frontend/src/pages/producao/PainelEstrategicoProducao.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.relatorios.justificativas",
+      "rota": "/producao/relatorios/justificativas",
+      "titulo": "Lotes com Justificativa",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [
+        "producao:relatorios"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/producao/",
+        "packages/frontend/src/pages/producao/RelatorioJustificativas.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.relatorios.transferencias",
+      "rota": "/producao/relatorios/transferencias",
+      "titulo": "Transferências por Dia",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [
+        "producao:relatorios"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/producao/",
+        "packages/frontend/src/pages/producao/RelatorioTransferencias.tsx"
+      ]
+    },
+    {
+      "id": "one.producao.transferir",
+      "rota": "/producao/transferir",
+      "titulo": "Transferir Lotes",
+      "modulo": "producao",
+      "area": "Produção",
+      "submenu": "Controle de Produção",
+      "contexto": "interno",
+      "permissoes": [
+        "producao:transferir"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/producao/",
+        "packages/frontend/src/pages/producao/TransferirLotes.tsx"
+      ]
+    },
+    {
+      "id": "one.pub.romaneio.item",
+      "rota": "/pub/romaneio/:numromaneio",
+      "titulo": "RomaneioPublico",
+      "modulo": "pub",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/pub/RomaneioPublico.tsx"
+      ]
+    },
+    {
+      "id": "one.redefinir-senha",
+      "rota": "/redefinir-senha",
+      "titulo": "RedefinirSenha",
+      "modulo": "redefinir-senha",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/RedefinirSenha.tsx"
+      ]
+    },
+    {
+      "id": "one.selecionar-empresa",
+      "rota": "/selecionar-empresa",
+      "titulo": "EmpresaSelector",
+      "modulo": "selecionar-empresa",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/EmpresaSelector.tsx"
+      ]
+    }
+  ]
+}

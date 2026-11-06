@@ -1,0 +1,25 @@
+# Produtos atendidos pela central. O slug é o prefixo da URL
+# (ajuda.veltrixlabs.com.br/<slug>) e dos featureIds (<slug>.<modulo>.<tela>).
+- slug: one
+  nome: Veltrix One
+  repositorio: heltonfarias/veltrixone
+  descricao: ERP para indústria — pedidos, produção, faturamento, financeiro e fiscal.
+  frontend: packages/frontend/src
+  backend_modulos: packages/backend/src/modules
+  menu: [packages/frontend/src/components/Sidebar.tsx]
+
+- slug: varejo
+  nome: Veltrix Varejo
+  repositorio: heltonfarias/veltrix
+  descricao: Varejo e atacado — PDV, CRM, orçamentos, consignação e financeiro.
+  frontend: packages/frontend/src
+  backend_modulos: packages/backend/src/modules
+  menu: [packages/frontend/src/components/menu.ts]
+
+- slug: decor
+  nome: Veltrix Decor
+  repositorio: heltonfarias/innoair
+  descricao: Decoração e serviços — orçamentos, ordens de serviço, instalação e pós-venda.
+  frontend: packages/frontend/src
+  backend_modulos: packages/backend/src/modules
+  menu: [packages/frontend/src/components/menu.ts]

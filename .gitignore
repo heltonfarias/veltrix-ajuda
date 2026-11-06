@@ -1,0 +1,5 @@
+node_modules/
+*.log
+impacto.md
+cobertura.md
+relatorio.md

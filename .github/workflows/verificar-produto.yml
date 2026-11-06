@@ -1,0 +1,100 @@
+# Workflow reutilizável chamado pelos repositórios de produto
+# (veltrixone, veltrix, innoair) em .github/workflows/ajuda.yml.
+#
+# Em PR:   confere o manifesto, comenta o impacto na ajuda e verifica o trailer "Ajuda:".
+# Em main: copia o manifesto atualizado para o veltrix-ajuda (PR automático).
+name: verificar-produto
+
+on:
+  workflow_call:
+    inputs:
+      produto:
+        description: one | varejo | decor
+        required: true
+        type: string
+      modo_trailer:
+        description: aviso | bloquear
+        required: false
+        default: aviso
+        type: string
+    secrets:
+      AJUDA_BOT_TOKEN:
+        required: false
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  ajuda:
+    runs-on: ubuntu-latest
+    env:
+      TEM_TOKEN: ${{ secrets.AJUDA_BOT_TOKEN != '' }}
+    steps:
+      - name: Checkout do produto
+        uses: actions/checkout@v4
+        with:
+          path: produto
+          fetch-depth: 0
+
+      - name: Checkout do veltrix-ajuda
+        uses: actions/checkout@v4
+        with:
+          repository: heltonfarias/veltrix-ajuda
+          path: veltrix-ajuda
+          token: ${{ secrets.AJUDA_BOT_TOKEN || github.token }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: veltrix-ajuda/package-lock.json
+
+      - name: Instalar CLI
+        working-directory: veltrix-ajuda
+        run: npm ci --no-audit --no-fund
+
+      - name: Manifesto em dia?
+        working-directory: veltrix-ajuda
+        run: npx tsx cli/index.ts manifesto --produto ${{ inputs.produto }} --repo ../produto --saida ajuda/manifesto.json --verificar
+
+      - name: Impacto na ajuda
+        if: github.event_name == 'pull_request'
+        working-directory: veltrix-ajuda
+        run: |
+          npx tsx cli/index.ts impacto --repo ../produto \
+            --base origin/${{ github.base_ref }} --head HEAD --saida ../impacto.md
+          cat ../impacto.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comentar no PR
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: veltrix-ajuda
+          path: impacto.md
+
+      - name: Trailer "Ajuda:" nos commits
+        if: github.event_name == 'pull_request'
+        working-directory: veltrix-ajuda
+        run: |
+          npx tsx cli/index.ts trailer --repo ../produto \
+            --base origin/${{ github.base_ref }} --head HEAD --modo ${{ inputs.modo_trailer }}
+
+      - name: Publicar manifesto no veltrix-ajuda
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.TEM_TOKEN == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.AJUDA_BOT_TOKEN }}
+        working-directory: veltrix-ajuda
+        run: |
+          cp ../produto/ajuda/manifesto.json manifestos/${{ inputs.produto }}.json
+          if git diff --quiet; then echo "Manifesto sem mudanças."; exit 0; fi
+          ramo="manifesto/${{ inputs.produto }}"
+          git config user.name  "veltrix-ajuda-bot"
+          git config user.email "veltrix-ajuda-bot@users.noreply.github.com"
+          git checkout -B "$ramo"
+          git commit -am "chore(manifesto): ${{ inputs.produto }} @ ${GITHUB_SHA::7}"
+          git push -f origin "$ramo"
+          gh pr view "$ramo" >/dev/null 2>&1 || gh pr create --head "$ramo" --base main \
+            --title "chore(manifesto): atualiza ${{ inputs.produto }}" \
+            --body "Manifesto gerado a partir de ${{ github.repository }}@${GITHUB_SHA::7}. Rode \`npm run cobertura\` para ver telas novas sem artigo." \
+            --label manifesto

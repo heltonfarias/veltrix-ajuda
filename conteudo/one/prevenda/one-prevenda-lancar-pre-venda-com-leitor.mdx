@@ -1,0 +1,54 @@
+---
+id: one-prevenda-lancar-pre-venda-com-leitor
+titulo: Lançar uma pré-venda com o leitor de código de barras
+resumo: Registre no balcão a mercadoria que o cliente está levando, bipando as etiquetas, e deixe a pré-venda pronta para agrupar no pedido.
+tipo: procedimento
+produto: [one]
+modulo: prevenda
+atividade: lancamento
+features: [one.comercial.pre-vendas.nova, one.comercial.pre-vendas.item]
+perfis: [vendedor]
+tags: [pre-venda, scanner, codigo-de-barras, balcao]
+videos: []
+relacionados: []
+responsavel: heltonfarias
+revisado_em: 2026-11-05
+valido_desde: 1.0.0
+status: rascunho
+---
+
+## Antes de começar
+
+- Permissão necessária: **Lançar pré-vendas**. Para usar **Salvar e aprovar**, também **Aprovar e reabrir pré-vendas**.
+- O leitor de código de barras deve estar configurado para enviar **Enter** depois de cada leitura (é o padrão da maioria dos leitores USB).
+- Os produtos precisam ter preço na tabela de preço escolhida. Produto sem preço pode ser lançado, mas você terá de informar o preço na linha.
+
+## Passo a passo
+
+1. Acesse **Comercial › Pré-vendas** e clique em **Nova pré-venda**.
+2. Em **Cliente**, digite o nome ou o código e escolha com **↑ ↓** e **Enter**. Confira a **Data** e a **Tabela de preço**.
+3. Pressione **F4** para ligar o modo **Scanner**. O campo passa a mostrar *"Aguardando leitura do código de barras…"* e fica sempre focado.
+4. Leia as etiquetas em sequência. A cada leitura:
+   - um **bipe curto** confirma o item lançado;
+   - um **bipe grave** indica erro (código não encontrado, por exemplo) — veja a mensagem na tela;
+   - o mesmo produto lido de novo, sem observação, é **somado na mesma linha**.
+5. Para lançar várias unidades de uma vez, digite a quantidade e um asterisco antes do código: `3*REF123` lança 3 unidades.
+6. Para procurar um produto pelo nome, pressione **F2** (modo **Pesquisa**): digite referência, descrição ou código e escolha na lista com **↑ ↓ Enter**.
+7. Se quiser, informe **Desconto em todos os itens** (%) e clique em **Aplicar**, e preencha **Observações**.
+8. Confira a barra de totais (**Itens**, **Peças**, **Bruto**, **Desconto**, **Total líquido**) e clique em:
+   - **Salvar** (ou **Ctrl+S**) para gravar e continuar editando depois; ou
+   - **Salvar e aprovar** para deixar a pré-venda pronta para ser agrupada no pedido (o botão só aparece para quem tem a permissão de aprovar).
+
+## Resultado esperado
+
+- A pré-venda recebe um número (*"Pré-venda nº … criada — estoque baixado"*).
+- **O estoque é baixado ao salvar**, porque a mercadoria sai com o cliente. Se a pré-venda for excluída, o estoque é estornado.
+- Aprovada, ela aparece para ser agrupada no pedido e pode ser impressa com o código de barras do número em **Imprimir**.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "*REF* sem preço na tabela" | Informe o preço na linha destacada. Só produtos sem preço cadastrado permitem editar o preço. |
+| As leituras não entram | Clique em **Retomar leitura** ou pressione **F4** para reativar o modo Scanner. |
+| "N item(ns) com pendência" ao salvar | Corrija as linhas destacadas (quantidade ou preço) e salve novamente. |
