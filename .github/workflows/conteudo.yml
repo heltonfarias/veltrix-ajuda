@@ -6,6 +6,7 @@ on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch: # republicar manualmente (Actions › conteudo › Run workflow)
 
 permissions:
   contents: read
@@ -40,7 +41,7 @@ jobs:
     # Ligado quando a variável de repositório PUBLICAR=true e os segredos
     # COOLIFY_DEPLOY_WEBHOOK e COOLIFY_TOKEN estiverem cadastrados.
     needs: validar
-    if: github.event_name == 'push' && vars.PUBLICAR == 'true'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && vars.PUBLICAR == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Disparar deploy no Coolify
