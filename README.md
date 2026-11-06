@@ -62,11 +62,13 @@ Se uma variável não estiver definida, o bloco correspondente não aparece.
    - em **Domains**, informe `https://ajuda.veltrixlabs.com.br`;
    - em **Ports Exposes**, informe `80`;
    - em **Build arguments** (opcional), informe `PUBLIC_SUPORTE_URL`.
-3. **Deploy automático a cada merge:** copie o **Deploy Webhook** do recurso (*Webhooks*) e crie um token em *Keys & Tokens › API tokens*. No GitHub, cadastre:
-   - os secrets `COOLIFY_DEPLOY_WEBHOOK` e `COOLIFY_TOKEN`;
-   - a variável `PUBLICAR=true`, em *Settings › Secrets and variables › Actions › Variables*.
+3. **Deploy automático a cada merge:**
+   - **URL de deploy:** `https://<painel-coolify>/api/v1/deploy?uuid=<UUID>&force=false`. O `<UUID>` é o trecho depois de `/application/` na barra de endereço do recurso. A seção *Webhooks* do recurso mostra a mesma URL, mas nem toda versão do Coolify exibe essa seção.
+   - **Token:** crie em *Keys & Tokens › API Tokens*, só com a permissão **deploy**. Se o formulário não aparecer, ligue *Settings › Advanced › API Access* e deixe *Allowed IPs* vazio.
+   - **No GitHub:** cadastre os **secrets** `COOLIFY_DEPLOY_WEBHOOK` e `COOLIFY_TOKEN` e a **variável** (aba *Variables*, não *Secrets*) `PUBLICAR=true`.
+   - O painel do Coolify precisa estar em **HTTPS**, porque o token trafega no cabeçalho. Nas versões atuais, a chamada é `POST`.
 
-   A partir daí, cada merge aprovado no `main` publica a central.
+   A partir daí, cada merge aprovado no `main` publica a central. Para republicar sem merge, use *Actions › conteudo › Run workflow*.
 
 ### Relação com o site comercial
 
