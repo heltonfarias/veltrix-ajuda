@@ -14,7 +14,8 @@ interface Props {
 const { titulo, descricao, produto, noindex = false, busca = true } = Astro.props;
 const lista = produtos();
 const atual = produto ? lista.find(p => p.slug === produto) : undefined;
-const tituloCompleto = atual ? `${titulo} · Ajuda ${atual.nome}` : `${titulo} · Central de Ajuda Veltrix`;
+const tituloCompleto = atual ? `${titulo} · Ajuda ${atual.nome}`
+  : titulo === 'Central de Ajuda' ? 'Central de Ajuda Veltrix' : `${titulo} · Central de Ajuda Veltrix`;
 const suporte = import.meta.env.PUBLIC_SUPORTE_URL as string | undefined;
 ---
 <!doctype html>
@@ -25,7 +26,9 @@ const suporte = import.meta.env.PUBLIC_SUPORTE_URL as string | undefined;
     <title>{tituloCompleto}</title>
     {descricao && <meta name="description" content={descricao} />}
     {(noindex || MOSTRAR_RASCUNHOS) && <meta name="robots" content="noindex" />}
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -38,11 +41,11 @@ const suporte = import.meta.env.PUBLIC_SUPORTE_URL as string | undefined;
     )}
     <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
-        <a href={atual ? `/${atual.slug}/` : '/'} class="flex items-center gap-2.5 shrink-0" aria-label="Início da Central de Ajuda">
-          <span class="bg-marca size-8 rounded-lg grid place-items-center text-white font-bold text-lg">V</span>
+        <a href={atual ? `/${atual.slug}/` : '/'} class="flex items-center gap-3 shrink-0" aria-label="Início da Central de Ajuda">
+          <img src="/logo-icone.png" alt="Veltrix" width="40" height="40" class="size-10 rounded-[9px] shadow-sm" />
           <span class="leading-tight">
-            <span class="block text-sm font-semibold text-slate-900">{atual ? atual.nome : 'Veltrix'}</span>
-            <span class="block text-xs text-slate-500">Central de Ajuda</span>
+            <span class="block text-sm font-semibold text-slate-900">Central de Ajuda</span>
+            {atual && <span class="block text-xs text-slate-500">{atual.nome}</span>}
           </span>
         </a>
         {atual && busca && (
