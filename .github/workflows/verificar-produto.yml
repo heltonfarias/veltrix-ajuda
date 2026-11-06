@@ -18,7 +18,11 @@ on:
         default: aviso
         type: string
     secrets:
-      AJUDA_BOT_TOKEN:
+      # GitHub App "Veltrix Ajuda Bot" — opcionais: sem eles a verificação roda,
+      # só não abre o PR de manifesto no veltrix-ajuda.
+      AJUDA_APP_ID:
+        required: false
+      AJUDA_APP_PRIVATE_KEY:
         required: false
 
 permissions:
@@ -29,7 +33,8 @@ jobs:
   ajuda:
     runs-on: ubuntu-latest
     env:
-      TEM_TOKEN: ${{ secrets.AJUDA_BOT_TOKEN != '' }}
+      TEM_APP: ${{ secrets.AJUDA_APP_PRIVATE_KEY != '' }}
+      PUBLICAR: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
       - name: Checkout do produto
         uses: actions/checkout@v4
@@ -37,12 +42,22 @@ jobs:
           path: produto
           fetch-depth: 0
 
+      - name: Token do bot (GitHub App)
+        id: app
+        if: env.PUBLICAR == 'true' && env.TEM_APP == 'true'
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.AJUDA_APP_ID }}
+          private-key: ${{ secrets.AJUDA_APP_PRIVATE_KEY }}
+          owner: heltonfarias
+          repositories: veltrix-ajuda
+
       - name: Checkout do veltrix-ajuda
         uses: actions/checkout@v4
         with:
           repository: heltonfarias/veltrix-ajuda
           path: veltrix-ajuda
-          token: ${{ secrets.AJUDA_BOT_TOKEN || github.token }}
+          token: ${{ steps.app.outputs.token || github.token }}
 
       - uses: actions/setup-node@v4
         with:
@@ -81,9 +96,9 @@ jobs:
             --base origin/${{ github.base_ref }} --head HEAD --modo ${{ inputs.modo_trailer }}
 
       - name: Publicar manifesto no veltrix-ajuda
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.TEM_TOKEN == 'true'
+        if: steps.app.outputs.token != ''
         env:
-          GH_TOKEN: ${{ secrets.AJUDA_BOT_TOKEN }}
+          GH_TOKEN: ${{ steps.app.outputs.token }}
         working-directory: veltrix-ajuda
         run: |
           cp ../produto/ajuda/manifesto.json manifestos/${{ inputs.produto }}.json

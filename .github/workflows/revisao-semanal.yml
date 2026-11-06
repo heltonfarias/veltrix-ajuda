@@ -15,12 +15,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Token do bot (leitura dos produtos privados)
+        id: app
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.AJUDA_APP_ID }}
+          private-key: ${{ secrets.AJUDA_APP_PRIVATE_KEY }}
+          owner: heltonfarias
+          repositories: veltrixone,veltrix,innoair
       - uses: actions/checkout@v4
-        with: { repository: heltonfarias/veltrixone, path: produtos/one, fetch-depth: 0, token: '${{ secrets.AJUDA_BOT_TOKEN }}' }
+        with: { repository: heltonfarias/veltrixone, path: produtos/one, fetch-depth: 0, token: '${{ steps.app.outputs.token }}' }
       - uses: actions/checkout@v4
-        with: { repository: heltonfarias/veltrix, path: produtos/varejo, fetch-depth: 0, token: '${{ secrets.AJUDA_BOT_TOKEN }}' }
+        with: { repository: heltonfarias/veltrix, path: produtos/varejo, fetch-depth: 0, token: '${{ steps.app.outputs.token }}' }
       - uses: actions/checkout@v4
-        with: { repository: heltonfarias/innoair, path: produtos/decor, fetch-depth: 0, token: '${{ secrets.AJUDA_BOT_TOKEN }}' }
+        with: { repository: heltonfarias/innoair, path: produtos/decor, fetch-depth: 0, token: '${{ steps.app.outputs.token }}' }
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - run: npm ci --no-audit --no-fund
