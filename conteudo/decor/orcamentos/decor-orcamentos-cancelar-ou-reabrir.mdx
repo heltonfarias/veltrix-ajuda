@@ -1,0 +1,69 @@
+---
+id: decor-orcamentos-cancelar-ou-reabrir
+titulo: Cancelar um orçamento ou desfazer a aprovação
+resumo: Cancele um orçamento aberto, devolva um orçamento aprovado para Aberto ou desfaça a liberação, sabendo o que acontece com o pedido, as parcelas e a O.S.
+tipo: procedimento
+produto: [decor]
+modulo: orcamentos
+atividade: aprovacao
+features: [decor.comercial.orcamentos.item]
+perfis: [vendedor, gestor]
+tags: [cancelar, reabrir, cancelar-aprovacao, cancelar-liberacao, justificativa]
+relacionados: [decor-orcamentos-como-funciona-o-orcamento, decor-orcamentos-aprovar-orcamento, decor-orcamentos-faq-alterar-aprovado]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 7
+---
+
+## Qual ação usar
+
+| O orçamento está | Você quer | Use | Permissão |
+|---|---|---|---|
+| **Aberto** | Encerrar a negociação | **✕ Cancelar** | **Orçamentos › Editar** |
+| **Aprovado** | Alterar o orçamento ou desfazer a venda | **↩ Cancelar Aprovação** | **Orçamentos › Editar** |
+| **Liberado** | Voltar para Aprovado | **↩ Cancelar Liberação** | **Orçamentos › Cancelar Liberação** |
+
+Os botões ficam no quadro **Alterar Status** do orçamento.
+
+## Cancelar um orçamento aberto
+
+1. Em **Alterar Status**, clique em **✕ Cancelar**.
+2. Em **Justificativa**, descreva o motivo (até 200 caracteres). O campo é obrigatório.
+3. Clique em **Confirmar Cancelamento**.
+
+O status passa para **Cancelado**, e a justificativa fica no **Histórico**. Um orçamento cancelado não volta a ser editado. Para retomar a negociação, [copie o orçamento](/decor/orcamentos/faq-nova-versao/).
+
+## Cancelar a aprovação
+
+1. Em **Alterar Status**, clique em **↩ Cancelar Aprovação**.
+2. Leia o que vai acontecer e clique em **Confirmar Cancelamento**:
+   - o pedido vinculado é cancelado;
+   - as parcelas do contas a receber são excluídas;
+   - o orçamento volta para **Aberto**, na situação **Negociação**;
+   - se houver O.S. vinculada, ela é **excluída por completo**, com os itens e o registro de compra. Ela não é só cancelada.
+
+Na nova aprovação, o sistema gera outro pedido e outras parcelas. A O.S. tem de ser criada de novo.
+
+> **Atenção:** se a O.S. já tinha agenda, compras ou anotações, confira com a equipe de instalação e de compras antes de cancelar a aprovação.
+
+O sistema bloqueia o cancelamento se alguma parcela já foi recebida ou se a O.S. já foi faturada. Estorne o recebimento ou o faturamento antes.
+
+## Cancelar a liberação
+
+1. Em **Alterar Status**, clique em **↩ Cancelar Liberação**.
+2. Clique em **Confirmar**.
+
+O orçamento volta para **Aprovado**, na situação **Fechado**. Pedido, parcelas e O.S. continuam como estavam.
+
+## Se algo der errado
+
+| Mensagem | O que fazer |
+|---|---|
+| "Informe a justificativa para cancelar o orçamento" | Preencha **Justificativa**. |
+| "Somente orçamentos em status Aberto podem ser cancelados" | Se o orçamento está Aprovado, use **↩ Cancelar Aprovação** primeiro. |
+| "Não é possível reabrir: existem parcelas já recebidas para este pedido. Estorne o recebimento antes de continuar." | Peça ao financeiro o estorno do recebimento da parcela e tente de novo. |
+| "Não é possível reabrir: a O.S. #… vinculada já foi faturada. Estorne o faturamento antes de continuar." | Estorne o faturamento da O.S. e tente de novo. |
+| "Somente orçamentos Liberados podem ter a liberação cancelada" | O orçamento não está Liberado. Atualize a tela e confira o status. |
+| O botão **↩ Cancelar Liberação** não aparece | Falta a permissão **Orçamentos › Cancelar Liberação**. Peça ao administrador. |

@@ -45,7 +45,7 @@ varejo:
 decor:
   orcamentos:
     nome: Orçamentos
-    descricao: Elaborar, enviar e aprovar orçamentos.
+    descricao: Elaborar, enviar ao cliente, aprovar, liberar e faturar orçamentos.
     icone: file-text
   ordens-servico:
     nome: Ordens de serviço
