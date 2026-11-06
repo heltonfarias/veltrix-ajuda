@@ -1,0 +1,54 @@
+---
+id: one-pedidos-lancar-pedido
+titulo: Lançar um pedido de venda
+resumo: Crie o pedido com cliente, operação, condição de pagamento e itens, e deixe-o pronto para processar.
+tipo: procedimento
+produto: [one]
+modulo: pedidos
+atividade: lancamento
+features: [one.pedidos, one.pedidos.novo, one.pedidos.item]
+perfis: [vendedor]
+tags: [pedido, venda, itens, scanner]
+videos: []
+relacionados: [one-pedidos-processar-e-aprovar-pedido, one-pedidos-status-do-pedido, one-prevenda-agrupar-no-pedido]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 1
+---
+
+## Antes de começar
+
+- Permissão necessária: **Criar pedidos de venda**.
+- O cliente precisa estar cadastrado e ativo em **Comercial › Clientes**.
+- Os produtos precisam ter preço na tabela de preço que será usada no pedido.
+
+## Passo a passo
+
+1. Acesse **Comercial › Pedidos** e clique em **Novo Pedido**.
+2. Preencha o cabeçalho. Em cada campo de busca, digite parte do nome ou do código e escolha na lista:
+   - **Cliente**;
+   - **Operação**, que define se o pedido gera nota fiscal e financeiro;
+   - **Vendedor** e **Agente**;
+   - **Condição de Pagamento**. As **Parcelas** vêm da condição escolhida;
+   - **Tabela de Preço**.
+3. Se precisar, informe também **Transportadora**, **Tipo de Frete**, **Valor do Frete (R$)**, **Prev. Entrega** e **Ped. do Cliente**, que é o número do pedido no sistema do cliente.
+4. Clique em **Criar Pedido**. O pedido recebe um número e passa a aceitar itens.
+5. Lance os itens:
+   - clique em **Adicionar Item** e digite a referência do produto, ou pesquise por referência ou descrição; ou
+   - clique em **Modo Scanner** e leia as etiquetas com o leitor de código de barras. Cada leitura lança o item, ou soma uma unidade se o produto já estiver no pedido.
+6. Confira a quantidade e o desconto de cada linha. Se houver um desconto geral, informe-o em **Desconto (%)**.
+7. Confira o **Total Líquido** no painel lateral e clique em **Salvar**.
+
+## Resultado esperado
+
+O pedido fica com o status **Novo** e aparece na lista de **Comercial › Pedidos**. O próximo passo é [processar o pedido](/one/pedidos/processar-e-aprovar-pedido/).
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Código de barras não encontrado: …" | O código lido não está cadastrado em nenhum produto. Lance o item pela referência e peça a correção do cadastro do produto. |
+| O botão **Novo Pedido** não aparece | Falta a permissão **Criar pedidos de venda**. Peça ao administrador. |
+| O cliente não aparece na busca | Confira se o cliente está cadastrado e ativo. |

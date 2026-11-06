@@ -1,0 +1,45 @@
+---
+id: one-caixa-abrir-caixa
+titulo: Abrir o caixa
+resumo: Abra o seu caixa do período com o fundo de troco e libere o faturamento da loja.
+tipo: procedimento
+produto: [one]
+modulo: caixa
+atividade: abertura
+features: [one.caixa]
+perfis: [caixa]
+tags: [caixa, abertura, fundo-de-troco, periodo]
+videos: []
+relacionados: [one-caixa-como-funciona-o-caixa, one-caixa-fechar-caixa, one-caixa-erro-nao-ha-caixa-aberto]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 1
+---
+
+## Antes de começar
+
+- Permissão necessária: **Abrir, movimentar e fechar o próprio caixa**.
+- Conte o dinheiro que está na gaveta no início do turno. Esse valor é o fundo de troco.
+
+## Passo a passo
+
+1. Acesse **Comercial › Caixa**. Se você não tem caixa aberto, aparece o quadro **Abrir caixa**.
+2. Em **Fundo de troco (R$)**, informe o valor contado. Se a gaveta começar vazia, deixe em branco.
+3. Em **Período**, confira o turno: *1 — Manhã*, *2 — Tarde* ou *3 — Noite*. O sistema já sugere o período pela hora.
+4. Clique em **Abrir caixa** ou pressione **Enter**.
+
+## Resultado esperado
+
+- Aparece *"Caixa aberto"*, e a tela passa a mostrar o seu caixa com a situação **Aberto**.
+- Ficam disponíveis os botões **Receber duplicata**, **Suprimento**, **Sangria**, **Retirada** e **Fechar caixa**.
+- Na loja, o faturamento fica liberado para você.
+
+## Se algo der errado
+
+| Mensagem | O que fazer |
+|---|---|
+| "Já existe caixa aberto (… período …) — feche-o antes de abrir outro." | Você esqueceu um caixa aberto. Abra **Caixas anteriores**, selecione esse caixa e feche-o. Depois abra o novo. |
+| "O caixa de hoje no período … já foi aberto e fechado — escolha outro período ou peça a reabertura." | Escolha outro período, ou peça a quem tem a permissão **Reabrir caixa fechado** que reabra aquele caixa. |
+| "Fundo de troco inválido" | Informe só números, com vírgula nos centavos (ex.: `150,00`). |

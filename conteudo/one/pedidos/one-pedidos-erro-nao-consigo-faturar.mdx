@@ -1,0 +1,34 @@
+---
+id: one-pedidos-erro-nao-consigo-faturar
+titulo: Não consigo faturar o pedido
+tipo: solucao
+produto: [one]
+modulo: pedidos
+features: [one.pedidos.faturamento, one.pedidos.item]
+perfis: [faturista, caixa]
+tags: [faturamento, erro, separacao, ocorrencia, fiscal]
+relacionados: [one-pedidos-faturar-pedido, one-pedidos-faturar-pedido-loja, one-pedidos-status-do-pedido]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+status: publicado
+---
+
+## Sintoma
+
+O pedido não aparece em **Comercial › Faturamento**, o botão de confirmar fica desabilitado, ou aparece uma das mensagens abaixo.
+
+## Causa e solução
+
+| Mensagem | Por que acontece | Como resolver |
+|---|---|---|
+| "Pedido em status '…' não pode ser faturado — a separação da expedição precisa estar concluída (status Separado)." | O pedido ainda não foi separado. | Conclua a separação na **Expedição**. O pedido passa a Separado e aparece no Faturamento. |
+| "Pedido Aprovado só pode ser faturado sem separação quando todos os itens estão em operação que não submete estoque…" | Algum item usa uma operação que movimenta estoque. | Separe o pedido na **Expedição**. |
+| "Pedido Aprovado — marque o pedido como Separado antes de faturar." | Na loja, só pedido Separado fatura. | Clique em **Marcar como Separado** no pedido. |
+| "Pedido possui ocorrência(s) pendente(s) — remova-as antes de faturar." | Há uma ocorrência registrada no pedido. | Resolva e remova a ocorrência no pedido. |
+| "Pedido sem itens — não é possível faturar" | O pedido está vazio. | Lance os itens ou cancele o pedido. |
+| "Inconsistência fiscal — corrija antes de faturar" | Faltam ou estão errados dados fiscais do cliente, da operação ou dos produtos. | Corrija cada item da lista no cadastro indicado e fature de novo. |
+| "Não há caixa aberto para o operador — abra o caixa antes de continuar." | Na loja, faturar exige o seu caixa aberto. | Veja [Não há caixa aberto](/one/caixa/erro-nao-ha-caixa-aberto/). |
+
+## Quando acionar o suporte
+
+Acione o suporte se a nota for rejeitada pela SEFAZ ou se a mensagem não estiver nesta lista. Envie o número do pedido e uma captura da mensagem.

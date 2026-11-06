@@ -1,0 +1,59 @@
+---
+id: one-pedidos-faturar-pedido-loja
+titulo: Faturar um pedido na loja, recebendo no caixa
+resumo: Na empresa loja, marque o pedido como separado, confira a prévia e receba as parcelas à vista no seu caixa.
+tipo: procedimento
+produto: [one]
+modulo: pedidos
+atividade: faturamento
+features: [one.pedidos.faturamento, one.pedidos.item, one.caixa]
+perfis: [caixa, faturista]
+tags: [faturamento, loja, caixa, recebimento, troco]
+videos: []
+relacionados: [one-caixa-abrir-caixa, one-pedidos-faturar-pedido, one-caixa-erro-nao-ha-caixa-aberto]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 4
+---
+
+Este artigo vale para a empresa **marcada como loja**, em **Configurações › Empresa**. Na loja não há expedição, e todo faturamento passa pelo caixa do operador.
+
+## Antes de começar
+
+- Permissões:
+  - **Faturar pedidos aprovados/separados**;
+  - **Abrir, movimentar e fechar o próprio caixa**;
+  - **Editar e alterar status de pedidos**, para usar **Marcar como Separado**.
+- **Seu caixa precisa estar aberto.** Veja [Abrir o caixa](/one/caixa/abrir-caixa/).
+- Deve existir ao menos um tipo de recebimento cadastrado em **Comercial › Tipos de Recebimento**.
+
+## Passo a passo
+
+1. Abra o pedido **Aprovado** e, no quadro **Fluxo do Pedido**, clique em **Marcar como Separado**.
+2. Clique em **Faturar Pedido** no próprio pedido, ou em **Faturar** na tela **Comercial › Faturamento**. Abre a **Prévia do faturamento**.
+3. Confira a prévia:
+   - o aviso azul mostra em qual caixa os recebimentos vão entrar (data e período);
+   - **Cliente**, **Operação** (se gera NF-e ou NFC-e) e **Pagamento**;
+   - os itens e os totais (**Total bruto**, **Descontos**, **Frete**, **Total a faturar**).
+4. Na tabela **Parcelas**:
+   - as parcelas **à vista** já vêm com **Receber agora** marcado e não podem ser desmarcadas;
+   - para receber agora uma parcela a prazo, marque **Receber agora** na linha dela. Se deixar desmarcado, ela **Fica em aberto** para receber depois no Caixa.
+5. Para cada parcela recebida, escolha a **Forma de recebimento**. Se a forma aceita troco, informe o **Valor entregue** pelo cliente e o sistema mostra o **Troco**.
+6. Confira **Recebido no caixa agora** e clique em **Confirmar faturamento**.
+
+## Resultado esperado
+
+- O pedido passa a **Faturado**, e a nota é gerada e enviada para transmissão.
+- Cada parcela recebida vira um movimento **D — duplicata** no seu caixa, com a forma escolhida. Essa forma também vai para a nota.
+- As parcelas não recebidas ficam em aberto em Contas a Receber.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Não há caixa aberto para você — abra o caixa antes de faturar." | Clique em **Abrir caixa** no próprio aviso, abra o caixa e volte ao pedido. |
+| "Pedido Aprovado — marque o pedido como Separado antes de faturar." | Feche a prévia e clique em **Marcar como Separado** no pedido. |
+| "Nenhum tipo de recebimento cadastrado…" | Peça a quem tem a permissão de configurar o caixa para cadastrar os [tipos de recebimento](/one/caixa/cadastrar-tipos-de-recebimento/). |
+| "Informe a forma de recebimento da(s) parcela(s) à vista: …" | Escolha a forma de recebimento nas parcelas indicadas. |

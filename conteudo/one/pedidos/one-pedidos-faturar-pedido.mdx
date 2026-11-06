@@ -1,0 +1,50 @@
+---
+id: one-pedidos-faturar-pedido
+titulo: Faturar um pedido
+resumo: Emita a nota fiscal e gere as duplicatas de um pedido separado, pela tela de Faturamento.
+tipo: procedimento
+produto: [one]
+modulo: pedidos
+atividade: faturamento
+features: [one.pedidos.faturamento, one.pedidos.item]
+perfis: [faturista]
+tags: [faturamento, nfe, nota-fiscal, duplicatas]
+videos: []
+relacionados: [one-pedidos-faturar-pedido-loja, one-pedidos-erro-nao-consigo-faturar, one-pedidos-status-do-pedido]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 3
+---
+
+Este artigo vale para empresas **que não são loja**. Na loja, o faturamento recebe as parcelas no caixa: veja [Faturar um pedido na loja](/one/pedidos/faturar-pedido-loja/).
+
+## Antes de começar
+
+- Permissão necessária: **Faturar pedidos aprovados/separados**.
+- O pedido precisa estar **Separado**. Se a operação não submete estoque, basta estar **Aprovado**.
+- O pedido não pode ter ocorrência pendente.
+
+## Passo a passo
+
+1. Acesse **Comercial › Faturamento**. A tela lista os pedidos prontos para faturar, com os totais **Pedidos para faturar** e **Total geral**.
+2. Para achar o pedido, use os filtros **Nº do pedido…**, **Cliente (nome ou código)…** ou **Vendedor…**.
+3. Na linha do pedido, clique em **Faturar**.
+4. Em **Número da NF (opcional)**, deixe em branco para o sistema numerar a nota.
+5. Aguarde a verificação dos dados fiscais:
+   - se aparecer *"Inconsistência fiscal — corrija antes de faturar"*, corrija os itens listados (por exemplo, NCM ou tributação do produto) e volte a faturar;
+   - os avisos em *"Atenção"* não bloqueiam o faturamento, mas merecem leitura.
+6. Clique em **Confirmar Faturamento** e acompanhe as etapas na barra de progresso.
+
+Também dá para faturar de dentro do pedido, pelo botão **Faturar Pedido** do quadro **Fluxo do Pedido**.
+
+## Resultado esperado
+
+- O pedido passa a **Faturado** e não pode mais ser alterado.
+- A nota é gerada conforme a operação: NF-e (modelo 55) ou NFC-e (modelo 65). Operação sem nota fiscal eletrônica não gera nota.
+- As duplicatas são criadas em Contas a Receber, conforme a condição de pagamento. Isso não acontece se a operação não gera financeiro.
+
+## Se algo der errado
+
+Veja [Não consigo faturar o pedido](/one/pedidos/erro-nao-consigo-faturar/).

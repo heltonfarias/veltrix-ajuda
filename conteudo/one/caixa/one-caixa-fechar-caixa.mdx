@@ -1,0 +1,58 @@
+---
+id: one-caixa-fechar-caixa
+titulo: Fechar o caixa
+resumo: Confira o resumo do turno por forma de recebimento e feche o seu caixa.
+tipo: procedimento
+produto: [one]
+modulo: caixa
+atividade: fechamento
+features: [one.caixa]
+perfis: [caixa, gestor]
+tags: [caixa, fechamento, conferencia, reabrir]
+videos: []
+relacionados: [one-caixa-abrir-caixa, one-caixa-sangria-suprimento-retirada]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 4
+---
+
+## Antes de começar
+
+- Permissão necessária: **Abrir, movimentar e fechar o próprio caixa**.
+- Lance antes todas as sangrias, suprimentos e retiradas do turno.
+- Conte o dinheiro da gaveta.
+
+## Passo a passo
+
+1. Em **Comercial › Caixa**, clique em **Fechar caixa**.
+2. Confira o resumo do caixa:
+   - **Fundo de troco**;
+   - **Recebimentos de duplicatas**, **Suprimentos**, **Sangrias** e **Retiradas**, cada um com a quantidade entre parênteses;
+   - a tabela **Por forma**, com o **Recebido** e o **Saldo no caixa** de cada forma de recebimento;
+   - **Dinheiro esperado na gaveta (fundo + saldo em dinheiro)**.
+3. Compare o **Dinheiro esperado na gaveta** com o que você contou. Se não bater, revise os movimentos antes de fechar, porque um suprimento ou uma sangria podem ter ficado sem lançamento.
+4. Clique em **Confirmar fechamento**.
+
+## Resultado esperado
+
+- Aparece *"Caixa fechado"*, e a situação passa a **Fechado**.
+- Na loja, você só volta a faturar depois de abrir um novo caixa.
+- O caixa fechado pode ser consultado em **Caixas anteriores**.
+
+## Reabrir um caixa fechado
+
+Quem tem a permissão **Reabrir caixa fechado** pode reabrir:
+
+1. Em **Caixas anteriores**, filtre por data e, se puder ver todos, por **Operador**.
+2. Clique no caixa e depois em **Reabrir**.
+
+O operador não pode ter outro caixa aberto nesse momento.
+
+## Se algo der errado
+
+| Mensagem | O que fazer |
+|---|---|
+| "O caixa já está fechado" | O caixa foi fechado em outra tela ou por outra pessoa. Atualize a página. |
+| "O operador já tem outro caixa aberto (…) — feche-o antes de reabrir este." | Feche o caixa aberto antes de reabrir o antigo. |

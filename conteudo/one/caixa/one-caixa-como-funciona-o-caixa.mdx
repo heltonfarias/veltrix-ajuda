@@ -1,0 +1,55 @@
+---
+id: one-caixa-como-funciona-o-caixa
+titulo: Como funciona o caixa da loja
+resumo: Um caixa por operador e por período, com fundo de troco, recebimentos, sangria, suprimento e retirada.
+tipo: conceito
+produto: [one]
+modulo: caixa
+atividade: entender
+features: [one.caixa]
+perfis: [caixa, gestor]
+tags: [caixa, loja, periodo, fundo-de-troco]
+relacionados: [one-caixa-abrir-caixa, one-caixa-fechar-caixa, one-pedidos-faturar-pedido-loja]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 1
+---
+
+## O que é
+
+O **Caixa**, em **Comercial › Caixa**, registra o dinheiro e os demais recebimentos que passam pelo balcão. Cada operador tem o **próprio caixa**, aberto por **data** e **período**:
+
+| Período | Nome |
+|---|---|
+| 1 | Manhã |
+| 2 | Tarde |
+| 3 | Noite |
+
+Um operador só pode ter um caixa aberto por vez.
+
+## Movimentos do caixa
+
+| Tipo | Nome | Efeito no saldo |
+|---|---|---|
+| **D** | Recebimento de duplicata, no faturamento ou pelo botão **Receber duplicata** | Entra |
+| **P** | Suprimento: dinheiro colocado na gaveta, como troco extra | Entra |
+| **S** | Sangria: dinheiro tirado da gaveta para o cofre ou o banco | Sai |
+| **R** | Retirada: saída para pagamento ou outra finalidade | Sai |
+
+No topo da tela ficam os totais: **Fundo de troco**, **Recebimentos**, **Suprimentos**, **Sangrias**, **Retiradas** e **Em dinheiro**.
+
+## Por que existe
+
+Na loja, a mercadoria é paga no balcão. O caixa liga cada recebimento ao operador e ao período, e mostra no fechamento quanto dinheiro deveria estar na gaveta.
+
+## Como afeta o seu trabalho
+
+- **Empresa marcada como loja** (*Configurações › Empresa*): o faturamento **só é liberado com o caixa aberto**, e as parcelas à vista são recebidas no ato. Veja [Faturar um pedido na loja](/one/pedidos/faturar-pedido-loja/).
+- **Empresa que não é loja:** o caixa funciona, mas o faturamento não exige caixa aberto. A própria tela avisa isso.
+- **Permissões:**
+  - **Abrir, movimentar e fechar o próprio caixa** (`caixa:operar`);
+  - **Consultar e operar o caixa de outros operadores**;
+  - **Reabrir caixa fechado**;
+  - **Cadastrar tipos de recebimento do caixa**.
