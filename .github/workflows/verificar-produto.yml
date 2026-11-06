@@ -2,7 +2,7 @@
 # (veltrixone, veltrix, innoair) em .github/workflows/ajuda.yml.
 #
 # Em PR:   confere o manifesto, comenta o impacto na ajuda e verifica o trailer "Ajuda:".
-# Em main: copia o manifesto atualizado para o veltrix-ajuda (PR automático).
+# No branch principal: copia o manifesto atualizado para o veltrix-ajuda (PR automático).
 name: verificar-produto
 
 on:
@@ -34,7 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TEM_APP: ${{ secrets.AJUDA_APP_PRIVATE_KEY != '' }}
-      PUBLICAR: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      # Branch principal de cada produto (main no One, master no Varejo e no Decor).
+      PUBLICAR: ${{ github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
     steps:
       - name: Checkout do produto
         uses: actions/checkout@v4
