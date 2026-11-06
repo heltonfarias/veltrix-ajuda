@@ -1,0 +1,48 @@
+---
+id: one-caixa-cadastrar-tipos-de-recebimento
+titulo: Cadastrar os tipos de recebimento do caixa
+resumo: Defina as formas aceitas no caixa (dinheiro, cartão, PIX…), qual aceita troco e como cada uma sai na nota.
+tipo: procedimento
+produto: [one]
+modulo: caixa
+atividade: configuracao
+features: [one.caixa.tipos-recebimento]
+perfis: [administrador, gestor]
+tags: [caixa, configuracao, forma-de-pagamento, tpag, troco]
+videos: []
+relacionados: [one-caixa-como-funciona-o-caixa, one-pedidos-faturar-pedido-loja]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 5
+---
+
+## Antes de começar
+
+- Permissão necessária: **Cadastrar tipos de recebimento do caixa**.
+- Defina com o contador qual forma de pagamento da NF-e corresponde a cada tipo, como Dinheiro, Cartão de Crédito, Cartão de Débito ou PIX.
+
+## Passo a passo
+
+1. Acesse **Comercial › Tipos de Recebimento** e clique em **Novo tipo**.
+2. Preencha:
+   - **Código (2 caracteres)**, como `01`, `CC` ou `PX`. Depois de salvo, o código não pode ser alterado;
+   - **Descrição**, como `DINHEIRO` ou `CARTAO CREDITO`;
+   - **Forma de pagamento (tPag da NF-e)**, a forma que vai para a nota da parcela recebida. Só aparecem as formas aceitas pela SEFAZ;
+   - **Agente de cobrança (código, opcional)**, para ligar o tipo a um agente do pedido. Esse tipo passa a ser sugerido no recebimento dos pedidos daquele agente.
+3. Marque **Aceita troco** só nas formas em dinheiro. Com ela marcada, o faturamento pede o **Valor entregue** e calcula o troco.
+4. Clique em **Salvar**.
+
+## Resultado esperado
+
+- Aparece *"Tipo de recebimento salvo"*.
+- O tipo passa a aparecer em **Forma de recebimento** no faturamento da loja e no botão **Receber duplicata**, além do campo **Forma** dos movimentos do caixa.
+
+## Se algo der errado
+
+| Mensagem | O que fazer |
+|---|---|
+| "Tipo de recebimento … já cadastrado" | Use outro código, ou edite o tipo existente. |
+| "Forma de pagamento … não é aceita pela SEFAZ" | Escolha outra forma na lista. |
+| "Tipo de recebimento já usado em lançamentos de caixa — não pode ser excluído" | O tipo já tem histórico. Em vez de excluir, altere a descrição, por exemplo para `NAO USAR`. |

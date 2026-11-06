@@ -1,0 +1,39 @@
+---
+id: one-caixa-erro-nao-ha-caixa-aberto
+titulo: "Não há caixa aberto para o operador"
+tipo: solucao
+produto: [one]
+modulo: caixa
+features: [one.caixa, one.pedidos.faturamento]
+perfis: [caixa, faturista]
+tags: [caixa, erro, faturamento, loja]
+relacionados: [one-caixa-abrir-caixa, one-pedidos-faturar-pedido-loja]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+status: publicado
+---
+
+## Sintoma
+
+Ao faturar um pedido ou receber uma duplicata, aparece uma destas mensagens:
+
+- *"Não há caixa aberto para o operador — abra o caixa antes de continuar."*
+- *"Não há caixa aberto para você — abra o caixa antes de faturar."*, na prévia do faturamento.
+
+## Causa
+
+A empresa está marcada como **loja**, e na loja todo faturamento e recebimento entra no caixa **de quem está operando**. O sistema não encontrou um caixa aberto no seu usuário. Isso acontece quando:
+
+- o caixa ainda não foi aberto no turno;
+- o caixa foi fechado;
+- o caixa aberto é de **outro operador**. Cada usuário tem o próprio caixa.
+
+## Como resolver
+
+1. Clique em **Abrir caixa**, no próprio aviso da prévia, ou acesse **Comercial › Caixa**.
+2. Informe o **Fundo de troco (R$)** e o **Período** e clique em **Abrir caixa**.
+3. Volte ao pedido e fature de novo.
+
+## Quando acionar o suporte
+
+Acione o suporte se a mensagem continuar com o caixa aberto no seu usuário. Envie o número do pedido e uma captura da tela do Caixa.

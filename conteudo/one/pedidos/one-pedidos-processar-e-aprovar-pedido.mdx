@@ -1,0 +1,57 @@
+---
+id: one-pedidos-processar-e-aprovar-pedido
+titulo: Processar e aprovar um pedido
+resumo: Envie o pedido para a checagem de crédito e, se ele cair em análise, aprove ou reprove como supervisor.
+tipo: procedimento
+produto: [one]
+modulo: pedidos
+atividade: aprovacao
+features: [one.pedidos.item]
+perfis: [vendedor, gestor]
+tags: [pedido, aprovacao, credito, analise]
+videos: []
+relacionados: [one-pedidos-status-do-pedido, one-pedidos-lancar-pedido, one-pedidos-faturar-pedido]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 2
+---
+
+## Antes de começar
+
+- Para processar: permissão **Editar e alterar status de pedidos**.
+- Para aprovar ou reprovar: permissão **Aprovar pedidos em análise (autorização)**.
+- O pedido precisa estar salvo e ter itens.
+
+## Passo a passo
+
+### Processar (vendedor)
+
+1. Abra o pedido em **Comercial › Pedidos**.
+2. No quadro **Fluxo do Pedido**, clique em **Processar Pedido**. As alterações pendentes são salvas antes.
+3. Veja o resultado:
+   - *"Pedido … processado."*: o pedido passou a **Aprovado** e já pode ser separado;
+   - *"Pedido … enviado para análise."*: o pedido passou a **Em Análise**, e o quadro *Em Análise* lista os motivos, como *Limite insuficiente*, *duplicata(s) vencida(s)* ou *Cliente inativo ou bloqueado*.
+
+### Aprovar ou reprovar (supervisor)
+
+1. Abra o pedido que está **Em Análise** e leia os motivos no quadro *Em Análise*.
+2. Escolha uma opção:
+   - clique em **Aprovar** para liberar o pedido;
+   - clique em **Reprovar** e informe o **Motivo**.
+
+Enquanto ninguém com alçada decide, quem não pode aprovar vê o aviso *"Aguardando aprovação de supervisor"*.
+
+## Resultado esperado
+
+- **Aprovado:** o pedido segue para a separação na **Expedição**. Na loja, segue para **Marcar como Separado**.
+- **Reprovado:** o vendedor corrige o pedido, por exemplo trocando a condição de pagamento, e processa de novo.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Limite insuficiente (disponível …, pedido …)" | O pedido ultrapassa o limite de crédito do cliente. O supervisor decide se aprova mesmo assim, ou o vendedor ajusta a condição de pagamento. |
+| "… duplicata(s) vencida(s)" | O cliente tem títulos em atraso. Confirme com o financeiro antes de aprovar. |
+| O botão **Aprovar** não aparece | Falta a permissão **Aprovar pedidos em análise (autorização)**. |

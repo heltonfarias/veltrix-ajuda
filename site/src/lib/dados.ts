@@ -34,8 +34,17 @@ const TIPO_ROTULO: Record<string, string> = {
 };
 export const rotuloTipo = (t: string) => TIPO_ROTULO[t] ?? t;
 
+// Slugs não têm acento ("movimentacao"); devolve a grafia de exibição.
+const PALAVRAS: Record<string, string> = {
+  lancamento: 'lançamento', lancamentos: 'lançamentos', relatorio: 'relatório', relatorios: 'relatórios',
+  pre: 'pré', previa: 'prévia', servico: 'serviço', servicos: 'serviços',
+  orcamento: 'orçamento', orcamentos: 'orçamentos', area: 'área',
+};
+const acentuar = (p: string) => PALAVRAS[p]
+  ?? p.replace(/coes$/, 'ções').replace(/cao$/, 'ção').replace(/soes$/, 'sões').replace(/sao$/, 'são');
+
 export const tituloSlug = (s: string) => {
-  const t = s.replace(/-/g, ' ');
+  const t = s.split('-').map(acentuar).join(' ');
   return t.charAt(0).toUpperCase() + t.slice(1);
 };
 

@@ -1,0 +1,47 @@
+---
+id: one-caixa-receber-duplicata
+titulo: Receber uma duplicata no caixa
+resumo: Receba no balcão uma parcela em aberto de um pedido já faturado.
+tipo: procedimento
+produto: [one]
+modulo: caixa
+atividade: recebimento
+features: [one.caixa]
+perfis: [caixa]
+tags: [caixa, recebimento, duplicata, parcela, crediario]
+videos: []
+relacionados: [one-caixa-abrir-caixa, one-pedidos-faturar-pedido-loja, one-caixa-cadastrar-tipos-de-recebimento]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 2
+---
+
+## Antes de começar
+
+- Permissão necessária: **Abrir, movimentar e fechar o próprio caixa**.
+- Seu caixa precisa estar **aberto**.
+- Use este caminho para parcelas que **ficaram em aberto** no faturamento, como uma parcela a prazo que o cliente veio pagar. As parcelas à vista já são recebidas no próprio faturamento.
+
+## Passo a passo
+
+1. Em **Comercial › Caixa**, clique em **Receber duplicata**.
+2. Digite o **número do pedido**, o **código** ou o **nome do cliente**, com pelo menos 2 caracteres, e pressione **Enter** ou clique em **Buscar**.
+3. Na lista, clique na parcela que o cliente está pagando. Cada linha mostra **Pedido/parcela**, **Cliente**, **Vencimento** e **Valor**.
+4. Confira a **Forma de recebimento**, que vem sugerida pelo agente do pedido, e o **Valor recebido (R$)**, que vem preenchido com o valor em aberto.
+5. Se quiser, preencha a **Observação** e clique em **Receber**.
+
+## Resultado esperado
+
+- Aparece *"Duplicata … recebida"*, e o recebimento entra na lista de movimentos do caixa como **D**.
+- A parcela é baixada em Contas a Receber.
+
+## Se algo der errado
+
+| Mensagem | O que fazer |
+|---|---|
+| "Nenhuma parcela em aberto encontrada." | Confira o número do pedido ou o cliente. A parcela pode já ter sido paga. |
+| "Duplicata …/… já está paga" | A parcela já foi recebida. Consulte os movimentos do caixa ou o Contas a Receber. |
+| "Não há caixa aberto para o operador — abra o caixa antes de continuar." | [Abra o caixa](/one/caixa/abrir-caixa/) e tente de novo. |
+| "Valor recebido deve ser maior que zero" | Informe o valor recebido. |

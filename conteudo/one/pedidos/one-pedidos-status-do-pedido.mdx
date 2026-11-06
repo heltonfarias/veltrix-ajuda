@@ -1,0 +1,49 @@
+---
+id: one-pedidos-status-do-pedido
+titulo: Status do pedido de venda
+resumo: O caminho do pedido, de Novo até Faturado, e o que cada status libera ou bloqueia.
+tipo: conceito
+produto: [one]
+modulo: pedidos
+atividade: entender
+features: [one.pedidos, one.pedidos.item]
+perfis: [vendedor, faturista, gestor]
+tags: [status, fluxo, aprovacao, separacao]
+relacionados: [one-pedidos-lancar-pedido, one-pedidos-processar-e-aprovar-pedido, one-pedidos-faturar-pedido]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 1
+---
+
+## O que é
+
+Todo pedido de venda passa por uma sequência de status. O status aparece em destaque no pedido e na lista de **Comercial › Pedidos**, e define o que ainda pode ser feito com ele.
+
+| Status | O que significa | O que dá para fazer |
+|---|---|---|
+| **Novo** | Pedido criado e ainda não processado. | Alterar itens e condições, **Processar Pedido**, **Cancelar Pedido**. |
+| **Aberto** | Pedido em digitação. | O mesmo que Novo. É também o status em que se agrupam pré-vendas. |
+| **Em Análise** | O processamento encontrou alguma pendência, como limite de crédito ou duplicata vencida. | Um supervisor pode **Aprovar** ou **Reprovar**. |
+| **Reprovado** | O supervisor recusou o pedido. | Corrigir e **Processar Pedido** de novo. |
+| **Pendente** | Marcado manualmente, com um motivo, enquanto falta algo para seguir. | **Processar Pedido** quando a pendência for resolvida. |
+| **Aprovado** | Liberado para separar. | Separar na **Expedição** ou, na loja, **Marcar como Separado**. |
+| **Separado** | Mercadoria separada e conferida. | **Faturar Pedido**. |
+| **Faturado** | Nota emitida e duplicatas geradas. | Consultar e imprimir. Só volta atrás com **Cancelar Faturamento**. |
+
+## Por que existe
+
+A sequência garante que um pedido só seja faturado depois de três etapas: a checagem de crédito do cliente, a aprovação de quem tem alçada e a separação física da mercadoria. Por isso o sistema bloqueia, por exemplo, faturar um pedido que ainda está Aprovado mas não foi separado.
+
+## Como afeta o seu trabalho
+
+- **Vendedor:** cria o pedido e clica em **Processar Pedido**. Se ele cair em **Em Análise**, o quadro *Em Análise* do pedido mostra o motivo.
+- **Supervisor:** aprova ou reprova os pedidos em análise. Para isso, precisa da permissão **Aprovar pedidos em análise (autorização)**.
+- **Expedição:** separa os pedidos Aprovados. Ao concluir a separação, o pedido passa a **Separado**.
+- **Faturista:** fatura os pedidos Separados em **Comercial › Faturamento**.
+
+Há duas exceções:
+
+- **Empresa marcada como loja:** não há expedição. O próprio operador clica em **Marcar como Separado** no pedido aprovado e fatura em seguida, com o caixa aberto.
+- **Operação que não submete estoque:** o pedido Aprovado pode ser faturado sem separação. O pedido avisa com a mensagem *"Operação não submete estoque — pode faturar sem separação na expedição."*

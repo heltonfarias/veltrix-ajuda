@@ -1,0 +1,56 @@
+---
+id: one-prevenda-agrupar-no-pedido
+titulo: Agrupar pré-vendas no pedido
+resumo: Junte as pré-vendas aprovadas do cliente num pedido de venda, lendo o código de barras de cada uma.
+tipo: procedimento
+produto: [one]
+modulo: prevenda
+atividade: agrupamento
+features: [one.pedidos.item, one.comercial.pre-vendas]
+perfis: [vendedor, faturista]
+tags: [pre-venda, pedido, agrupar, desagrupar, codigo-de-barras]
+videos: []
+relacionados: [one-prevenda-o-que-e-pre-venda, one-prevenda-consultar-pendentes-por-cliente, one-pedidos-lancar-pedido]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 3
+---
+
+## Antes de começar
+
+- Permissão necessária: **Agrupar/desagrupar pré-vendas aprovadas no pedido**.
+- O pedido precisa ser do **mesmo cliente**, estar salvo e com o status **Novo** ou **Aberto**.
+- Só pré-vendas **aprovadas** podem ser agrupadas.
+
+## Passo a passo
+
+1. Abra o pedido do cliente em **Comercial › Pedidos**, ou crie um com **Novo Pedido**.
+2. Na barra dos itens, clique em **Pré-vendas**. As alterações do pedido são salvas antes de abrir.
+3. Na aba **Disponíveis para agrupar**, selecione as pré-vendas:
+   - **leia o código de barras** da pré-venda impressa, ou digite o número no campo do topo e clique em **Selecionar**. A mensagem confirma, por exemplo *"Nº … selecionada · … peça(s) · R$ …"*;
+   - ou marque os cartões da lista. **Selecionar todas** marca todos.
+4. Para conferir os itens de uma pré-venda antes de agrupar, clique na seta do cartão.
+5. Se a pré-venda não estiver na lista, amplie o período (**Mês atual e anterior**, **90 dias**, **12 meses** ou as datas). Se aparecer o aviso de pré-vendas *fora do período*, clique em **Mostrar todas**.
+6. Confira o rodapé, que mostra quantas foram selecionadas, os itens, as peças e o valor, e clique em **Agrupar no pedido**.
+
+## Resultado esperado
+
+- Aparece *"… pré-venda(s) agrupada(s): … item(ns) novo(s), … somado(s)"*.
+- Os itens entram no pedido. Produto com o mesmo preço e desconto é **somado** na linha que já existe.
+- O estoque **não** é baixado de novo. A baixa foi feita na pré-venda, e o faturamento do pedido desconta essas quantidades.
+- As pré-vendas passam para a aba **Agrupadas neste pedido**.
+
+## Desagrupar
+
+Na aba **Agrupadas neste pedido**, marque as pré-vendas, clique em **Desagrupar** e confirme. Os itens delas saem do pedido, e elas voltam a **Aprovadas sem pedido**.
+
+## Se algo der errado
+
+| Mensagem | O que fazer |
+|---|---|
+| "Nº … ainda está Aberta. Só pré-vendas aprovadas podem ser agrupadas." | Clique em **Aprovar e selecionar**, se tiver a permissão, ou peça a aprovação. |
+| "Nº … é de outro cliente: …" | A pré-venda pertence a outro cliente e não pode entrar neste pedido. |
+| "Nº … já foi agrupada no pedido …" | Ela já está em outro pedido. Desagrupe lá, se for o caso. |
+| "Só é possível agrupar/desagrupar pré-vendas em pedido Novo ou Aberto." | O pedido já foi processado. Use **Reabrir** no pedido ou agrupe num pedido novo. |

@@ -1,0 +1,43 @@
+---
+id: one-prevenda-o-que-e-pre-venda
+titulo: O que é a pré-venda e como ela chega ao pedido
+resumo: A mercadoria sai no ato com a pré-venda, e várias pré-vendas aprovadas são agrupadas depois num pedido para faturar.
+tipo: conceito
+produto: [one]
+modulo: prevenda
+atividade: entender
+features: [one.comercial.pre-vendas]
+perfis: [vendedor, faturista, gestor]
+tags: [pre-venda, estoque, agrupamento, balcao]
+relacionados: [one-prevenda-lancar-pre-venda-com-leitor, one-prevenda-aprovar-reabrir-excluir, one-prevenda-agrupar-no-pedido]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 1
+---
+
+## O que é
+
+A **pré-venda** registra a mercadoria que o cliente **leva na hora**, com a assinatura dele, antes de existir o pedido de venda. Mais tarde, as pré-vendas do cliente são **agrupadas num pedido**, que é faturado normalmente.
+
+## O ciclo da pré-venda
+
+| Status | O que significa | O que dá para fazer |
+|---|---|---|
+| **Aberta** | Em digitação. | Alterar, **Excluir** ou **Aprovar**. |
+| **Aprovada** | Conferida e pronta para ir ao pedido. | **Agrupar no pedido** ou **Reabrir**. |
+| **Agrupada** | Já vinculada a um pedido. | Só consultar. Para alterar, desagrupe no pedido. |
+
+Na lista de **Comercial › Pré-vendas**, os quadros **Todas**, **Abertas**, **Aprovadas sem pedido** e **Agrupadas** filtram cada situação.
+
+## Por que existe
+
+No atacado e no balcão, o cliente costuma retirar mercadoria várias vezes ao longo do mês e receber uma nota só. A pré-venda controla essas retiradas uma a uma e junta tudo num pedido no fechamento.
+
+## Como afeta o seu trabalho
+
+- **Estoque:** a baixa acontece **ao salvar a pré-venda**, porque a mercadoria já saiu. Excluir uma pré-venda aberta **estorna** o estoque.
+- **Pedido:** agrupar não movimenta estoque. Os itens das pré-vendas são somados no pedido, por produto, preço e desconto.
+- **Faturamento:** ao faturar o pedido, o sistema **desconta as quantidades que vieram de pré-venda**, para o estoque não ser baixado duas vezes.
+- **Impressão:** a pré-venda impressa traz o código de barras do número, que pode ser lido na hora de agrupar.

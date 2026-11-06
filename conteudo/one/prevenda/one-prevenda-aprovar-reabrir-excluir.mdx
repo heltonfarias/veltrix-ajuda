@@ -1,0 +1,59 @@
+---
+id: one-prevenda-aprovar-reabrir-excluir
+titulo: Aprovar, reabrir ou excluir uma pré-venda
+resumo: Libere as pré-vendas para o pedido, uma a uma ou em lote, e corrija as que precisarem de ajuste.
+tipo: procedimento
+produto: [one]
+modulo: prevenda
+atividade: aprovacao
+features: [one.comercial.pre-vendas, one.comercial.pre-vendas.item]
+perfis: [vendedor, gestor]
+tags: [pre-venda, aprovacao, reabrir, excluir, estoque]
+videos: []
+relacionados: [one-prevenda-o-que-e-pre-venda, one-prevenda-agrupar-no-pedido]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 2
+---
+
+## Antes de começar
+
+- Para aprovar ou reabrir: permissão **Aprovar e reabrir pré-vendas**.
+- Para excluir: permissão **Alterar e excluir pré-vendas abertas**.
+
+## Aprovar
+
+**Várias de uma vez:**
+
+1. Em **Comercial › Pré-vendas**, clique no quadro **Abertas**.
+2. Marque as pré-vendas. A caixa do cabeçalho marca todas.
+3. Clique em **Aprovar selecionadas**.
+
+**Uma só:**
+- clique no ícone de aprovar na linha da lista; ou
+- abra a pré-venda e clique em **Aprovar**. Se ela tiver alterações não salvas, o botão se chama **Salvar e aprovar**.
+
+Depois de aprovada, a pré-venda fica **somente leitura** e aparece no quadro **Aprovadas sem pedido**.
+
+## Reabrir
+
+Para corrigir uma pré-venda aprovada que ainda não foi agrupada, abra a pré-venda e clique em **Reabrir**. Ela volta a **Aberta**, e você pode alterar e aprovar de novo.
+
+Se ela já estiver agrupada num pedido, desagrupe antes, no próprio pedido. Veja [Agrupar pré-vendas no pedido](/one/prevenda/agrupar-no-pedido/).
+
+## Excluir
+
+1. Abra a pré-venda. Ela precisa estar **Aberta**; se estiver aprovada, reabra antes.
+2. Clique em **Excluir** e confirme.
+
+Aparece *"Pré-venda excluída — estoque estornado"*, e as quantidades voltam para o estoque.
+
+## Se algo der errado
+
+| Mensagem | O que fazer |
+|---|---|
+| "Pré-venda sem itens não pode ser aprovada" | Lance ao menos um item ou exclua a pré-venda. |
+| "Só é possível alterar pré-venda Aberta — reabra antes." | Clique em **Reabrir** e altere. |
+| "Pré-venda já agrupada no pedido … — desagrupe antes de …" | Abra o pedido indicado, clique em **Pré-vendas** › **Agrupadas neste pedido** e desagrupe. |
