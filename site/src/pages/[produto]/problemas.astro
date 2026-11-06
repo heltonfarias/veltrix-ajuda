@@ -1,0 +1,10 @@
+---
+import PaginaLista from '../../components/PaginaLista.astro';
+import { produtos, produto } from '../../lib/dados';
+export function getStaticPaths() { return produtos().map(p => ({ params: { produto: p.slug } })); }
+const p = produto(Astro.params.produto!);
+---
+<PaginaLista p={p} titulo="Problemas frequentes" iconeNome="wrench"
+  descricao="Mensagens de erro e situações comuns, com a causa e o que fazer."
+  artigos={p.artigos.filter(a => a.fm.tipo === 'solucao')}
+  vazio="Ainda não há soluções publicadas. Use a busca ou fale com o suporte." />

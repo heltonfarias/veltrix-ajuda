@@ -1,0 +1,69 @@
+---
+// Busca com Pagefind (índice estático gerado no build). Filtra pelo produto atual.
+interface Props { produto: string; grande?: boolean; inicial?: string }
+const { produto, grande = false, inicial = '' } = Astro.props;
+---
+<form class="busca relative" action={`/${produto}/busca/`} method="get" role="search" data-produto={produto}>
+  <label class="sr-only" for={`busca-${grande ? 'g' : 'p'}`}>Buscar na ajuda</label>
+  <svg class:list={['pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400', grande ? 'size-5' : 'size-4']} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+  <input
+    id={`busca-${grande ? 'g' : 'p'}`}
+    name="q"
+    type="search"
+    value={inicial}
+    autocomplete="off"
+    placeholder={grande ? 'Descreva o que você quer fazer — ex.: faturar pedido, abrir caixa' : 'Buscar na ajuda…'}
+    class:list={[
+      'w-full rounded-md border border-slate-300 bg-white text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent',
+      grande ? 'pl-11 pr-4 py-3.5 text-base shadow-sm' : 'pl-9 pr-3 py-2 text-sm',
+    ]}
+  />
+  <div class="resultados hidden absolute left-0 right-0 mt-2 bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden z-40" role="listbox"></div>
+</form>
+
+<script>
+  type Resultado = { url: string; meta: { title?: string; tipo?: string; modulo?: string }; excerpt: string };
+  type Pagefind = {
+    search: (q: string, o?: object) => Promise<{ results: { data: () => Promise<Resultado> }[] } | null>;
+    debouncedSearch: (q: string, o?: object, ms?: number) => Promise<{ results: { data: () => Promise<Resultado> }[] } | null>;
+  };
+  let pf: Pagefind | null | undefined;
+  async function carregar(): Promise<Pagefind | null> {
+    if (pf !== undefined) return pf;
+    try {
+      const caminho = '/pagefind/pagefind.js';
+      pf = (await import(/* @vite-ignore */ caminho)) as Pagefind;
+    } catch {
+      pf = null; // em `astro dev` não há índice — só após `npm run build`
+    }
+    return pf;
+  }
+  const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('form.busca')) {
+    const input = form.querySelector('input')!;
+    const caixa = form.querySelector<HTMLDivElement>('.resultados')!;
+    const produto = form.dataset.produto!;
+    // A página de busca mostra os resultados no corpo; não abre a lista suspensa.
+    if (document.getElementById('pagina-busca')) continue;
+
+    input.addEventListener('input', async () => {
+      const q = input.value.trim();
+      if (q.length < 2) { caixa.classList.add('hidden'); return; }
+      const p = await carregar();
+      if (!p) { caixa.innerHTML = '<p class="px-4 py-3 text-sm text-slate-500">Busca disponível após o build do site.</p>'; caixa.classList.remove('hidden'); return; }
+      const r = await p.debouncedSearch(q, { filters: { produto } }, 200);
+      if (!r || input.value.trim() !== q) return;
+      const itens = await Promise.all(r.results.slice(0, 6).map(x => x.data()));
+      caixa.innerHTML = itens.length
+        ? itens.map(i => `<a href="${i.url}" class="block px-4 py-3 hover:bg-slate-50 border-b border-slate-100 last:border-0">
+              <span class="block text-sm font-medium text-slate-900">${esc(i.meta.title ?? '')}</span>
+              <span class="block text-xs text-slate-500 mt-0.5 line-clamp-2">${i.excerpt}</span></a>`).join('')
+          + `<a href="/${produto}/busca/?q=${encodeURIComponent(q)}" class="block px-4 py-2.5 text-xs font-medium text-primary-600 bg-slate-50 hover:bg-slate-100">Ver todos os resultados</a>`
+        : `<p class="px-4 py-3 text-sm text-slate-500">Nada encontrado para “${esc(q)}”. Tente outras palavras.</p>`;
+      caixa.classList.remove('hidden');
+    });
+    input.addEventListener('keydown', e => { if (e.key === 'Escape') caixa.classList.add('hidden'); });
+    document.addEventListener('click', e => { if (!form.contains(e.target as Node)) caixa.classList.add('hidden'); });
+  }
+</script>

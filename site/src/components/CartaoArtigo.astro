@@ -1,0 +1,25 @@
+---
+import { rotuloTipo, urlArtigo, type Artigo } from '../lib/dados';
+import { icone } from '../lib/icone';
+
+interface Props { artigo: Artigo; produto: string; compacto?: boolean }
+const { artigo, produto, compacto = false } = Astro.props;
+const fm = artigo.fm;
+const iconeTipo: Record<string, string> = {
+  procedimento: 'list-checks', conceito: 'lightbulb', referencia: 'layout-panel-left',
+  solucao: 'wrench', faq: 'circle-help', novidade: 'sparkles', aula: 'graduation-cap',
+};
+---
+<a href={urlArtigo(produto, artigo)}
+   class:list={['group flex gap-3 bg-white border border-slate-200 rounded-lg shadow-sm hover:border-primary-500 hover:shadow transition', compacto ? 'p-3' : 'p-4']}>
+  <span class="mt-0.5 shrink-0 text-primary-600" set:html={icone(iconeTipo[fm.tipo] ?? 'file-text', 18)} />
+  <span class="min-w-0">
+    <span class="block text-sm font-semibold text-slate-900 group-hover:text-primary-700">{fm.titulo}</span>
+    {!compacto && fm.resumo && <span class="block text-sm text-slate-600 mt-1 line-clamp-2">{fm.resumo}</span>}
+    <span class="flex flex-wrap items-center gap-2 mt-2">
+      <span class="text-xs text-slate-500">{rotuloTipo(fm.tipo)}</span>
+      {fm.videos.length > 0 && <span class="inline-flex items-center gap-1 text-xs text-slate-500"><Fragment set:html={icone('play-circle', 12)} />vídeo</span>}
+      {fm.status !== 'publicado' && <span class="inline-flex px-2 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">{fm.status}</span>}
+    </span>
+  </span>
+</a>

@@ -8,8 +8,8 @@ Base de conhecimento central dos produtos Veltrix. Os artigos ficam em Markdown 
 
 | Produto | Slug | Repositório |
 |---|---|---|
-| Veltrix One | `one` | heltonfarias/veltrixone |
-| Veltrix Varejo | `varejo` | heltonfarias/veltrix |
+| VeltrixOne | `one` | heltonfarias/veltrixone |
+| Veltrix (varejo) | `varejo` | heltonfarias/veltrix |
 | Veltrix Decor | `decor` | heltonfarias/innoair |
 
 ## Estrutura
@@ -20,9 +20,61 @@ conteudo/comum/<modulo>/<id>.mdx       artigos que servem a mais de um produto (
 modelos/                               modelo de cada tipo de artigo — copie e preencha
 taxonomia/produtos.yml                 produtos e onde ficam rotas/menu/módulos no código
 taxonomia/perfis.yml                   perfis de operador (vendedor, caixa, faturista…)
+taxonomia/modulos.yml                  nome, descrição e ícone de cada módulo na central
 manifestos/<produto>.json              telas de cada produto (cópia atualizada pelo CI)
 cli/                                   CLI editorial (manifesto, impacto, validar…)
+site/                                  central pública (Astro + busca Pagefind)
+Dockerfile                             build do site para o Coolify (nginx)
 ```
+
+## Central pública (`site/`)
+
+| Endereço | Conteúdo |
+|---|---|
+| `/` | escolha do produto |
+| `/<produto>/` | "O que você precisa fazer?": busca, tarefas mais procuradas, ajuda por função e módulos por área |
+| `/<produto>/<modulo>/` | página do módulo, com os procedimentos agrupados por atividade, telas, regras, problemas e FAQ |
+| `/<produto>/<modulo>/<artigo>/` | artigo, com sumário, vídeo, "Onde fica no sistema", avaliação e "Veja também" |
+| `/<produto>/perfil/<perfil>/` | o que cada função precisa saber |
+| `/<produto>/tela/<featureId>/` | ajuda de uma tela do sistema, destino do botão "?" dentro do ERP. Existe para todas as telas, mesmo as que ainda não têm artigo |
+| `/<produto>/problemas/`, `/perguntas/`, `/videos/`, `/novidades/`, `/busca/` | listas e busca |
+
+O site **só publica artigos com `status: publicado`**. Para ver também os rascunhos:
+
+```bash
+cd site && npm ci
+npm run dev                                  # desenvolvimento (sem busca)
+AJUDA_RASCUNHOS=1 npm run build && npx astro preview   # com rascunhos e busca
+```
+
+Variáveis opcionais do build:
+- `PUBLIC_SUPORTE_URL`: link "Falar com o suporte".
+- `PUBLIC_AJUDA_API`: API do bloco "Este artigo ajudou?".
+
+Se uma variável não estiver definida, o bloco correspondente não aparece.
+
+### Deploy no Coolify (uma vez)
+
+1. **DNS:** crie um registro `A` para `ajuda.veltrixlabs.com.br` apontando para o IP do servidor do Coolify.
+2. **Coolify › New Resource › Public Repository:**
+   - informe `https://github.com/heltonfarias/veltrix-ajuda`, branch `main`;
+   - em **Build Pack**, escolha **Dockerfile**;
+   - em **Domains**, informe `https://ajuda.veltrixlabs.com.br`;
+   - em **Ports Exposes**, informe `80`;
+   - em **Build arguments** (opcional), informe `PUBLIC_SUPORTE_URL`.
+3. **Deploy automático a cada merge:** copie o **Deploy Webhook** do recurso (*Webhooks*) e crie um token em *Keys & Tokens › API tokens*. No GitHub, cadastre:
+   - os secrets `COOLIFY_DEPLOY_WEBHOOK` e `COOLIFY_TOKEN`;
+   - a variável `PUBLICAR=true`, em *Settings › Secrets and variables › Actions › Variables*.
+
+   A partir daí, cada merge aprovado no `main` publica a central.
+
+### Relação com o site comercial
+
+`veltrixlabs.com.br` vende e `ajuda.veltrixlabs.com.br` ensina. São sites separados que apontam um para o outro:
+- o rodapé da central leva ao site comercial;
+- o site comercial deve ter um link **Central de Ajuda** no menu ou no rodapé, apontando para `ajuda.veltrixlabs.com.br`. A FAQ dele pode remeter às perguntas frequentes da central.
+
+Os nomes e as descrições dos produtos em `taxonomia/produtos.yml` seguem os do site comercial.
 
 ## A ligação entre código e artigo: o featureId
 

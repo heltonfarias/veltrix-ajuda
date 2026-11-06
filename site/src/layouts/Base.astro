@@ -1,0 +1,90 @@
+---
+import '../styles/global.css';
+import Busca from '../components/Busca.astro';
+import { produtos, MOSTRAR_RASCUNHOS } from '../lib/dados';
+import { icone } from '../lib/icone';
+
+interface Props {
+  titulo: string;
+  descricao?: string;
+  produto?: string;
+  noindex?: boolean;
+  busca?: boolean;      // mostrar a busca no cabeçalho (padrão: sim, quando há produto)
+}
+const { titulo, descricao, produto, noindex = false, busca = true } = Astro.props;
+const lista = produtos();
+const atual = produto ? lista.find(p => p.slug === produto) : undefined;
+const tituloCompleto = atual ? `${titulo} · Ajuda ${atual.nome}` : `${titulo} · Central de Ajuda Veltrix`;
+const suporte = import.meta.env.PUBLIC_SUPORTE_URL as string | undefined;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    {descricao && <meta name="description" content={descricao} />}
+    {(noindex || MOSTRAR_RASCUNHOS) && <meta name="robots" content="noindex" />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    {MOSTRAR_RASCUNHOS && (
+      <div class="bg-amber-500 text-slate-900 text-xs font-medium text-center py-1.5 px-4">
+        Pré-visualização — inclui rascunhos ainda não aprovados.
+      </div>
+    )}
+    <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 h-16 flex items-center gap-4">
+        <a href={atual ? `/${atual.slug}/` : '/'} class="flex items-center gap-2.5 shrink-0" aria-label="Início da Central de Ajuda">
+          <span class="bg-marca size-8 rounded-lg grid place-items-center text-white font-bold text-lg">V</span>
+          <span class="leading-tight">
+            <span class="block text-sm font-semibold text-slate-900">{atual ? atual.nome : 'Veltrix'}</span>
+            <span class="block text-xs text-slate-500">Central de Ajuda</span>
+          </span>
+        </a>
+        {atual && busca && (
+          <div class="hidden md:block flex-1 max-w-xl ml-4">
+            <Busca produto={atual.slug} />
+          </div>
+        )}
+        <nav class="ml-auto flex items-center gap-1 text-sm" aria-label="Produtos">
+          {atual && busca && (
+            <a href={`/${atual.slug}/busca/`} class="md:hidden p-2 rounded-md text-slate-600 hover:bg-slate-100" aria-label="Buscar" set:html={icone('search', 20)} />
+          )}
+          <details class="relative">
+            <summary class="list-none cursor-pointer flex items-center gap-1 px-3 py-2 rounded-md text-slate-600 hover:bg-slate-100">
+              <span class="hidden sm:inline">Produtos</span>
+              <Fragment set:html={icone('chevron-down', 16)} />
+            </summary>
+            <div class="absolute right-0 mt-2 w-64 bg-white border border-slate-200 rounded-lg shadow-lg p-2">
+              {lista.map(p => (
+                <a href={`/${p.slug}/`} class:list={['block rounded-md px-3 py-2 hover:bg-slate-50', p.slug === atual?.slug && 'bg-primary-50']}>
+                  <span class="block text-sm font-medium text-slate-900">{p.nome}</span>
+                  <span class="block text-xs text-slate-500 line-clamp-1">{p.descricao}</span>
+                </a>
+              ))}
+            </div>
+          </details>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white mt-16">
+      <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col sm:flex-row gap-4 sm:items-center justify-between text-sm text-slate-500">
+        <p>© {new Date().getFullYear()} Veltrix Labs · Inteligência que conecta. Gestão que transforma.</p>
+        <div class="flex gap-4">
+          {atual && <a href={`/${atual.slug}/novidades/`} class="hover:text-slate-900">Novidades</a>}
+          {suporte && <a href={suporte} class="hover:text-slate-900">Falar com o suporte</a>}
+          <a href="https://veltrixlabs.com.br" class="hover:text-slate-900">veltrixlabs.com.br</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

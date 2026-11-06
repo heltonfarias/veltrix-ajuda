@@ -1,0 +1,66 @@
+---
+import Base from '../../../layouts/Base.astro';
+import CartaoArtigo from '../../../components/CartaoArtigo.astro';
+import Migalhas from '../../../components/Migalhas.astro';
+import { produtos, tituloSlug, type Artigo } from '../../../lib/dados';
+import { icone } from '../../../lib/icone';
+
+export function getStaticPaths() {
+  return produtos().flatMap(p => p.modulos.map(m => ({ params: { produto: p.slug, modulo: m.slug }, props: { p, m } })));
+}
+const { p, m } = Astro.props;
+
+// Procedimentos agrupados pela atividade (a tarefa do operador).
+const porAtividade = new Map<string, Artigo[]>();
+for (const a of m.artigos.filter(a => a.fm.tipo === 'procedimento' || a.fm.tipo === 'aula')) {
+  const chave = a.fm.atividade ?? 'geral';
+  porAtividade.set(chave, [...(porAtividade.get(chave) ?? []), a]);
+}
+const secoes = [
+  { tipo: 'referencia', titulo: 'Telas e campos', icone: 'layout-panel-left' },
+  { tipo: 'conceito', titulo: 'Entenda as regras', icone: 'lightbulb' },
+  { tipo: 'solucao', titulo: 'Problemas e soluções', icone: 'wrench' },
+  { tipo: 'faq', titulo: 'Perguntas frequentes', icone: 'circle-help' },
+].map(s => ({ ...s, artigos: m.artigos.filter(a => a.fm.tipo === s.tipo) })).filter(s => s.artigos.length);
+---
+<Base titulo={m.nome} produto={p.slug} descricao={m.descricao ?? `Guias do módulo ${m.nome} no ${p.nome}.`}>
+  <div class="max-w-7xl mx-auto px-4 py-8">
+    <Migalhas itens={[{ rotulo: p.nome, href: `/${p.slug}/` }, { rotulo: m.area }, { rotulo: m.nome }]} />
+    <header class="mt-6 flex items-start gap-4">
+      <span class="size-12 shrink-0 rounded-lg bg-primary-50 text-primary-600 grid place-items-center" set:html={icone(m.icone, 24)} />
+      <div>
+        <h1 class="text-3xl font-bold text-slate-900">{m.nome}</h1>
+        {m.descricao && <p class="mt-2 text-slate-600">{m.descricao}</p>}
+      </div>
+    </header>
+
+    <div class="mt-10 space-y-10">
+      {porAtividade.size > 0 && (
+        <section>
+          <h2 class="text-xl font-semibold text-slate-900">O que você pode fazer</h2>
+          <div class="mt-4 space-y-6">
+            {[...porAtividade].map(([atividade, arts]) => (
+              <div>
+                <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider">{tituloSlug(atividade)}</h3>
+                <div class="mt-3 grid gap-3 md:grid-cols-2">
+                  {arts.map(a => <CartaoArtigo artigo={a} produto={p.slug} />)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {secoes.map(s => (
+        <section>
+          <h2 class="flex items-center gap-2 text-xl font-semibold text-slate-900">
+            <span class="text-primary-600" set:html={icone(s.icone, 20)} />{s.titulo}
+          </h2>
+          <div class="mt-4 grid gap-3 md:grid-cols-2">
+            {s.artigos.map(a => <CartaoArtigo artigo={a} produto={p.slug} compacto={s.tipo === 'faq'} />)}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+</Base>

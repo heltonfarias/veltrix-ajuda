@@ -1,0 +1,13 @@
+---
+import PaginaLista from '../../../components/PaginaLista.astro';
+import { produtos } from '../../../lib/dados';
+
+export function getStaticPaths() {
+  return produtos().flatMap(p => p.perfis.map(pf => ({ params: { produto: p.slug, perfil: pf.id }, props: { p, pf } })));
+}
+const { p, pf } = Astro.props;
+const artigos = p.artigos.filter(a => a.fm.perfis.includes(pf.id));
+---
+<PaginaLista p={p} titulo={pf.nome} iconeNome="user-round"
+  descricao={`O que um ${pf.nome.toLowerCase()} precisa saber no ${p.nome}, organizado por módulo.`}
+  artigos={artigos} vazio="Ainda não há guias para esta função." />
