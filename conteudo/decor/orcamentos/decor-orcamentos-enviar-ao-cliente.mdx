@@ -1,0 +1,70 @@
+---
+id: decor-orcamentos-enviar-ao-cliente
+titulo: Enviar o orçamento ao cliente
+resumo: Imprima ou gere o PDF da proposta, mande pelo WhatsApp ou por link público e acompanhe a resposta do cliente.
+tipo: procedimento
+produto: [decor]
+modulo: orcamentos
+atividade: envio
+features: [decor.comercial.orcamentos.item, decor.comercial.orcamentos.item.preview, decor.orcamento.item]
+perfis: [vendedor]
+tags: [pdf, proposta, whatsapp, link, assinatura, cliente]
+relacionados: [decor-orcamentos-aprovar-orcamento, decor-orcamentos-faq-cliente-aceitou-pelo-link]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 4
+---
+
+## Antes de começar
+
+- Permissões: **Orçamentos › Visualizar** para o PDF; **Orçamentos › Editar** para o WhatsApp, o link público e a assinatura digital.
+- Confira os itens e os totais antes de enviar.
+
+## Imprimir ou gerar o PDF
+
+1. No orçamento, clique no ícone **PDF / Preview**.
+2. Em **Exibir:**, marque o que deve aparecer na proposta: **Imagens**, **Código produto**, **Fabricante**, **Medidas (L×A)**, **Cor**, **Especificação**, **Resumo por ambiente** e outras opções. As opções **Ocultar nº do item**, **Ocultar subtotais** e **Ocultar totais** escondem essas partes.
+3. Clique em **Imprimir / PDF**. Para gerar o arquivo, escolha **Salvar como PDF** como impressora.
+
+## Enviar pelo WhatsApp
+
+1. No orçamento, clique no ícone **Enviar WhatsApp**.
+2. Informe o **Telefone** com DDD, só números (ex.: 11999999999).
+3. Clique em:
+   - **Enviar Link de Aprovação**, para o cliente abrir a proposta no celular e responder; ou
+   - **Enviar PDF do Orçamento**, para mandar o arquivo.
+
+## Gerar um link para enviar por outro canal
+
+1. No orçamento, clique no ícone **Gerar link público**.
+2. Em **Link para aprovação:**, clique em **Copiar** e mande o link por e-mail ou por outro meio.
+
+## O que o cliente vê
+
+O cliente abre a **Proposta Comercial** com os itens e os totais e escolhe uma resposta:
+
+| O cliente escolhe | Aparece no orçamento |
+|---|---|
+| **Aceitar proposta** | ✅ Cliente aceitou |
+| **Quero falar com vocês** | 📞 Quer ser contactado |
+| **Não tenho interesse** | ❌ Cliente recusou |
+
+O cliente pode deixar uma observação, que aparece entre aspas. Se o vendedor tiver telefone cadastrado, ele também é avisado pelo WhatsApp. O quadro **Link enviado** mostra quantas **Visualizações** o link teve e o **Último acesso**. Se o link nunca foi aberto, aparece **Ainda não foi aberto**.
+
+> **Importante:** a resposta do cliente **não aprova** o orçamento. Depois do aceite, [aprove o orçamento](/decor/orcamentos/aprovar-orcamento/) para gerar o pedido e as parcelas.
+
+## Pedir assinatura digital
+
+1. No quadro **Assinatura Digital**, informe **Nome do signatário** e **E-mail do signatário**.
+2. Clique em **Criar Documento para Assinar**.
+3. Use **🔗 Acessar documento** para acompanhar a assinatura.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Falha ao enviar. …" no envio por WhatsApp | A integração com o WhatsApp não está configurada ou está fora do ar. Use **Gerar link público** e mande o link por outro canal, e avise o administrador. |
+| O cliente diz que o link não mostra os botões de resposta | O link é antigo. Clique em **Gerar link público** e mande o novo link. |
+| "Falha ao criar documento." | Confira o e-mail do signatário. Se o erro continuar, acione o suporte. |

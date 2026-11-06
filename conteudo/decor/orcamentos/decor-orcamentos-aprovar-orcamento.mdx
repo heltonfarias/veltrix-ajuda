@@ -1,0 +1,65 @@
+---
+id: decor-orcamentos-aprovar-orcamento
+titulo: Aprovar um orçamento
+resumo: Aprove o orçamento fechado com o cliente para gerar o pedido e as parcelas no contas a receber, e ajuste as parcelas se precisar.
+tipo: procedimento
+produto: [decor]
+modulo: orcamentos
+atividade: aprovacao
+features: [decor.comercial.orcamentos.item]
+perfis: [vendedor, gestor]
+tags: [aprovar, pedido, parcelas, contas-a-receber, boleto]
+relacionados: [decor-orcamentos-como-funciona-o-orcamento, decor-orcamentos-liberar-e-faturar, decor-orcamentos-erro-nao-consigo-aprovar-ou-liberar, decor-orcamentos-cancelar-ou-reabrir]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 5
+---
+
+## Antes de começar
+
+- Permissão necessária: **Orçamentos › Editar**.
+- O orçamento precisa estar **Aberto**, na situação **Negociação**, e ter **Agente**, **Forma de Pagamento** e **Prazo de Entrega** preenchidos.
+- O cadastro do cliente, em **Comercial › Pessoas**, precisa ter CNPJ ou CPF, endereço e ao menos um contato (telefone, celular ou e-mail).
+- O frete precisa estar lançado. As parcelas são calculadas sobre o total líquido **mais o frete**.
+
+## Passo a passo
+
+1. Abra o orçamento em **Comercial › Orçamentos**.
+2. Se a situação ainda não é **Negociação**, clique em **Editar**, mude o campo **Situação** e clique em **Salvar Alterações**.
+3. Confira o **TOTAL FINAL** no **Resumo Financeiro**. Para lançar ou corrigir o frete, clique no lápis ao lado de **Frete**, informe o tipo (ex.: CIF) e o valor e clique em **Salvar**.
+4. Em **Alterar Status**, clique em **✓ Aprovar**.
+5. A janela **Aprovar Orçamento** mostra o que vai acontecer e o **Valor a dividir (líquido + frete)**. Clique em **Confirmar Aprovação**.
+6. Se aparecer **Não foi possível aprovar:**, corrija cada item da lista e clique em **Tentar Novamente**. Veja o que cada mensagem significa em [Não consigo aprovar ou liberar o orçamento](/decor/orcamentos/erro-nao-consigo-aprovar-ou-liberar/).
+7. Em **✓ Orçamento aprovado com sucesso!**, anote o número em **Pedido gerado** e clique em **Fechar**.
+
+## Resultado esperado
+
+- O status passa para **Aprovado** e a situação para **Fechado**.
+- É criado um pedido, e as parcelas entram no contas a receber. Os percentuais e os prazos vêm da **Forma de Pagamento**, e os vencimentos contam a partir da data da aprovação.
+- O quadro **Parcelas — Pedido …** aparece no orçamento.
+- O próximo passo é [criar a O.S. e liberar o orçamento](/decor/orcamentos/liberar-e-faturar/).
+
+## Ajustar as parcelas
+
+Enquanto o orçamento está **Aprovado**, as parcelas que ainda não foram pagas podem ser ajustadas no quadro **Parcelas**:
+
+- **Editar parcela** (lápis): muda **Valor (R$)**, **Vencimento**, **Agente** e **Observação**.
+- **Excluir parcela** (lixeira): aparece quando há mais de uma parcela.
+- **Adicionar Parcela**: lança uma parcela com a diferença que falta para fechar o total.
+
+Se a soma das parcelas não bater com o total do orçamento mais o frete, aparece um aviso em laranja. Com essa diferença, o orçamento **não pode ser liberado nem faturado**.
+
+## Boleto das parcelas
+
+Com a permissão **Orçamentos › Emitir/imprimir boleto das parcelas**, a parcela em aberto ganha o ícone **Gerar boleto**, desde que o agente dela tenha convênio bancário. Depois de gerado, use **Imprimir boleto** e o ícone de envio para mandar o boleto ao cliente por e-mail.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| O botão **✓ Aprovar** não aparece | O orçamento não está **Aberto**, ou falta a permissão **Orçamentos › Editar**. |
+| "Não é possível editar uma parcela já paga" | A parcela já foi recebida. Ajuste as outras parcelas. |
+| "A soma das parcelas já atinge ou ultrapassa o total do orçamento — não há diferença a lançar" | Não falta valor. Para reduzir, edite ou exclua uma parcela. |
+| "O pedido precisa ter ao menos uma parcela" | Não dá para excluir a última parcela. Edite o valor dela. |

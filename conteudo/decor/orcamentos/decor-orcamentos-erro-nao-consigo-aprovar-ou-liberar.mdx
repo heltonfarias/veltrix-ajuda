@@ -1,0 +1,48 @@
+---
+id: decor-orcamentos-erro-nao-consigo-aprovar-ou-liberar
+titulo: Não consigo aprovar ou liberar o orçamento
+tipo: solucao
+produto: [decor]
+modulo: orcamentos
+features: [decor.comercial.orcamentos.item]
+perfis: [vendedor, gestor]
+tags: [erro, aprovar, liberar, cadastro-do-cliente, parcelas, ordem-de-servico]
+relacionados: [decor-orcamentos-aprovar-orcamento, decor-orcamentos-liberar-e-faturar, decor-orcamentos-como-funciona-o-orcamento]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+status: publicado
+---
+
+## Sintoma
+
+Ao clicar em **Confirmar Aprovação**, a janela mostra **Não foi possível aprovar:** com uma lista de motivos. Ou, ao clicar em **→ Liberar**, aparece uma mensagem de erro.
+
+## Ao aprovar
+
+A janela lista todos os motivos de uma vez. Corrija cada um e clique em **Tentar Novamente**.
+
+| Mensagem | Por que acontece | Como resolver |
+|---|---|---|
+| "Orçamento precisa estar com situação NEGOCIACAO para ser aprovado" | Só orçamento em negociação pode ser aprovado. | Clique em **Editar**, mude **Situação** para **Negociação** e salve. |
+| "Orçamento não está com status Aberto" | O orçamento já foi aprovado, liberado, faturado ou cancelado. | Atualize a tela e confira o status. |
+| "Cliente não cadastrado" | O orçamento não está ligado a um cliente do cadastro. | Edite o orçamento e escolha o cliente na lista de **Código / Nome do Cliente**. |
+| "Cliente sem CNPJ/CPF informado no cadastro" | O cadastro do cliente está sem documento. | Complete o cliente em **Comercial › Pessoas**. Clientes criados por **+ Cadastrar cliente "…"** costumam cair aqui. |
+| "Cliente sem endereço cadastrado" | O cliente não tem endereço ativo. | Cadastre o endereço em **Comercial › Pessoas**. |
+| "Cliente sem contato cadastrado (telefone, celular ou e-mail)" | O cliente não tem nenhum contato. | Cadastre telefone, celular ou e-mail em **Comercial › Pessoas**. |
+| "Orçamento sem agente informado" | O campo **Agente** está vazio. | Edite o orçamento e escolha o **Agente**. |
+| "Orçamento sem condição de pagamento informada" | O campo **Forma de Pagamento** está vazio. | Edite o orçamento e escolha a **Forma de Pagamento**. |
+| "Orçamento sem prazo de entrega informado" | O campo **Prazo de Entrega** está vazio. | Edite o orçamento e preencha o **Prazo de Entrega**. |
+| "Condição de pagamento não encontrada" | A forma de pagamento escolhida não existe mais no cadastro. | Escolha outra em **Forma de Pagamento** ou corrija em **Comercial › Cadastro › Formas de Pagamento**. |
+
+## Ao liberar
+
+| Mensagem | Por que acontece | Como resolver |
+|---|---|---|
+| "É necessário criar a Ordem de Serviço antes de liberar o orçamento" | Ainda não existe O.S. para o orçamento. | Clique em **Criar OS** e libere de novo. |
+| "A soma das parcelas (…) não bate com o total do orçamento + frete (…). Diferença: …" | As parcelas foram editadas ou o frete mudou depois da aprovação. | No quadro **Parcelas**, edite, adicione ou exclua parcelas até a diferença zerar. Diferenças de até R$ 0,05 são aceitas. |
+| "Pedido não encontrado para este orçamento" | O pedido gerado na aprovação foi cancelado por fora do orçamento. | Acione o suporte com o número do orçamento. |
+| "Somente orçamentos Aprovados podem ser liberados" | O orçamento não está Aprovado. | Aprove o orçamento antes. |
+
+## Quando acionar o suporte
+
+Acione o suporte se a mensagem não estiver nesta lista, ou se o erro continuar depois da correção. Envie o número do orçamento e uma captura da mensagem.

@@ -1,0 +1,72 @@
+---
+id: decor-orcamentos-como-funciona-o-orcamento
+titulo: Como funciona o orçamento
+resumo: O ciclo do orçamento, de Aberto a Faturado, e o que cada etapa gera no sistema (pedido, parcelas, O.S. e nota fiscal).
+tipo: conceito
+produto: [decor]
+modulo: orcamentos
+atividade: entender
+features: [decor.comercial.orcamentos, decor.comercial.orcamentos.item]
+perfis: [vendedor, gestor]
+tags: [orcamento, status, situacao, ciclo, pedido, parcelas]
+relacionados: [decor-orcamentos-criar-orcamento, decor-orcamentos-aprovar-orcamento, decor-orcamentos-liberar-e-faturar, decor-orcamentos-cancelar-ou-reabrir]
+responsavel: heltonfarias
+revisado_em: 2026-11-06
+valido_desde: 1.0.0
+status: publicado
+ordem: 1
+---
+
+## O que é
+
+O orçamento, em **Comercial › Orçamentos**, é a proposta comercial ao cliente. Cada item tem ambiente, medidas e fórmula de cálculo. O mesmo orçamento acompanha a venda até o fim: aprovado, ele gera o pedido e as parcelas; liberado, segue para a instalação; faturado, gera a nota fiscal.
+
+Cada orçamento tem duas informações que andam juntas: o **status** e a **situação**.
+
+## Status: em que etapa o orçamento está
+
+| Status | O que significa | Como chega aqui |
+|---|---|---|
+| **Aberto** | Em elaboração ou negociação. É o único status em que o orçamento pode ser editado. | Ao salvar um orçamento novo. |
+| **Aprovado** | O cliente fechou. Já existe um pedido com as parcelas no contas a receber. | Botão **✓ Aprovar**. |
+| **Liberado** | Conferido e pronto para executar e faturar. Exige a O.S. criada e as parcelas batendo com o total. | Botão **→ Liberar**. |
+| **Faturado** | A nota fiscal foi gerada. | Botão **Faturar**. |
+| **Cancelado** | Desistência registrada, com justificativa. | Botão **✕ Cancelar**. |
+
+## Situação: em que ponto da negociação
+
+A **Situação** acompanha o funil comercial: novo, em negociação, fechado e outras que a empresa cadastrar em **Comercial › Cadastro › Situações**. Ela é escolhida no campo **Situação** do orçamento.
+
+- Para aprovar, o orçamento precisa estar na situação **Negociação**.
+- Ao aprovar, a situação passa sozinha para **Fechado**. Ao cancelar a aprovação, volta para **Negociação**.
+- Se a situação tiver uma ocorrência e um prazo configurados no cadastro, cada mudança para ela cria uma tarefa de followup na **Carteira**.
+
+## O que cada etapa gera
+
+| Ação | Efeito |
+|---|---|
+| **Aprovar** | Cria o pedido e gera as parcelas no contas a receber conforme a **Forma de Pagamento**. O valor dividido é o total líquido mais o frete. |
+| **Criar OS** | Cria a ordem de serviço de instalação a partir dos itens do orçamento. |
+| **Liberar** | Só muda o status. Pedido, parcelas e O.S. continuam como estão. |
+| **Faturar** | Gera a nota fiscal (NF-e ou NFC-e) como rascunho no **Monitor Fiscal**. |
+| **Cancelar aprovação** | Cancela o pedido, exclui as parcelas e exclui a O.S. vinculada. O orçamento volta para **Aberto**. |
+
+## Quem vê cada orçamento
+
+Sem a permissão **Orçamentos › Ver todos (não só os próprios)**, o usuário vê na lista só os orçamentos do colaborador vinculado a ele. Para abrir o orçamento de outro colaborador, ele precisa pedir acesso. Veja [Por que aparece "Acesso restrito"?](/decor/orcamentos/faq-acesso-restrito/).
+
+## Permissões do módulo
+
+As permissões ficam em **Orçamentos**, no cadastro de perfis:
+
+| Permissão | Libera |
+|---|---|
+| **Listar** | Abrir a lista de orçamentos. |
+| **Visualizar** | Abrir o orçamento, o preview e os fluxos. |
+| **Criar** | **+ Novo Orçamento**, **Importar HD** e copiar orçamentos. |
+| **Editar** | Alterar o orçamento e os itens, aplicar desconto e acréscimo, aprovar, liberar, cancelar e ajustar parcelas. |
+| **Ver todos (não só os próprios)** | Ver os orçamentos de todos os colaboradores e filtrar por **Vendedor**. |
+| **Cancelar Liberação** | Voltar um orçamento Liberado para Aprovado. |
+| **Emitir/imprimir boleto das parcelas** | Gerar, imprimir e enviar boletos das parcelas. |
+
+Criar a O.S. exige a permissão **Ordens de Serviço › Criar**. Faturar exige **Monitor Fiscal › Emitir**.
