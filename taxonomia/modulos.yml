@@ -41,6 +41,10 @@ varejo:
     nome: PDV
     descricao: Frente de caixa, vendas, sangria e suprimento.
     icone: shopping-cart
+  orcamentos:
+    nome: Orçamentos
+    descricao: Elaborar, enviar ao cliente, fechar e faturar orçamentos.
+    icone: file-text
 
 decor:
   orcamentos:

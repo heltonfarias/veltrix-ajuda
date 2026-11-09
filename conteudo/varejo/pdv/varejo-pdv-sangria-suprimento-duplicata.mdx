@@ -1,0 +1,62 @@
+---
+id: varejo-pdv-sangria-suprimento-duplicata
+titulo: Sangria, suprimento e recebimento de duplicata
+resumo: Registre a saída e a entrada de dinheiro na gaveta e receba no caixa as parcelas que o cliente deve.
+tipo: procedimento
+produto: [varejo]
+modulo: pdv
+atividade: movimentacao
+features: [varejo.pdv.caixa]
+perfis: [caixa]
+tags: [pdv, sangria, suprimento, retirada, duplicata, crediario, correntista, movimentos]
+relacionados: [varejo-pdv-como-funciona-o-pdv, varejo-pdv-fechar-caixa]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 5
+---
+
+## Antes de começar
+
+- Permissão necessária: **PDV › PDV: Movimentos de Caixa**. Para receber duplicata, **PDV › PDV: Baixar Duplicata no Caixa**.
+- O caixa precisa estar aberto.
+
+## Tipos de movimento
+
+| Aba | Para que serve | Efeito na gaveta |
+|---|---|---|
+| **Sangria** | Tirar dinheiro da gaveta para o cofre ou o banco | Sai |
+| **Suprimento** | Colocar dinheiro na gaveta, como troco extra | Entra |
+| **Retirada** | Saída para pagamento de despesa ou outra finalidade | Sai |
+| **Pagamento Correntista** | Receber de um cliente com conta corrente na loja | Entra |
+| **Baixa de Duplicata** | Receber uma parcela (crediário, venda a prazo) | Entra |
+
+## Sangria, suprimento, retirada ou pagamento de correntista
+
+1. Na frente de caixa, clique em **Movimentos**.
+2. Escolha a aba.
+3. Informe o **Valor (R$)**. Em **Forma de Recebimento**, deixe **— Padrão (Dinheiro) —** ou escolha outra.
+4. Se quiser, descreva o motivo em **Histórico**.
+5. Clique em **Registrar Sangria** (ou **Registrar Suprimento**, **Registrar Retirada**…).
+
+O topo da janela mostra o total do caixa em **Suprimentos**, **Sangrias**, **Retiradas**, **Correntistas** e **Duplicatas**.
+
+## Receber uma duplicata
+
+1. Em **Movimentos**, abra a aba **Baixa de Duplicata**.
+2. Em **Buscar cliente**, digite o nome. A lista mostra **Pedido/Série/Parcela**, **Vencimento** (com o selo **Vencida** quando for o caso) e **Saldo**.
+3. Clique em **Selecionar** na parcela.
+4. Escolha a **Forma de Recebimento**, confira o **Valor (R$)** e clique em **+**. Para dividir em mais de uma forma, repita.
+5. Confira o **Total pago** e clique em **Confirmar Baixa**.
+
+Para escolher outra parcela antes de confirmar, clique em **Trocar**.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Nenhuma duplicata em aberto encontrada." | O cliente não tem parcela em aberto, ou o nome foi digitado de outra forma. Tente parte do nome. |
+| "Duplicata não encontrada ou já baixada." | A parcela foi baixada por outra pessoa. Atualize a busca. |
+| "Nenhum caixa aberto para este operador." | [Abra o caixa](/varejo/pdv/abrir-caixa/) antes. |
+| O valor confirmado no TEF não sai da lista | Pagamento aprovado no TEF só é desfeito por estorno em **PDV › TEF**. |

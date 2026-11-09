@@ -1,0 +1,43 @@
+---
+id: varejo-orcamentos-enviar-ao-cliente
+titulo: Enviar o orçamento ao cliente
+resumo: Imprima em A4 ou na impressora térmica, ou gere um link público e mande pelo WhatsApp.
+tipo: procedimento
+produto: [varejo]
+modulo: orcamentos
+atividade: envio
+features: [varejo.orcamentos.item, varejo.orcamentos.item.imprimir, varejo.orcamentos.item.imprimir-thermal, varejo.orcamento-publico.item]
+perfis: [vendedor]
+tags: [orcamento, imprimir, termica, link, whatsapp, cliente]
+relacionados: [varejo-orcamentos-criar-orcamento, varejo-orcamentos-fechar-reabrir-cancelar]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 4
+---
+
+## Antes de começar
+
+- Permissão necessária: **Comercial › Orçamentos: Visualizar**. Para gerar o link, **Comercial › Orçamentos: Editar**.
+
+## Imprimir
+
+No orçamento, clique em:
+
+- **Imprimir** para a impressão completa em A4;
+- **Térmica** para o cupom na impressora térmica de 80 mm.
+
+A impressão abre em outra aba. Use a impressão do navegador para escolher a impressora.
+
+## Enviar por link
+
+1. No card **Link Público**, clique em **Gerar link público**.
+2. Clique em **Copiar** e cole o link onde quiser, ou clique em **WhatsApp**:
+   1. informe o **Telefone do cliente**;
+   2. se quiser, escreva uma **Mensagem personalizada (opcional)**;
+   3. clique em **Enviar**.
+
+O cliente abre o orçamento no navegador, sem precisar de usuário. O card mostra quantas **Visualizações** o link teve, o **Último acesso** e, quando o cliente responde pela página, a **Resposta**.
+
+Se você alterar o orçamento depois de enviar, o cliente vê a versão atualizada no mesmo link. Para invalidar o link antigo, clique em **Regenerar link** e envie o novo.

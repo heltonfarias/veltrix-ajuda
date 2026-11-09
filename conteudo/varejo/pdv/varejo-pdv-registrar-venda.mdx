@@ -1,0 +1,69 @@
+---
+id: varejo-pdv-registrar-venda
+titulo: Registrar uma venda no caixa
+resumo: Leia os produtos, aplique desconto, identifique o cliente, receba os pagamentos e finalize com a nota fiscal.
+tipo: procedimento
+produto: [varejo]
+modulo: pdv
+atividade: lancamento
+features: [varejo.pdv.caixa]
+perfis: [caixa]
+tags: [pdv, venda, codigo-de-barras, pagamento, troco, desconto, cpf-na-nota, nfc-e, finalizar]
+relacionados: [varejo-pdv-como-funciona-o-pdv, varejo-pdv-importar-orcamento, varejo-pdv-erro-nao-consigo-finalizar-ou-fechar, varejo-pdv-faq-cancelar-venda-finalizada]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 3
+---
+
+## Antes de começar
+
+- Permissão necessária: **PDV › PDV: Vender**.
+- O caixa precisa estar [aberto](/varejo/pdv/abrir-caixa/).
+
+## Passo a passo
+
+1. Na frente de caixa, clique em **Nova Venda · F3** (ou tecle **F3**). Você também pode começar lendo o primeiro código.
+2. **Lance os itens** no campo *"Código de barras ou descrição do produto…"*:
+   - leia o código de barras: o item entra na hora;
+   - ou digite parte do nome e escolha na lista. A lista mostra o preço e o estoque (**Estq**);
+   - para vender várias unidades, tecle **F9** e informe a quantidade antes da leitura, ou digite **3\*** e leia o código.
+   - se o produto estiver com preço zerado no cadastro, o sistema pede o **Preço unitário**.
+3. Para remover um item, clique na lixeira ao lado dele.
+4. **Desconto (opcional):** tecle **F6**, escolha **% Percentual** ou **R$ Valor fixo**, informe o valor e clique em **Aplicar Desconto**.
+5. **Cliente (opcional):**
+   - **Cliente** (ou **Identificar**) busca um cliente cadastrado por nome, CPF/CNPJ ou código. É obrigatório para NF-e e para venda a prazo;
+   - **CPF na nota · F2** só informa CPF e nome do consumidor na nota e no cupom, sem cadastro. CNPJ exige identificar o cliente cadastrado.
+6. **Pagamento:** tecle **F4**. No campo **Cód.**, digite o código do tipo de recebimento e tecle **Enter** (ou escolha na lista ao lado). O **Valor (R$)** já vem com o que falta; ajuste se o cliente pagar parte em outra forma e tecle **Enter**.
+   - Repita até a faixa da direita mostrar **Quitado ✓**. O **Troco** aparece quando o valor recebido em dinheiro passa do total.
+   - Cartão integrado ao TEF abre a transação na maquininha. Cartão não integrado pede autorização, bandeira, adquirente e terminal.
+   - Tipos que pedem condição (crediário, boleto) abrem a escolha da condição de pagamento e geram as parcelas no Contas a Receber.
+7. Com a venda quitada, tecle **F4** (ou clique em **Finalizar · F4**).
+
+## Resultado esperado
+
+Aparece *"Venda finalizada!"* e a nota é transmitida. A faixa da nota mostra o andamento:
+
+- **AUTORIZADA:** clique em **IMPRIMIR CUPOM** (NFC-e) ou **DANFE NF-e**. Para mandar por e-mail, informe o **E-mail do cliente** e clique em **ENVIAR**;
+- **AGUARDANDO** ou **REENVIANDO:** aguarde; o sistema tenta de novo sozinho;
+- **REJEITADA:** leia o motivo, corrija (em geral, o cadastro do cliente ou do produto) e clique em **REENVIAR**. **VERIFICAR NOVAMENTE** consulta a situação na SEFAZ.
+
+Venda só de serviços termina com *"Venda só de serviços — sem nota fiscal."*.
+
+Tecle **F3** para a próxima venda. **Cupom · F7** imprime um cupom não fiscal da venda, aberta ou finalizada, e **Resumo · F11** mostra cabeçalho, itens e pagamentos.
+
+## Cancelar a venda em andamento
+
+Clique em **Cancelar** e confirme em **Cancelar venda**. Os itens voltam ao estoque. Para uma venda já finalizada, veja [Como cancelo uma venda já finalizada?](/varejo/pdv/faq-cancelar-venda-finalizada/).
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Produto não encontrado." | Confira o código. Busque pelo nome; se não existir, o produto precisa ser cadastrado. |
+| "Produto inativo." | O produto foi desativado no cadastro de mercadorias. |
+| "Finalize ou cancele a venda atual antes de iniciar outra." | Termine a venda da tela antes de teclar F3. |
+| "Recebimento "…" não encontrado" | O código digitado não existe. Escolha o tipo de recebimento na lista. |
+| "Total recebido (…) é menor que o total da venda (…)." | Lance o restante do pagamento antes de finalizar. |
+| A nota aparece com **pendência(s)** | Veja [Não consigo finalizar a venda ou fechar o caixa](/varejo/pdv/erro-nao-consigo-finalizar-ou-fechar/). |

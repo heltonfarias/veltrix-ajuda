@@ -1,0 +1,49 @@
+---
+id: varejo-pdv-importar-orcamento
+titulo: Importar um orçamento no caixa
+resumo: Traga para o caixa um orçamento fechado pelo vendedor, pelo número ou pelo código de barras, e receba normalmente.
+tipo: procedimento
+produto: [varejo]
+modulo: pdv
+atividade: recebimento
+features: [varejo.pdv.caixa, varejo.orcamentos.item]
+perfis: [caixa]
+tags: [pdv, orcamento, importar, codigo-de-barras, venda]
+relacionados: [varejo-pdv-registrar-venda, varejo-orcamentos-fechar-reabrir-cancelar, varejo-orcamentos-erro-nao-consigo-alterar-ou-faturar]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 4
+---
+
+## Antes de começar
+
+- Permissão necessária: **PDV › PDV: Vender**.
+- O orçamento precisa estar **Fechado** e não pode ter venda vinculada.
+
+## Passo a passo
+
+1. Na frente de caixa, clique em **Orçamento**.
+2. Digite o **número do orçamento** e tecle **Enter**, ou leia o código de barras do orçamento impresso. Achando o número exato, o orçamento é importado na hora.
+   - Também dá para buscar pelo nome do cliente e clicar em **Importar** na linha certa.
+3. Se já havia itens na venda da tela, o sistema pergunta se deseja cancelar a venda atual. Clique em **Cancelar venda e importar** para trocar pela venda do orçamento.
+4. Confira os itens e o cliente e siga o [recebimento normal](/varejo/pdv/registrar-venda/): pagamento (**F4**) e finalizar (**F4**).
+
+## Resultado esperado
+
+Aparece *"Orçamento importado"*. A venda tem os itens, os preços, os descontos e o cliente do orçamento. O cliente de venda importada não pode ser trocado no caixa: se estiver errado, corrija no orçamento.
+
+Ao finalizar, o orçamento passa a **Faturado** e a reserva de estoque dele vira baixa.
+
+Se você cancelar a venda antes de finalizar, o orçamento volta a ficar disponível para importar.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Orçamento … não está disponível para importar (precisa estar Fechado e sem venda)." | Peça ao vendedor para fechar o orçamento. Se ele já tem venda, veja [Não consigo alterar, importar ou faturar o orçamento](/varejo/orcamentos/erro-nao-consigo-alterar-ou-faturar/). |
+| "Este orçamento já está vinculado à venda #…" | O orçamento já foi importado em outra venda. Termine ou cancele aquela venda. |
+| "Orçamento não possui itens ativos." | Todos os itens foram removidos. O vendedor precisa reabrir e incluir os itens. |
+| "O cliente de venda importada de orçamento/prestação deve ser alterado na origem." | Corrija o cliente no orçamento, cancele a venda e importe de novo. |
+| "Nenhum caixa aberto." | [Abra o caixa](/varejo/pdv/abrir-caixa/) antes. |

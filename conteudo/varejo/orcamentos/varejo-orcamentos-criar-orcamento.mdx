@@ -1,0 +1,68 @@
+---
+id: varejo-orcamentos-criar-orcamento
+titulo: Criar um orçamento
+resumo: Preencha cliente, vendedor, forma de venda e condição de pagamento e lance os itens pelo código de barras ou pelo nome.
+tipo: procedimento
+produto: [varejo]
+modulo: orcamentos
+atividade: elaboracao
+features: [varejo.orcamentos, varejo.orcamentos.item]
+perfis: [vendedor]
+tags: [orcamento, novo, itens, cliente, vendedor, desconto, condicao-de-pagamento]
+relacionados: [varejo-orcamentos-como-funciona-o-orcamento, varejo-orcamentos-fechar-reabrir-cancelar, varejo-orcamentos-enviar-ao-cliente]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 2
+---
+
+## Antes de começar
+
+- Permissões necessárias: **Comercial › Orçamentos: Criar** e **Comercial › Orçamentos: Editar** (para lançar os itens).
+- O produto precisa estar **ativo** no cadastro de mercadorias.
+
+## Passo a passo
+
+1. Acesse **Comercial › Orçamentos** e clique em **+ Novo Orçamento**.
+2. Em **01 Quem compra**:
+   - em **Cliente**, digite o nome, a razão social ou o CPF/CNPJ e escolha na lista. Se o cliente não existe, clique em **+ Cadastrar novo cliente** e informe **Nome** e **CPF/CNPJ**;
+   - em **Vendedor**, escolha o vendedor. Se o cliente tem vendedor no cadastro, ele já vem sugerido. Se você deixar em branco e seu usuário estiver vinculado a um vendedor, o orçamento fica com ele;
+   - em **Forma de venda**, escolha **À Vista**, **A Prazo** ou **Revenda**. Ela define o preço que entra nos itens.
+3. Em **02 Pagamento**, informe se quiser a **Condição de pagamento**, a **Entrada** (R$) e o **Desconto global** (%).
+4. Em **03 Classificação**, deixe **Orçamento condicional** em **Não** para uma venda comum e confira a **Presença do comprador**.
+5. Em **04 Observação**, escreva o que deve sair no orçamento impresso.
+6. Clique em **Criar Orçamento** (ou tecle **Ctrl + Enter**). O orçamento abre com o status **Aberto**.
+7. Clique em **Adicionar Item**:
+   1. Em **Produto**, leia o código de barras ou digite parte do nome e escolha na lista. O preço da forma de venda é preenchido e o cursor vai para a **Quantidade**.
+   2. Ajuste **Quantidade**, **Preço Unit. (R$)** e, se houver, **Desconto (%)** do item. Confira o **Total do item** e o **Total do orçamento (previsto)**.
+   3. Clique em **Adicionar** ou tecle **Enter**. A janela continua aberta, pronta para o próximo produto.
+   4. Ao terminar, clique em **Concluir**.
+8. Confira na tela o **Subtotal**, o **Desconto** e o **Total Líquido**.
+
+## Resultado esperado
+
+O orçamento fica **Aberto**, com os itens na tabela. A partir daí você pode [enviar ao cliente](/varejo/orcamentos/enviar-ao-cliente/) e, quando ele aprovar, [fechar o orçamento](/varejo/orcamentos/fechar-reabrir-cancelar/).
+
+## Alterar o orçamento
+
+Enquanto ele estiver **Aberto**:
+
+- **Editar Cabeçalho** reabre os dados de cliente, vendedor, pagamento, classificação e observação. Só na edição aparece a opção **Venda para profissional**, que libera o desconto profissional;
+- na tabela de itens, use **Editar** para mudar quantidade, preço, desconto ou trocar o produto, e a lixeira para remover. O item removido continua na lista, riscado, como *(cancelado)*.
+
+Orçamento Fechado não aceita alteração: [reabra-o](/varejo/orcamentos/fechar-reabrir-cancelar/) primeiro.
+
+## Desconto profissional
+
+Com **Venda para profissional** marcada, o orçamento mostra o painel **Desconto profissional**, com o total **Profissional À vista** e **Profissional A prazo** calculado pelo percentual de cada produto. É só uma simulação até você clicar em **Aplicar** em uma das opções. Para desfazer, use **Remover desconto profissional**. O desconto só pode ser alterado enquanto o orçamento não foi faturado.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| O botão **Adicionar Item** não aparece | O orçamento não está **Aberto**. Reabra-o. |
+| O botão **Adicionar** fica desabilitado | Nenhum produto foi escolhido na lista. Escolha o produto antes. |
+| O produto não aparece na busca | Digite pelo menos 2 caracteres. Produtos inativos não aparecem. |
+| "Marque o orçamento como venda para profissional." | Em **Editar Cabeçalho**, marque **Venda para profissional** e salve. |
+| "O desconto profissional só pode ser alterado em orçamento ainda não faturado." | O orçamento já foi faturado. Cancele o faturamento antes, se for o caso. |

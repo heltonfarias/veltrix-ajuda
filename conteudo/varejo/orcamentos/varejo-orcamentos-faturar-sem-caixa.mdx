@@ -1,0 +1,66 @@
+---
+id: varejo-orcamentos-faturar-sem-caixa
+titulo: Faturar um orçamento sem passar pelo caixa
+resumo: Lance os pagamentos na Fatura do Orçamento e conclua. O financeiro e o estoque são gerados, e a nota fica em rascunho no Monitor Fiscal.
+tipo: procedimento
+produto: [varejo]
+modulo: orcamentos
+atividade: faturamento
+features: [varejo.orcamentos.item, varejo.orcamentos.item.fatura]
+perfis: [faturista, gestor]
+tags: [orcamento, faturar, fatura, sem-caixa, nota-fiscal, operacao, contas-a-receber]
+relacionados: [varejo-orcamentos-como-funciona-o-orcamento, varejo-pdv-importar-orcamento, varejo-orcamentos-erro-nao-consigo-alterar-ou-faturar]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 5
+---
+
+Use este caminho para vendas que não passam pelo balcão, como pedidos a prazo de clientes empresa. Para receber no balcão, [importe o orçamento no caixa](/varejo/pdv/importar-orcamento/).
+
+## Antes de começar
+
+- Permissão necessária: **Comercial › Orçamentos: Faturar (sem caixa)**.
+- O orçamento precisa estar **Fechado** e não pode ser condicional (consignado).
+- Para emitir nota, o cadastro do cliente precisa estar completo (documento e endereço).
+
+## Passo a passo
+
+1. Abra o orçamento **Fechado** e clique em **Faturar**. A tela **Fatura do Orçamento** abre.
+2. Se o card **Operação** aparecer, escolha a operação. Abaixo dela aparecem as regras: **Gera Contas a Receber**, **Baixa estoque**, **Calcula ICMS**.
+3. Em **Pagamentos**, clique no tipo de recebimento (dinheiro, boleto, cartão…), informe o valor e confirme. Repita até o **Restante** zerar. Cada tipo só pode ser lançado uma vez; para mudar o valor, remova-o no **x** e lance de novo.
+   - Se a operação não gera financeiro, não lance pagamentos.
+4. Confira o quadro **Para concluir**. Todos os itens precisam estar marcados:
+   - **Itens na fatura**;
+   - **Operação selecionada**;
+   - **Pagamentos cobrem o total**;
+   - **Cadastro do cliente para a nota**.
+5. Clique em **Concluir Faturamento**.
+   - Se a venda tem nota, confira natureza, CFOP e transporte na janela que abre e confirme.
+   - Se todos os itens são serviço, confirme o faturamento sem nota.
+
+## Resultado esperado
+
+Aparece *"Orçamento faturado. A nota ficou em rascunho no Monitor Fiscal para revisão e transmissão."*. O orçamento passa a **Faturado (sem caixa)**, o estoque é baixado e os títulos vão para o Contas a Receber. A nota **não é transmitida sozinha**: revise e transmita pelo **Monitor Fiscal**. Quando autorizada, o orçamento mostra **Imprimir DANFE** e **Enviar por e-mail**.
+
+## Parar no meio
+
+- Para sair e continuar depois, volte ao orçamento: o botão passa a **Continuar Fatura**.
+- Para desistir, clique em **Descartar Fatura**. Os pagamentos lançados são removidos e o orçamento volta para **Fechado**.
+
+## Cancelar um faturamento
+
+No orçamento **Faturado (sem caixa)**, clique em **Cancelar Faturamento** e confirme. O estoque é estornado, os títulos em aberto são excluídos e o orçamento volta para **Fechado**. Se a nota já foi autorizada, cancele-a antes no Monitor Fiscal.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| **Concluir Faturamento** desabilitado | Passe o mouse sobre o botão para ver o motivo e confira o quadro **Para concluir**. |
+| "Selecione a operação da fatura." | Escolha a operação no card **Operação**. |
+| "Este tipo de recebimento já foi lançado na fatura — remova-o para alterar." | Remova o pagamento desse tipo e lance o valor total de novo. |
+| "A operação … não gera financeiro — remova os pagamentos lançados." | Remova os pagamentos ou escolha outra operação. |
+| "O orçamento está vinculado à venda #… do PDV — use o PDV." | O orçamento foi importado no caixa. Termine ou cancele a venda no caixa. |
+| "Orçamento de consignação é faturado pela prestação de contas." | Use a prestação de contas da consignação. |
+| "A nota está sendo transmitida à SEFAZ — aguarde o retorno para cancelar o faturamento." | Aguarde alguns instantes e tente de novo. |

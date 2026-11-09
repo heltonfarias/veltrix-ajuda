@@ -1,0 +1,56 @@
+---
+id: varejo-pdv-fechar-caixa
+titulo: Fechar o caixa
+resumo: Confira o resumo do período, feche o caixa e imprima o relatório de fechamento. Gestores podem reabrir um caixa fechado.
+tipo: procedimento
+produto: [varejo]
+modulo: pdv
+atividade: fechamento
+features: [varejo.pdv, varejo.pdv.caixa, varejo.pdv.relatorio]
+perfis: [caixa, gestor]
+tags: [pdv, caixa, fechar, fechamento, relatorio, reabrir, conferencia]
+relacionados: [varejo-pdv-abrir-caixa, varejo-pdv-sangria-suprimento-duplicata, varejo-pdv-erro-nao-consigo-finalizar-ou-fechar, varejo-pdv-faq-caixa-de-outro-operador]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 6
+---
+
+## Antes de começar
+
+- Permissão necessária: **PDV › PDV: Fechar Caixa**.
+- Não pode haver venda em aberto: finalize ou cancele a venda da tela.
+- Não pode haver transação TEF pendente.
+
+## Passo a passo
+
+1. Na frente de caixa, clique em **Fechar Caixa**.
+2. Confira o resumo do período (vendas, recebimentos por forma de pagamento, sangrias, suprimentos e, com TEF, a divergência entre TEF e caixa).
+3. Clique em **Confirmar Fechamento**.
+
+## Resultado esperado
+
+Aparece *"Caixa fechado com sucesso"*, o relatório de fechamento abre para impressão e você volta para **PDV › Caixa**. Os totais do caixa são recalculados a partir das vendas do período no fechamento.
+
+Para reimprimir o relatório depois, use **Relatório** na frente de caixa ou **PDV › Relatório**.
+
+## Reabrir um caixa fechado
+
+Quem tem a permissão **PDV › PDV: Reabrir Caixa** e **PDV › PDV: Ver Todos os Caixas**:
+
+1. Em **PDV › Caixa**, no card **Caixas por Operador**, filtre por data, operador, período ou situação.
+2. Na linha do caixa **Fechado**, clique em **Reabrir** e confirme.
+
+Sem a permissão de reabrir, o sistema pede as credenciais de um supervisor em **Autorizar Reabertura de Caixa**.
+
+O operador não pode ter outro caixa aberto no momento da reabertura.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Existem 1 venda(s) em aberto. Finalize ou cancele antes de fechar o caixa." | Volte à frente de caixa e finalize ou cancele a venda da tela. |
+| Fechamento bloqueado por TEF | Resolva a transação em **PDV › TEF** (pendências) e tente de novo. |
+| "Nenhum caixa aberto encontrado." | O caixa já foi fechado. Confira em **PDV › Caixa**. |
+| "Operador já possui um caixa aberto." | Para reabrir, o operador precisa fechar o caixa atual antes. |

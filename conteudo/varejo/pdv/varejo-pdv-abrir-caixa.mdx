@@ -1,0 +1,45 @@
+---
+id: varejo-pdv-abrir-caixa
+titulo: Abrir o caixa
+resumo: Escolha o período, informe o fundo de troco e entre na frente de caixa.
+tipo: procedimento
+produto: [varejo]
+modulo: pdv
+atividade: abertura
+features: [varejo.pdv]
+perfis: [caixa]
+tags: [pdv, caixa, abrir, fundo-de-troco, periodo]
+relacionados: [varejo-pdv-como-funciona-o-pdv, varejo-pdv-registrar-venda, varejo-pdv-fechar-caixa]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 2
+---
+
+## Antes de começar
+
+- Permissões necessárias: **PDV › PDV: Vender** e **PDV › PDV: Abrir Caixa**.
+- O caixa do turno anterior precisa estar fechado.
+
+## Passo a passo
+
+1. Acesse **PDV › Caixa**. O card **Meu Caixa** mostra **Sem caixa aberto**.
+2. Clique em **Abrir Caixa**.
+3. Confira o **Período**. O sistema sugere o período pelo horário; clique em outro para trocar.
+4. Informe o **Fundo de Troco (R$)**, o dinheiro que está na gaveta no início do turno.
+5. Clique em **Abrir Caixa**.
+
+## Resultado esperado
+
+Aparece *"Caixa aberto!"* e a frente de caixa abre, pronta para a primeira venda. Na tela **PDV › Caixa**, o card passa a mostrar **Aberto**, o período, a data e a hora da abertura, além de **Fundo de Troco**, **Venda Líquida**, **Qtd Vendas**, **Cancelamentos**, **Dinheiro** e **Cartão**.
+
+Para voltar à frente de caixa depois, clique em **Ir para o Caixa**.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Caixa já aberto neste período. Clique em "Ir para o Caixa"." | O caixa desse período já está aberto. Clique em **Ir para o Caixa**. |
+| "Caixa já está aberto. Feche o caixa atual antes de abrir um novo." | Você tem um caixa aberto em outro período ou data. Entre nele e [feche-o](/varejo/pdv/fechar-caixa/) antes. |
+| O botão **Abrir Caixa** dá erro de permissão | Peça ao administrador a permissão **PDV › PDV: Abrir Caixa**. |
