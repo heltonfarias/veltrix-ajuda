@@ -45,6 +45,10 @@ varejo:
     nome: Orçamentos
     descricao: Elaborar, enviar ao cliente, fechar e faturar orçamentos.
     icone: file-text
+  mercadorias:
+    nome: Mercadorias
+    descricao: Cadastrar produtos, preços e dados fiscais, e montar KITs.
+    icone: package
 
 decor:
   orcamentos:

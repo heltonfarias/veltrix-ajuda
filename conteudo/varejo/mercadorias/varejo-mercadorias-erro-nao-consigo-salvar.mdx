@@ -1,0 +1,36 @@
+---
+id: varejo-mercadorias-erro-nao-consigo-salvar
+titulo: Não consigo salvar a mercadoria ou o KIT
+tipo: solucao
+produto: [varejo]
+modulo: mercadorias
+features: [varejo.cadastros.mercadorias]
+perfis: [comprador, estoque, gestor]
+tags: [mercadoria, kit, erro, composicao, salvar]
+relacionados: [varejo-mercadorias-cadastrar-mercadoria, varejo-mercadorias-compor-kit, varejo-mercadorias-o-que-e-um-kit]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+status: publicado
+---
+
+## Sintoma
+
+Ao clicar em **Criar Mercadoria** ou **Salvar Alterações**, aparece uma mensagem em vermelho no topo da janela e o produto não é gravado.
+
+## Causa e solução
+
+| Mensagem | Causa | Como resolver |
+|---|---|---|
+| "Descrição é obrigatória (aba Básico)." / "Grupo é obrigatório (aba Básico)." / "Fornecedor é obrigatório (aba Básico)." | Campo obrigatório vazio. A mensagem aparece mesmo se você estiver em outra aba. | Volte à aba **Básico** e preencha. |
+| "Código de barras já cadastrado" | Outro produto já usa o código. | Busque o código na lista. Se for o mesmo produto, edite o existente. |
+| "Um KIT precisa ter ao menos um produto na composição (aba Composição)." | Marcou **Este produto é um KIT › Sim** sem componentes. | Adicione componentes, ou volte o KIT para **Não**. |
+| "Quantidade inválida para o componente …" | Componente com quantidade zero ou vazia. | Informe uma quantidade maior que zero. |
+| "A composição do KIT possui produtos duplicados." | O mesmo produto entrou duas vezes. | Deixe uma linha só e ajuste a quantidade. |
+| "Um KIT não pode ter a si mesmo como componente." | O próprio KIT está na lista. | Retire-o da composição. |
+| "Produto … é um KIT e não pode ser usado como componente de outro KIT." | Um componente é KIT. | Adicione os componentes desse KIT diretamente (use **Copiar de outro KIT**). |
+| "Este produto é componente de outro KIT e não pode virar um KIT." | O produto faz parte de algum KIT. | Cadastre um produto novo para o KIT, ou retire este das composições. |
+| "Desconto profissional … deve estar entre 0 e 100%." | Percentual inválido na aba **Preços**. | Corrija o **% Desconto à Vista** ou **a Prazo**. |
+
+## Quando acionar o suporte
+
+Acione o suporte se a mensagem não estiver nesta lista ou continuar depois da correção. Envie o código do produto e uma captura da janela com a mensagem.
