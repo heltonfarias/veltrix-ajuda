@@ -1,0 +1,58 @@
+---
+id: varejo-orcamentos-fechar-reabrir-cancelar
+titulo: Fechar, reabrir ou cancelar um orçamento
+resumo: Feche o orçamento aprovado para reservar o estoque e liberar a venda. Reabrir e cancelar pedem a senha de autorização.
+tipo: procedimento
+produto: [varejo]
+modulo: orcamentos
+atividade: aprovacao
+features: [varejo.orcamentos.item]
+perfis: [vendedor, gestor]
+tags: [orcamento, fechar, reabrir, cancelar, status, autorizacao, reserva]
+relacionados: [varejo-orcamentos-como-funciona-o-orcamento, varejo-orcamentos-faturar-sem-caixa, varejo-pdv-importar-orcamento, varejo-orcamentos-erro-nao-consigo-alterar-ou-faturar]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 3
+---
+
+## Antes de começar
+
+- Permissão necessária: **Comercial › Orçamentos: Editar**.
+- Para reabrir ou cancelar, tenha em mãos a **senha de autorização** da loja. Peça ao gerente.
+
+## Fechar o orçamento
+
+Feche quando o cliente aprovar. A partir daí o orçamento pode ser vendido no caixa ou faturado.
+
+1. Abra o orçamento em **Comercial › Orçamentos**.
+2. Clique em **Fechar** e confirme em *"Fechar este orçamento?"*.
+
+O status passa a **Fechado** e o estoque dos itens fica reservado. Se aparecer *"Orçamento fechado, mas um item ficou sem reserva de estoque"*, o orçamento fechou normalmente; o item listado só não foi reservado e será baixado no faturamento.
+
+## Reabrir para alterar
+
+1. No orçamento **Fechado**, clique em **Reabrir**.
+2. Digite a **Senha de autorização** e clique em **Confirmar Reabertura**.
+
+O status volta a **Aberto**, a reserva de estoque é liberada e o orçamento pode ser editado. Feche de novo ao terminar.
+
+Um orçamento **Em Entrega** volta a Aberto pelo botão **Cancelar Entrega**.
+
+## Cancelar
+
+1. No orçamento **Aberto**, clique em **Cancelar**.
+2. Digite a **Senha de autorização** e clique em **Confirmar Cancelamento**.
+
+O status passa a **Cancelado** e a reserva de estoque é liberada. **Orçamento cancelado não pode ser reaberto.** Para cancelar um orçamento Fechado, reabra-o primeiro.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Senha incorreta." | Confira a senha com o gerente. |
+| "Só é possível cancelar um orçamento com status Aberto." | Reabra o orçamento e cancele em seguida. |
+| "Cancele a entrega antes de cancelar o orçamento." | Clique em **Cancelar Entrega** e depois cancele. |
+| "Orçamento cancelado não pode ser reaberto." | Crie um novo orçamento. |
+| "Orçamento faturado não pode ter o status alterado." | O orçamento já virou venda. Veja [Não consigo alterar ou faturar o orçamento](/varejo/orcamentos/erro-nao-consigo-alterar-ou-faturar/). |

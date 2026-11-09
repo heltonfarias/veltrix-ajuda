@@ -1,0 +1,50 @@
+---
+id: varejo-orcamentos-erro-nao-consigo-alterar-ou-faturar
+titulo: Não consigo alterar, importar ou faturar o orçamento
+tipo: solucao
+produto: [varejo]
+modulo: orcamentos
+features: [varejo.orcamentos.item, varejo.orcamentos.item.fatura, varejo.pdv.caixa]
+perfis: [vendedor, caixa, faturista]
+tags: [orcamento, erro, status, faturar, importar, bloqueio]
+relacionados: [varejo-orcamentos-como-funciona-o-orcamento, varejo-orcamentos-fechar-reabrir-cancelar, varejo-orcamentos-faturar-sem-caixa, varejo-pdv-importar-orcamento]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+status: publicado
+---
+
+## Sintoma
+
+Os botões de edição sumiram, o orçamento não aparece para importar no caixa, ou aparece uma destas mensagens:
+
+- *"Apenas orçamentos com status Fechado podem ser importados ou faturados."*
+- *"Este orçamento já está vinculado à venda #… Cancele a venda para poder reimportar."*
+- *"Orçamento ### não está disponível para importar (precisa estar Fechado e sem venda)."*
+- *"Orçamento faturado não pode ter o status alterado."*
+- *"Só é possível reabrir um orçamento com status Fechado."*
+
+## Causa
+
+Cada ação depende do status do orçamento:
+
+| Ação | Status exigido |
+|---|---|
+| Editar cabeçalho e itens | **Aberto** |
+| Importar no caixa ou **Faturar** | **Fechado** e sem venda vinculada |
+| Reabrir | **Fechado** ou **Em Entrega** |
+| Cancelar | **Aberto** |
+
+Um orçamento importado no caixa fica **vinculado à venda** (aparece o selo **Venda #…** no título) até a venda ser finalizada ou cancelada.
+
+## Como resolver
+
+- **Orçamento Aberto e você quer vender:** clique em **Fechar**.
+- **Orçamento Fechado e você precisa alterar:** clique em **Reabrir** e informe a senha de autorização.
+- **Orçamento vinculado a uma venda em aberto no caixa:** finalize a venda no caixa, ou cancele-a lá (botão **Cancelar**) para liberar o orçamento.
+- **Orçamento vinculado a uma venda já finalizada:** ele foi vendido. Se a venda foi indevida, cancele-a em **Comercial › Consulta › Consulta de Vendas** (veja [Como cancelo uma venda já finalizada?](/varejo/pdv/faq-cancelar-venda-finalizada/)).
+- **Orçamento Faturado sem caixa:** use **Cancelar Faturamento** no próprio orçamento.
+- **Orçamento condicional (consignado):** é acertado pela prestação de contas, não pelo caixa nem pela fatura.
+
+## Quando acionar o suporte
+
+Acione o suporte se o orçamento estiver Fechado, sem o selo **Venda #…**, e ainda assim não puder ser importado nem faturado. Envie o número do orçamento e uma captura da mensagem.

@@ -1,0 +1,42 @@
+---
+id: varejo-pdv-erro-nao-consigo-finalizar-ou-fechar
+titulo: Não consigo iniciar, finalizar a venda ou fechar o caixa
+tipo: solucao
+produto: [varejo]
+modulo: pdv
+features: [varejo.pdv, varejo.pdv.caixa]
+perfis: [caixa, gestor]
+tags: [pdv, erro, finalizar, fechar-caixa, nota-fiscal, pendencia, bloqueio]
+relacionados: [varejo-pdv-registrar-venda, varejo-pdv-fechar-caixa, varejo-pdv-abrir-caixa]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+status: publicado
+---
+
+## Sintoma
+
+Uma destas mensagens aparece na frente de caixa:
+
+- *"Nenhum caixa aberto. Abra o caixa antes de iniciar uma venda."* ou a tela **Caixa não aberto**;
+- *"Já existe uma venda em aberto. Finalize ou cancele antes de criar uma nova."*;
+- *"A venda não possui itens."*;
+- *"Total recebido (…) é menor que o total da venda (…)."*;
+- a janela de dados fiscais incompletos ao finalizar, ou o selo da nota com **pendência(s)**;
+- *"Existem N venda(s) em aberto. Finalize ou cancele antes de fechar o caixa."*;
+- *"Venda já finalizada ou cancelada."*.
+
+## Causa e solução
+
+| Mensagem | Causa | Como resolver |
+|---|---|---|
+| Nenhum caixa aberto / **Caixa não aberto** | O caixa do seu usuário não foi aberto ou já foi fechado. Cada usuário tem o próprio caixa. | Clique em **Ir para o PDV** e [abra o caixa](/varejo/pdv/abrir-caixa/). |
+| Já existe uma venda em aberto | O caixa só trabalha com uma venda em aberto por vez. | Finalize ou cancele a venda da tela. |
+| A venda não possui itens | Tentativa de finalizar sem produto. | Lance os itens ou cancele a venda. |
+| Total recebido menor que o total | Falta lançar pagamento, ou um desconto foi alterado depois do pagamento. | Lance o restante (**F4**) até aparecer **Quitado ✓**. |
+| Dados fiscais incompletos / **pendência(s)** | O cadastro do cliente não tem o que a nota exige (documento, endereço, município…). | Complete o cadastro do cliente em **Comercial › Pessoas** e finalize de novo. Para NFC-e de consumidor sem cadastro, use só o **CPF na nota · F2** e retire o cliente. |
+| N venda(s) em aberto ao fechar | Há venda iniciada e não concluída no período. | Volte à frente de caixa, finalize ou cancele. |
+| Venda já finalizada ou cancelada | A venda da tela já foi concluída, em outra aba ou por outra pessoa. | Tecle **F3** para começar outra venda. |
+
+## Quando acionar o suporte
+
+Acione o suporte se a nota ficar **REJEITADA** depois de corrigir o cadastro e reenviar, ou se o caixa não fechar sem venda em aberto. Envie o número da venda, o motivo da rejeição e uma captura da tela.

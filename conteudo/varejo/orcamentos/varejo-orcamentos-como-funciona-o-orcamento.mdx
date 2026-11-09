@@ -1,0 +1,67 @@
+---
+id: varejo-orcamentos-como-funciona-o-orcamento
+titulo: Como funciona o orçamento
+resumo: O ciclo Aberto → Fechado → Faturado, a reserva de estoque e as duas formas de faturar, pelo caixa ou sem caixa.
+tipo: conceito
+produto: [varejo]
+modulo: orcamentos
+atividade: entender
+features: [varejo.orcamentos, varejo.orcamentos.item]
+perfis: [vendedor, caixa, gestor]
+tags: [orcamento, status, ciclo, reserva, estoque, faturamento]
+relacionados: [varejo-orcamentos-criar-orcamento, varejo-orcamentos-fechar-reabrir-cancelar, varejo-orcamentos-faturar-sem-caixa, varejo-pdv-importar-orcamento]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 1
+---
+
+## O que é
+
+O orçamento, em **Comercial › Orçamentos**, reúne o cliente, o vendedor, a condição de pagamento e os itens de uma venda antes de ela acontecer. Ele pode ser impresso, enviado ao cliente por link e, depois de fechado, vira venda no caixa ou é faturado direto, sem caixa.
+
+## Ciclo de status
+
+| Status | O que significa | O que dá para fazer |
+|---|---|---|
+| **Aberto** | Em elaboração. | Editar o cabeçalho e os itens, **Fechar** ou **Cancelar**. |
+| **Fechado** | Pronto para vender. O estoque dos itens fica reservado. | Importar no caixa, **Faturar**, **Enviar para Entrega** ou **Reabrir**. |
+| **Em Entrega** | Saiu para entrega ou aguarda retirada na loja. | Confirmar a entrega ou **Cancelar Entrega**. |
+| **Faturado** | Virou venda. O sistema define este status sozinho. | Imprimir a DANFE e, se foi faturado sem caixa, **Cancelar Faturamento**. |
+| **Cancelado** | Desistência. Não pode ser reaberto. | Só consultar. |
+
+O topo da tela do orçamento mostra essa linha do tempo: **Criado → Fechado → (Em Entrega → Entregue) → Faturado**.
+
+## Reserva de estoque
+
+O estoque **só fica reservado enquanto o orçamento está Fechado ou Em Entrega**:
+
+- ao **fechar**, o sistema reserva a quantidade de cada item;
+- ao **reabrir** ou **cancelar**, a reserva é liberada;
+- no **faturamento**, a reserva vira baixa de estoque.
+
+Se algum item não puder ser reservado, o orçamento fecha assim mesmo e aparece o aviso *"Orçamento fechado, mas um item ficou sem reserva de estoque"*. A baixa desses itens acontece normalmente no faturamento.
+
+## Preço e forma de venda
+
+A **Forma de venda** do cabeçalho define qual preço do cadastro do produto entra nos itens:
+
+| Forma de venda | Preço usado |
+|---|---|
+| **À Vista** | preço à vista |
+| **A Prazo** | preço a prazo 1 |
+| **Revenda** | preço a prazo 2 |
+
+O preço ainda pode ser ajustado em cada item.
+
+## Duas formas de faturar
+
+1. **Pelo caixa (PDV):** o operador importa o orçamento Fechado no caixa, recebe o pagamento e finaliza a venda. Veja [Importar um orçamento no caixa](/varejo/pdv/importar-orcamento/).
+2. **Sem caixa:** quem tem a permissão **Faturar (sem caixa)** clica em **Faturar** no próprio orçamento, lança os pagamentos e conclui. Veja [Faturar um orçamento sem passar pelo caixa](/varejo/orcamentos/faturar-sem-caixa/).
+
+Nos dois casos o orçamento passa a **Faturado** e mostra o número da venda e, quando autorizada, o da nota fiscal.
+
+## Orçamento condicional (consignado)
+
+Um orçamento marcado como **Orçamento condicional › Sim (consignado)** não é faturado pelo orçamento nem importado no caixa: o acerto é feito pela prestação de contas da consignação.

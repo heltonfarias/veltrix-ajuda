@@ -1,0 +1,76 @@
+---
+id: varejo-pdv-como-funciona-o-pdv
+titulo: Como funciona o PDV
+resumo: Um caixa por operador e período, a venda do balcão do primeiro item à nota fiscal, e os atalhos de teclado da frente de caixa.
+tipo: conceito
+produto: [varejo]
+modulo: pdv
+atividade: entender
+features: [varejo.pdv, varejo.pdv.caixa]
+perfis: [caixa, gestor]
+tags: [pdv, caixa, periodo, atalhos, teclado, nfc-e, venda]
+relacionados: [varejo-pdv-abrir-caixa, varejo-pdv-registrar-venda, varejo-pdv-fechar-caixa, varejo-pdv-sangria-suprimento-duplicata]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 1
+---
+
+## O que é
+
+O PDV (ponto de venda), em **PDV › Caixa**, é a frente de caixa da loja: registra as vendas do balcão, recebe os pagamentos e emite a nota fiscal do consumidor.
+
+## Um caixa por operador e período
+
+Cada usuário tem o **próprio caixa**. Ele é aberto com um **fundo de troco** em uma data e um período:
+
+| Período | Sugestão automática ao abrir |
+|---|---|
+| **Período 1** | das 6h às 12h |
+| **Período 2** | das 12h às 18h |
+| **Período 3** | das 18h às 6h |
+
+O operador só pode ter **um caixa aberto por vez**. Antes de abrir outro período, feche o atual.
+
+## A venda
+
+1. **Nova Venda** cria uma venda em aberto. Ler o primeiro código de barras também cria a venda.
+2. Os itens entram pela leitura do código ou pela busca por nome.
+3. Desconto, cliente e CPF na nota são opcionais.
+4. Os pagamentos são lançados até o **Restante** zerar. O troco é calculado nos tipos de recebimento que permitem troco, como dinheiro.
+5. **Finalizar** grava a venda, baixa o estoque e transmite a nota.
+
+Só pode haver **uma venda em aberto por vez** no caixa. Uma venda em aberto pode ser cancelada pelo próprio caixa. Venda finalizada só é cancelada pela **Consulta de Vendas**.
+
+## Nota fiscal
+
+Ao finalizar, o sistema escolhe a nota sozinho e mostra a escolha no topo da venda:
+
+| Selo | Quando |
+|---|---|
+| **NFC-e 65** | padrão para consumidor final |
+| **NF-e 55** | cliente pessoa jurídica ou de outro estado; ou quando o operador marca **Emitir NF-e 55** (exige cliente identificado com endereço completo) |
+| **SEM NOTA · só serviços** | todos os itens são serviço: a venda é recebida sem nota |
+
+Se o selo mostrar **pendência(s)**, falta dado no cadastro do cliente para emitir a nota. Clique no selo para ver o que falta.
+
+## Atalhos de teclado
+
+| Tecla | Ação |
+|---|---|
+| **F2** | CPF na nota |
+| **F3** | Nova venda |
+| **F4** | Vai para a forma de pagamento; com a venda quitada, finaliza |
+| **F6** | Desconto |
+| **F7** | Cupom não fiscal da venda |
+| **F8** | Consulta de preço |
+| **F9** | Quantidade da próxima leitura |
+| **F11** | Resumo da venda |
+| **3\*** no campo de busca | A próxima leitura entra com quantidade 3 |
+
+O F5 continua atualizando a página. Em tela cheia, segure **Esc** para sair dela.
+
+## Movimentos fora da venda
+
+Pelo botão **Movimentos** o operador registra **Sangria**, **Suprimento**, **Retirada**, **Pagamento Correntista** e **Baixa de Duplicata**. Veja [Sangria, suprimento e recebimento de duplicata](/varejo/pdv/sangria-suprimento-duplicata/).
