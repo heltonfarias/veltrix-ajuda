@@ -1,0 +1,55 @@
+---
+id: varejo-mercadorias-compor-kit
+titulo: Compor um KIT
+resumo: Marque a mercadoria como KIT, adicione os componentes com as quantidades e escolha como ele sai na nota fiscal.
+tipo: procedimento
+produto: [varejo]
+modulo: mercadorias
+atividade: cadastro
+features: [varejo.cadastros.mercadorias]
+perfis: [comprador, estoque, gestor]
+tags: [kit, combo, composicao, componente, cadastro]
+relacionados: [varejo-mercadorias-o-que-e-um-kit, varejo-mercadorias-copiar-kit, varejo-mercadorias-erro-nao-consigo-salvar]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 3
+---
+
+## Antes de começar
+
+- Permissão necessária: **Cadastros › Mercadorias: Criar** (KIT novo) ou **Cadastros › Mercadorias: Editar** (transformar um produto em KIT ou alterar a composição).
+- Os componentes precisam estar cadastrados e **ativos**, e não podem ser KITs.
+- Já existe um KIT parecido? Comece por ele: veja [Copiar a composição de outro KIT](/varejo/mercadorias/copiar-kit/).
+
+## Passo a passo
+
+1. Em **Comercial › Cadastros › Mercadorias**, clique em **Nova Mercadoria** (ou abra o produto que vai virar KIT).
+2. Na aba **Básico**, preencha **Descrição**, **Grupo** e **Fornecedor**, como em [Cadastrar uma mercadoria](/varejo/mercadorias/cadastrar-mercadoria/).
+3. Em **Este produto é um KIT**, clique em **Sim**. A aba **Composição** aparece e já abre.
+4. Em **Na nota fiscal (NF-e / NFC-e)**, escolha **Discriminar componentes** (padrão, para kit montado pela loja) ou **Item único (KIT com NCM próprio)**. Veja a diferença em [O que é um KIT](/varejo/mercadorias/o-que-e-um-kit/).
+5. No campo *"Buscar produto por descrição ou código para adicionar…"*, digite pelo menos 2 caracteres e clique no produto. Ele entra na lista com quantidade 1 e mostra o estoque atual.
+6. Ajuste a quantidade de cada componente no campo à direita. Use o **x** para retirar um componente.
+7. Repita os passos 5 e 6 para todos os componentes.
+8. Na aba **Preços**, informe o preço de venda do KIT. Na aba **Fiscal**, preencha o NCM se escolheu **Item único**.
+9. Clique em **Criar Mercadoria** (ou **Salvar Alterações**).
+
+## Resultado esperado
+
+O KIT aparece na lista com o selo **KIT**. Ao vendê-lo no PDV ou no orçamento, o estoque reservado e baixado é o dos componentes. A composição só é gravada quando você salva: fechar a janela antes descarta as alterações.
+
+## Alterar a composição
+
+Abra o KIT, vá à aba **Composição**, adicione, retire ou mude quantidades e clique em **Salvar Alterações**. A nova composição vale para as vendas e reservas feitas a partir daí.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| O produto não aparece na busca de componentes | Ele está inativo, é um KIT ou já está na composição. |
+| "Um KIT precisa ter ao menos um produto na composição (aba Composição)." | Adicione ao menos um componente. |
+| "Quantidade inválida para o componente … — informe um valor maior que zero." | Corrija a quantidade do componente indicado. |
+| "Este produto é componente de outro KIT e não pode virar um KIT." | Retire o produto das composições em que ele aparece, ou cadastre um produto novo para o KIT. |
+
+Outras mensagens em [Não consigo salvar a mercadoria ou o KIT](/varejo/mercadorias/erro-nao-consigo-salvar/).

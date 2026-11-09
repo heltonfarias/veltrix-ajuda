@@ -1,0 +1,50 @@
+---
+id: varejo-mercadorias-copiar-kit
+titulo: Copiar a composição de outro KIT
+resumo: Monte um KIT novo a partir de um já cadastrado, trazendo todos os componentes ou só alguns, somando ou substituindo a composição atual.
+tipo: procedimento
+produto: [varejo]
+modulo: mercadorias
+atividade: cadastro
+features: [varejo.cadastros.mercadorias]
+perfis: [comprador, estoque, gestor]
+tags: [kit, copiar, duplicar, composicao, componente]
+relacionados: [varejo-mercadorias-compor-kit, varejo-mercadorias-o-que-e-um-kit]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 4
+---
+
+Útil para variações de um mesmo combo (o kit do 1º ano a partir do kit do 2º ano, a coleção nova a partir da anterior) e para juntar dois kits em um.
+
+## Antes de começar
+
+- Permissão necessária: **Cadastros › Mercadorias: Criar** ou **Cadastros › Mercadorias: Editar**.
+- O KIT de origem precisa estar **ativo** e ter componentes.
+
+## Passo a passo
+
+1. Abra o KIT de destino em **Comercial › Cadastros › Mercadorias**. Para um KIT novo, clique em **Nova Mercadoria**, preencha a aba **Básico** e marque **Este produto é um KIT › Sim**.
+2. Na aba **Composição**, clique em **Copiar de outro KIT**.
+3. Em *"Buscar o KIT de origem por descrição ou código…"*, digite pelo menos 2 caracteres e clique no KIT. Só aparecem KITs.
+4. A lista mostra os componentes da origem com a quantidade de cada um, todos marcados. Desmarque os que não quer trazer, ou use **Marcar todos** e **Desmarcar todos**. Para escolher outra origem, clique em **Trocar KIT**.
+5. Escolha como copiar:
+   - **Adicionar à composição atual:** os componentes marcados entram junto com os que o KIT já tem. Um produto que já está na composição aparece com o aviso *"já está na composição"* e **mantém a quantidade atual**;
+   - **Substituir a composição atual:** a composição atual é trocada pelos componentes marcados, com as quantidades da origem. O sistema pede confirmação.
+6. Clique em **Copiar N produto(s)**.
+7. Confira o aviso e as quantidades na lista e ajuste o que for preciso.
+8. Clique em **Salvar Alterações** (ou **Criar Mercadoria**, se o KIT é novo).
+
+## Resultado esperado
+
+Aparece um aviso como *"3 produto(s) adicionados de "Combo Escolar 2º ano". Confira e clique em Salvar."*. A cópia só vai para o banco quando você salva; até lá, fechar a janela descarta tudo. O KIT de origem não é alterado.
+
+## O que não é copiado
+
+Só os componentes e suas quantidades. Descrição, preços, dados fiscais e a opção **Na nota fiscal** do KIT de destino continuam os dele. Preencha-os normalmente.
+
+## Juntar dois KITs
+
+Copie o primeiro KIT com **Substituir a composição atual**, depois copie o segundo com **Adicionar à composição atual**. Se um produto existir nos dois, ele fica com a quantidade do primeiro; some à mão, se for o caso.

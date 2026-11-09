@@ -1,0 +1,53 @@
+---
+id: varejo-mercadorias-o-que-e-um-kit
+titulo: O que é um KIT e como ele funciona
+resumo: Um produto vendido com preço próprio cujo estoque é o dos componentes. Saiba como ele aparece no estoque, na venda e na nota fiscal.
+tipo: conceito
+produto: [varejo]
+modulo: mercadorias
+atividade: entender
+features: [varejo.cadastros.mercadorias]
+perfis: [comprador, estoque, gestor, caixa]
+tags: [kit, combo, composicao, componente, estoque, nota-fiscal]
+relacionados: [varejo-mercadorias-compor-kit, varejo-mercadorias-copiar-kit, varejo-mercadorias-faq-deixar-de-ser-kit]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 2
+---
+
+## O que é
+
+Um **KIT** é uma mercadoria formada por outras mercadorias, os **componentes**. Exemplos: um combo promocional, uma coleção de livros, um conjunto de material escolar. O KIT tem o próprio código, descrição e preço, e é vendido como qualquer produto, no PDV e no orçamento. Na lista de mercadorias ele aparece com o selo **KIT**.
+
+## Estoque
+
+O KIT **não tem estoque próprio**. Quando ele é vendido ou reservado, o sistema movimenta os componentes, multiplicando a quantidade de cada um pela quantidade de KITs:
+
+> KIT "Combo Escolar" = 2 cadernos + 1 estojo. Vendendo 3 KITs, saem 6 cadernos e 3 estojos.
+
+No cadastro do KIT, o **Estoque Disponível** mostra quantos KITs os componentes disponíveis conseguem montar.
+
+## Preço
+
+Vale o preço do **cadastro do KIT** (aba **Preços**), não a soma dos componentes. Você define o preço do combo.
+
+## Nota fiscal
+
+Na aba **Composição**, o campo **Na nota fiscal (NF-e / NFC-e)** define como o KIT sai na nota:
+
+| Opção | Como sai | Quando usar |
+|---|---|---|
+| **Discriminar componentes** | Cada componente é um item da nota, com o NCM e a tributação do próprio cadastro. O preço e o desconto do KIT são rateados entre eles pelo preço de venda de cada um. | Kit montado pela loja: combo, coleção, promoção. É o padrão. |
+| **Item único (KIT com NCM próprio)** | O KIT é um item só, com o NCM e a tributação do cadastro do KIT. A composição vai na informação adicional do item. | Conjunto já embalado para venda ao consumidor, em geral com código de barras próprio. |
+
+Na dúvida, use **Discriminar componentes** e confirme com a contabilidade.
+
+## Regras da composição
+
+- Um KIT precisa ter **ao menos um componente**.
+- Um componente **não pode ser outro KIT**, nem o próprio KIT.
+- O mesmo produto não pode aparecer duas vezes: ajuste a quantidade.
+- A quantidade de cada componente precisa ser maior que zero e aceita frações (0,5).
+- Um produto que já é componente de algum KIT não pode virar KIT.

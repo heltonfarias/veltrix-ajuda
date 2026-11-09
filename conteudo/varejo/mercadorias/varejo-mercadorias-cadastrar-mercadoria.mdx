@@ -1,0 +1,63 @@
+---
+id: varejo-mercadorias-cadastrar-mercadoria
+titulo: Cadastrar uma mercadoria
+resumo: Preencha descrição, grupo e fornecedor, os preços, o estoque e o fiscal. Sem código de barras, o sistema gera um código próprio.
+tipo: procedimento
+produto: [varejo]
+modulo: mercadorias
+atividade: cadastro
+features: [varejo.cadastros.mercadorias]
+perfis: [comprador, estoque, gestor]
+tags: [mercadoria, produto, cadastro, codigo-de-barras, preco, ncm, servico]
+relacionados: [varejo-mercadorias-o-que-e-um-kit, varejo-mercadorias-compor-kit, varejo-mercadorias-erro-nao-consigo-salvar]
+responsavel: heltonfarias
+revisado_em: 2026-11-09
+valido_desde: 1.0.0
+status: publicado
+ordem: 1
+---
+
+## Antes de começar
+
+- Permissões necessárias: **Cadastros › Mercadorias: Criar** e, para alterar depois, **Cadastros › Mercadorias: Editar**.
+- O **grupo** do produto (**Comercial › Cadastros › Grupos de Produto**) e o **fornecedor** precisam estar cadastrados.
+
+## Passo a passo
+
+1. Acesse **Comercial › Cadastros › Mercadorias** e clique em **Nova Mercadoria**.
+2. Na aba **Básico**:
+   - **Código de Barras:** leia ou digite o EAN-13. Deixe em branco para o sistema gerar um código próprio pelo fornecedor e pelo grupo ao salvar. Para livros, preencha o **ISBN** e clique em **Usar como código de barras**;
+   - **Descrição (curta, até 60 car.)**, obrigatória: é o nome que aparece no PDV e no orçamento. A **Descrição Detalhada** é opcional;
+   - **Grupo** e **Fornecedor**, obrigatórios;
+   - **Tipo:** **Produto** ou **Serviço**. Serviço não entra na nota fiscal da venda; uma venda só de serviços é recebida sem nota;
+   - **Este produto é um KIT:** deixe **Não** para um produto comum. Para kit, veja [Compor um KIT](/varejo/mercadorias/compor-kit/);
+   - se quiser, **Marca**, **Ref. Fabricante**, **Ref. Loja**, **Cor**, **Tamanho**, **Grade** e **Unidade de Venda** (UN, CX, KG…).
+3. Na aba **Preços**, informe **À Vista**, **A Prazo** e **Revenda**. Eles correspondem às formas de venda do orçamento. Informe também **Preço de Custo** para ver a **Simulação de Margem**, e o **% Comissão**. Os campos **% Desconto à Vista** e **% Desconto a Prazo** alimentam o desconto profissional do orçamento.
+4. Na aba **Estoque**, informe **Estoque Mínimo** e **Localização** e confira:
+   - **Situação:** **Ativo** (só produto ativo aparece no PDV e no orçamento);
+   - **Quantidade Fracionária:** **Sim** para vender 0,5 kg, 1,25 m…;
+   - **Aceita Estoque Negativo**.
+5. Na aba **Fiscal**, informe **NCM**, **Origem**, **Situação Tributária** e as alíquotas. A nota fiscal exige o NCM de cada produto: confira com a contabilidade.
+6. Clique em **Criar Mercadoria**.
+
+## Resultado esperado
+
+O produto é gravado e a janela passa para a aba **Imagens**. Envie as fotos ali; a imagem com ⭐ destaque aparece na lista, no PDV e no orçamento.
+
+O saldo **não** é digitado no cadastro: o campo **Estoque Disponível** só mostra o saldo, que muda pelas entradas de nota e pelas movimentações de estoque.
+
+## Alterar ou inativar
+
+Clique na linha do produto (ou em **Editar**), altere e clique em **Salvar Alterações**. O código de barras não pode ser alterado depois de criado.
+
+Para tirar um produto de linha sem perder o histórico, prefira marcar **Situação › Inativo** em vez de **Excluir**. Use os filtros **Ativos**, **Inativos** e **Todos** para encontrá-lo depois.
+
+## Se algo der errado
+
+| Mensagem ou sintoma | O que fazer |
+|---|---|
+| "Descrição é obrigatória (aba Básico)." | Preencha a **Descrição**. |
+| "Grupo é obrigatório (aba Básico)." / "Fornecedor é obrigatório (aba Básico)." | Escolha o **Grupo** e o **Fornecedor**. |
+| "Código de barras já cadastrado" | Já existe produto com esse código. Busque-o na lista. |
+| "Fornecedor não cadastrado — cadastre o fornecedor antes de gerar o código interno" | Cadastre o fornecedor, ou informe o código de barras manualmente. |
+| "Não foi possível gerar um código de barras próprio livre — informe o código manualmente." | Digite um código de barras. |
