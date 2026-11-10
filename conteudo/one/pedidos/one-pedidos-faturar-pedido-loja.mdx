@@ -1,7 +1,7 @@
 ---
 id: one-pedidos-faturar-pedido-loja
 titulo: Faturar um pedido na loja, recebendo no caixa
-resumo: Na empresa loja, marque o pedido como separado, confira a prévia e receba as parcelas à vista no seu caixa.
+resumo: Na empresa loja, marque o pedido como separado, confira a prévia, escolha o agente de cada parcela e baixe no seu caixa as que forem pagas agora.
 tipo: procedimento
 produto: [one]
 modulo: pedidos
@@ -12,7 +12,7 @@ tags: [faturamento, loja, caixa, recebimento, troco]
 videos: []
 relacionados: [one-caixa-abrir-caixa, one-pedidos-faturar-pedido, one-caixa-erro-nao-ha-caixa-aberto]
 responsavel: heltonfarias
-revisado_em: 2026-11-06
+revisado_em: 2026-11-10
 valido_desde: 1.0.0
 status: publicado
 ordem: 4
@@ -37,17 +37,21 @@ Este artigo vale para a empresa **marcada como loja**, em **Configurações › 
    - o aviso azul mostra em qual caixa os recebimentos vão entrar (data e período);
    - **Cliente**, **Operação** (se gera NF-e ou NFC-e) e **Pagamento**;
    - os itens e os totais (**Total bruto**, **Descontos**, **Frete**, **Total a faturar**).
-4. Na tabela **Parcelas**:
-   - as parcelas **à vista** já vêm com **Receber agora** marcado e não podem ser desmarcadas;
-   - para receber agora uma parcela a prazo, marque **Receber agora** na linha dela. Se deixar desmarcado, ela **Fica em aberto** para receber depois no Caixa.
-5. Para cada parcela recebida, escolha a **Forma de recebimento**. Se a forma aceita troco, informe o **Valor entregue** pelo cliente e o sistema mostra o **Troco**.
-6. Confira **Recebido no caixa agora** e clique em **Confirmar faturamento**.
+4. Na tabela **Parcelas**, escolha o **Agente** de cada parcela. Ele já vem com o agente do pedido. Por exemplo: parcela 01 no PIX e parcela 02 no cartão.
+5. Marque **Baixar agora** nas parcelas que o cliente está pagando neste momento:
+   - pode ser uma, algumas ou todas. A caixa do cabeçalho marca ou desmarca todas de uma vez;
+   - as parcelas **à vista** já vêm marcadas, mas você pode desmarcar;
+   - a parcela desmarcada fica em aberto para receber depois no Caixa.
+6. A **Forma de recebimento** vem do agente da parcela. Se aparecer **Agente sem forma vinculada**, escolha a forma na lista ou troque o agente. Se a forma aceita troco, informe o **Valor entregue** pelo cliente e o sistema mostra o **Troco**.
+7. Confira **Baixado no caixa agora** e o valor **em aberto**, e clique em **Confirmar faturamento**.
 
 ## Resultado esperado
 
 - O pedido passa a **Faturado**, e a nota é gerada e enviada para transmissão.
-- Cada parcela recebida vira um movimento **D — duplicata** no seu caixa, com a forma escolhida. Essa forma também vai para a nota.
-- As parcelas não recebidas ficam em aberto em Contas a Receber.
+- Cada parcela fica em Contas a Receber com o agente escolhido. A forma de pagamento da nota segue o agente de cada parcela.
+- Cada parcela baixada vira um movimento **D — duplicata** no seu caixa, com a forma do agente.
+- As parcelas não baixadas ficam em aberto em Contas a Receber.
+- Em **Boletos / PIX**, no pedido, a coluna **Pagamento** mostra o valor pago, a data e o caixa/forma de cada parcela baixada.
 
 ## Se algo der errado
 
@@ -56,4 +60,5 @@ Este artigo vale para a empresa **marcada como loja**, em **Configurações › 
 | "Não há caixa aberto para você — abra o caixa antes de faturar." | Clique em **Abrir caixa** no próprio aviso, abra o caixa e volte ao pedido. |
 | "Pedido Aprovado — marque o pedido como Separado antes de faturar." | Feche a prévia e clique em **Marcar como Separado** no pedido. |
 | "Nenhum tipo de recebimento cadastrado…" | Peça a quem tem a permissão de configurar o caixa para cadastrar os [tipos de recebimento](/one/caixa/cadastrar-tipos-de-recebimento/). |
-| "Informe a forma de recebimento da(s) parcela(s) à vista: …" | Escolha a forma de recebimento nas parcelas indicadas. |
+| "Parcela(s) …: o agente não tem forma de recebimento vinculada…" | Escolha a forma na linha da parcela ou troque o agente. Para não precisar escolher sempre, vincule o agente a um [tipo de recebimento](/one/caixa/cadastrar-tipos-de-recebimento/) ou ajuste o tipo de pagamento do agente em **Cadastros › Agentes**. |
+| "Agente … tem tipo de pagamento …, que não existe na tabela da SEFAZ" | Escolha outro agente para a parcela ou ajuste o tipo de pagamento do agente em **Cadastros › Agentes**. |
