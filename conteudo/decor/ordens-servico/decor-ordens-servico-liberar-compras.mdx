@@ -1,0 +1,55 @@
+---
+id: decor-ordens-servico-liberar-compras
+titulo: Liberar os itens da OS para compra
+resumo: Revise cada item da ordem de serviço e marque Comprar? para liberar a compra. Com todos os itens liberados, a OS fecha sozinha.
+tipo: procedimento
+produto: [decor]
+modulo: ordens-servico
+atividade: compras
+features: [decor.operacional.ordens-servico.item]
+perfis: [vendedor, servicos]
+tags: [ordem-de-servico, os, comprar, liberar-compra, fechada]
+relacionados: [decor-orcamentos-liberar-e-faturar, decor-fluxos-agendar-e-registrar-medicao]
+responsavel: heltonfarias
+revisado_em: 2026-11-11
+valido_desde: 1.0.0
+status: rascunho
+ordem: 1
+---
+
+## Antes de começar
+
+- Permissão necessária: **Ordens de Serviço › Editar**.
+- A OS precisa estar **Aberta**. Ela é criada pelo botão **Criar OS** do orçamento aprovado. Veja [Criar a O.S., liberar e faturar o orçamento](/decor/orcamentos/liberar-e-faturar/).
+- Confira a medição antes de liberar. A compra sai com as medidas do item.
+
+## Passo a passo
+
+1. No orçamento, clique no botão da OS, no topo da tela (por exemplo, **OS #1**).
+
+   ![Botão da OS no orçamento](./img/liberar-compras/01.jpg)
+
+2. Em **Itens da OS**, clique no ícone de editar do item.
+
+   ![Itens da OS, com a coluna Comprar](./img/liberar-compras/02.jpg)
+
+3. Na janela **Editar Item**, revise quantidade, fabricante, medidas e cor. Em **Comprar?**, escolha **Sim**.
+
+   ![Campo Comprar? com a opção Sim](./img/liberar-compras/03.jpg)
+
+4. Se houver, anote em **Observação** e em **Especificação / Instruções** o que a compra ou a instalação precisa saber.
+5. Clique em **Salvar**.
+
+   ![Campos Observação e Especificação / Instruções, e o botão Salvar](./img/liberar-compras/04.jpg)
+
+6. Repita nos outros itens.
+
+## Resultado esperado
+
+Cada item com **Sim** na coluna **Comprar** fica liberado para compra. Quando o último item recebe **Sim**, a OS passa sozinha para **Fechada**, e aparece o aviso de que ela não pode mais ser editada.
+
+![OS Fechada, com o aviso no alto da tela](./img/liberar-compras/05.jpg)
+
+## Editar uma OS fechada
+
+Para corrigir um item depois que a OS fechou, clique em **Alterar Status** e volte a OS para **Aberta** ou **Aprovada**. Faça a correção e libere de novo.

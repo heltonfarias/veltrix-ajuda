@@ -1,0 +1,67 @@
+---
+id: decor-fluxos-agendar-e-registrar-medicao
+titulo: Agendar e registrar a medição no fluxo
+resumo: Conduza as tarefas de medição do pós-venda, use a Agenda para marcar a visita e passe o fluxo adiante para a liberação da OS.
+tipo: procedimento
+produto: [decor]
+modulo: fluxos
+atividade: acompanhar
+features: [decor.fluxos.dashboard, decor.operacional.agenda]
+perfis: [vendedor, servicos]
+tags: [pos-venda, medicao, agenda, instalador, tarefa]
+relacionados: [decor-fluxos-concluir-tarefa, decor-ordens-servico-liberar-compras]
+responsavel: heltonfarias
+revisado_em: 2026-11-11
+valido_desde: 1.0.0
+status: rascunho
+ordem: 4
+---
+
+## Antes de começar
+
+- Os nomes das tarefas vêm do modelo de fluxo da loja, em **Administração › Fluxos P.Venda**. Neste artigo, o exemplo usa **Agendar Medição**, **Data Medição (Data Agendada)** e **Analisar Medição e Liberar OS**.
+- Para concluir as tarefas, veja [Concluir uma tarefa do fluxo](/decor/fluxos/concluir-tarefa/).
+
+## Agendar a medição
+
+1. Em **Comercial › Fluxo de Venda**, na linha de **Agendar Medição**, clique no ícone verde **Concluir tarefa**.
+
+   ![Tarefa Agendar Medição na lista](./img/medicao/01.jpg)
+
+2. Se quiser, registre em **Observação (opcional)** o que foi combinado e clique em **Confirmar Conclusão**.
+
+   ![Janela Concluir Tarefa de Agendar Medição](./img/medicao/02.jpg)
+
+3. Para marcar a visita, acesse **Comercial › Agenda**. A tela abre em **Calendário**, com as visões **Mês**, **Semana** e **Dia**.
+
+   ![Tela Agenda, em Calendário](./img/medicao/03.jpg)
+
+4. Em **Todos os instaladores**, escolha quem faz a medição para ver a agenda dele, e clique em **+ Novo** para criar o compromisso.
+
+   ![Filtro Todos os instaladores e botão + Novo](./img/medicao/04.jpg)
+
+## Registrar a medição
+
+1. Depois da visita, na linha de **Data Medição (Data Agendada)**, clique em **Concluir tarefa** e em **Confirmar Conclusão**.
+
+   ![Janela Concluir Tarefa de Data Medição](./img/medicao/05.jpg)
+
+2. A linha passa para **Analisar Medição e Liberar OS**. Confira a medida com o orçamento e conclua a tarefa.
+
+   ![Janela Concluir Tarefa de Analisar Medição e Liberar OS](./img/medicao/06.jpg)
+
+## Resultado esperado
+
+O fluxo segue para a próxima tarefa, que costuma ter outro responsável. Com **Apenas minhas** marcado, a linha sai da sua lista.
+
+![Lista só com a linha do outro fluxo](./img/medicao/07.jpg)
+
+Na tela do fluxo, a tarefa seguinte já aparece com o novo responsável.
+
+![Tarefa seguinte com outro responsável](./img/medicao/08.jpg)
+
+O próximo passo é [liberar os itens da OS para compra](/decor/ordens-servico/liberar-compras/).
+
+## Dicas
+
+- **As janelas de conclusão só têm Observação.** A data, o técnico e a medida não têm campo próprio nas tarefas. Use a observação para registrar o que for importante, como a data combinada ou uma diferença de medida.

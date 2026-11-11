@@ -60,6 +60,11 @@ decor:
     nome: Ordens de serviço
     descricao: Agendar, executar e concluir serviços de instalação.
     icone: wrench
+  fluxos:
+    nome: Pós-venda
+    descricao: Iniciar os fluxos de pós-venda, acompanhar e concluir as tarefas.
+    icone: git-branch
+    area: Comercial
   pessoas:
     nome: Pessoas
     descricao: Cadastrar clientes, arquitetos e outros profissionais, fornecedores e colaboradores.
