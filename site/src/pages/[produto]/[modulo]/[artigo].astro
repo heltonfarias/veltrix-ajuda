@@ -18,7 +18,7 @@ export function getStaticPaths() {
 }
 const { p, a, m } = Astro.props;
 const fm = a.fm;
-const { html, secoes } = renderizar(a.corpo, p.slug);
+const { html, secoes } = renderizar(a.corpo, p.slug, a.arquivo.split('/').slice(0, -1).join('/'));
 const telas = fm.features
   .map(id => p.manifesto?.funcionalidades.find(f => f.id === id))
   .filter((f): f is NonNullable<typeof f> => !!f);

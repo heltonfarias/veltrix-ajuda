@@ -2,6 +2,7 @@
 # O slug é o mesmo usado em `modulo:` no front-matter dos artigos.
 # Módulo ausente daqui usa o nome da tela principal no menu do produto.
 # Ícones: nomes do lucide (https://lucide.dev/icons), em kebab-case.
+# `area` (opcional): grupo do módulo na página do produto. Sem ela, vale a área mais comum das telas do módulo no manifesto.
 one:
   pedidos:
     nome: Pedidos
@@ -59,3 +60,12 @@ decor:
     nome: Ordens de serviço
     descricao: Agendar, executar e concluir serviços de instalação.
     icone: wrench
+  pessoas:
+    nome: Pessoas
+    descricao: Cadastrar clientes, arquitetos e outros profissionais, fornecedores e colaboradores.
+    icone: users
+  tabela-precos:
+    nome: Tabela de preços
+    descricao: Consultar referências, cores e preços de venda por fabricante.
+    icone: tag
+    area: Comercial

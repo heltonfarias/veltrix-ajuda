@@ -3,7 +3,7 @@ import path from 'node:path';
 import type { Funcionalidade, Manifesto } from './esquema.ts';
 import { carregarArtigos, indicePorFeature, type Artigo } from './artigos.ts';
 import { arquivosAlterados, commits, lerNoCommit, ultimaAlteracao } from './git.ts';
-import { carregarManifestos, carregarProdutos } from './taxonomia.ts';
+import { carregarManifestos, carregarProdutos, RAIZ } from './taxonomia.ts';
 
 type Args = Record<string, string>;
 
@@ -131,6 +131,9 @@ export function validar(args: Args) {
   }
   for (const a of artigos) {
     for (const r of a.fm.relacionados) if (!porId.has(r)) erros.push({ arquivo: a.arquivo, mensagem: `relacionado inexistente: ${r}` });
+    for (const [, img] of a.corpo.matchAll(/!\[[^\]]*\]\((\.\/img\/[^)\s]+)\)/g)) {
+      if (!fs.existsSync(path.join(RAIZ, path.dirname(a.arquivo), img))) erros.push({ arquivo: a.arquivo, mensagem: `imagem não encontrada: ${img}` });
+    }
     for (const f of a.fm.features) {
       const m = manifestos.get(f.split('.')[0]);
       if (!m) { avisos.push(`${a.arquivo}: sem manifesto do produto de ${f} para conferir`); continue; }

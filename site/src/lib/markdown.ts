@@ -16,8 +16,12 @@ function aplicarCondicionais(md: string, produto: string): string {
     lista.split(',').map(s => s.trim()).includes(produto) ? corpo : '');
 }
 
-/** Converte o corpo do artigo em HTML e devolve o sumário (títulos H2). */
-export function renderizar(md: string, produto: string): { html: string; secoes: Secao[] } {
+/**
+ * Converte o corpo do artigo em HTML e devolve o sumário (títulos H2).
+ * `pasta` é a pasta do arquivo do artigo (ex.: conteudo/decor/orcamentos): as imagens `./img/…`
+ * passam a apontar para /conteudo/<produto>/<modulo>/img/…, onde o build as publica.
+ */
+export function renderizar(md: string, produto: string, pasta?: string): { html: string; secoes: Secao[] } {
   const secoes: Secao[] = [];
   const usados = new Set<string>();
   const marked = new Marked({ gfm: true });
@@ -38,6 +42,7 @@ export function renderizar(md: string, produto: string): { html: string; secoes:
       },
     },
   });
-  const html = marked.parse(aplicarCondicionais(md, produto), { async: false }) as string;
+  let html = marked.parse(aplicarCondicionais(md, produto), { async: false }) as string;
+  if (pasta) html = html.replaceAll('src="./img/', `src="/${pasta}/img/`).replaceAll('<img ', '<img loading="lazy" ');
   return { html, secoes };
 }

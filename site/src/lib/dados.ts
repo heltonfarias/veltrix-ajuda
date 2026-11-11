@@ -99,7 +99,7 @@ export function produtos(): ProdutoSite[] {
         nome: info.nome ?? principal?.titulo ?? tituloSlug(slug),
         descricao: info.descricao,
         icone: info.icone ?? 'book-open',
-        area: maisFrequente(telas.map(t => t.area)) ?? 'Geral',
+        area: info.area ?? maisFrequente(telas.map(t => t.area)) ?? 'Geral',
         artigos: doProduto.filter(a => a.fm.modulo === slug),
       };
     }).sort((a, b) => a.area.localeCompare(b.area, 'pt-BR') || a.nome.localeCompare(b.nome, 'pt-BR'));
