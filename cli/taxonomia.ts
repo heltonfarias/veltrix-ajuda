@@ -24,7 +24,7 @@ const lerYaml = <T>(arquivo: string): T => YAML.parse(fs.readFileSync(path.join(
 export const carregarProdutos = () => lerYaml<ConfigProduto[]>('produtos.yml');
 export const carregarPerfis = () => lerYaml<Perfil[]>('perfis.yml');
 
-export interface InfoModulo { nome?: string; descricao?: string; icone?: string }
+export interface InfoModulo { nome?: string; descricao?: string; icone?: string; area?: string }
 export const carregarModulos = () => lerYaml<Record<string, Record<string, InfoModulo>>>('modulos.yml') ?? {};
 
 export function carregarProduto(slug: string | undefined): ConfigProduto {

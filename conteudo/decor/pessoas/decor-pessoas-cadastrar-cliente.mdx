@@ -1,0 +1,63 @@
+---
+id: decor-pessoas-cadastrar-cliente
+titulo: Cadastrar um cliente
+resumo: Cadastre o cliente com documento, telefone e endereço, e encontre ou corrija um cadastro que já existe.
+tipo: procedimento
+produto: [decor]
+modulo: pessoas
+atividade: cadastro
+features: [decor.comercial.cadastro.pessoas]
+perfis: [vendedor]
+tags: [cliente, cadastro, pessoa, cpf, cnpj, whatsapp, endereco]
+relacionados: [decor-pessoas-cadastrar-profissional, decor-orcamentos-criar-orcamento]
+responsavel: heltonfarias
+revisado_em: 2026-11-10
+valido_desde: 1.0.0
+status: rascunho
+ordem: 1
+---
+
+## Antes de começar
+
+- Permissão necessária: **Pessoas › Criar**. Para corrigir um cadastro, **Pessoas › Editar**.
+- **Busque antes de cadastrar.** Em **Comercial › Pessoas**, procure pelo nome, CPF ou CNPJ. Assim você evita cadastro repetido.
+
+## Passo a passo
+
+1. Acesse **Comercial › Pessoas** e clique em **+ Nova Pessoa**.
+
+   ![Botão Nova Pessoa na tela Pessoas](./img/cadastrar-cliente/01.jpg)
+
+2. Em **Tipo de Pessoa**, escolha **Pessoa Física** ou **Pessoa Jurídica** e preencha o **CPF** ou o **CNPJ**.
+3. Preencha **Razão Social / Nome** e, em **Papéis**, marque **Cliente**.
+
+   ![Dados do cliente, com o papel Cliente marcado](./img/cadastrar-cliente/02.jpg)
+
+4. Em **Endereço Principal**, preencha o telefone e o endereço: logradouro, número, complemento, bairro, cidade e UF.
+
+   ![Endereço principal do cliente](./img/cadastrar-cliente/03.jpg)
+
+5. Se precisar, use as outras abas:
+   - **Endereços Adicionais:** outros endereços do cliente, como o de entrega ou o de cobrança;
+   - **Contatos:** outros telefones e meios de contato.
+6. Clique em **Salvar Cadastro**.
+
+   ![Botão Salvar Cadastro](./img/cadastrar-cliente/04.jpg)
+
+## Resultado esperado
+
+O cliente aparece na busca de **Comercial › Pessoas** e já pode ser escolhido em **Código / Nome do Cliente** ao [criar um orçamento](/decor/orcamentos/criar-orcamento/).
+
+## Encontrar e corrigir um cadastro
+
+1. Em **Comercial › Pessoas**, busque pelo código, nome, CPF ou CNPJ. Os botões ao lado da busca filtram por papel: **Cliente**, **Fornecedor**, **Profissional**, **Colaborador** e **Técnico**.
+2. Clique no lápis da linha para abrir **Editar Pessoa**.
+3. Corrija o dado e clique em **Salvar Cadastro**. O campo **Situação** também fica nessa tela.
+
+## Dicas
+
+- **Os campos com asterisco são obrigatórios:** **Tipo de Pessoa**, **CPF** ou **CNPJ**, **Razão Social / Nome** e **Papéis**.
+- **Preencha o telefone com WhatsApp.** É o número usado para falar com o cliente no orçamento e no pós-venda.
+- **Entrega em outro endereço?** Cadastre em **Endereços Adicionais**.
+- **Uma pessoa pode ter mais de um papel.** Um arquiteto, por exemplo, pode ser também **Cliente** quando faz uma compra pessoal.
+- **Para aprovar o orçamento, o cadastro precisa estar completo:** CPF ou CNPJ, endereço e ao menos um contato. Um cliente criado pelo atalho **+ Cadastrar cliente** do orçamento tem só o nome e precisa ser completado aqui.

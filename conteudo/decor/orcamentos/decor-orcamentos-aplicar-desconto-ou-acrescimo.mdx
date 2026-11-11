@@ -27,21 +27,34 @@ ordem: 3
 
 1. Abra o orçamento em **Comercial › Orçamentos**.
 2. No quadro **Resumo Financeiro**, clique em **Desconto** ou em **Acréscimo**.
+
+   ![Botão Desconto no Resumo Financeiro](./img/aplicar-desconto-ou-acrescimo/01.jpg)
+
 3. Em **Tipo**, escolha **Percentual (%)** ou **Valor (R$)** e informe o número.
 4. Se quiser, explique em **Motivo / Observação**.
 5. Confira **Total atual**, o valor do desconto ou do acréscimo e o **Novo total**.
 6. Clique em **Aplicar Desconto** ou **Aplicar Acréscimo**.
+
+   ![Janela Aplicar Desconto, com o novo total calculado](./img/aplicar-desconto-ou-acrescimo/02.jpg)
+
 7. Se aparecer **Aguardando autorização**, o pedido foi para o autorizador, que recebe um token de 6 dígitos pelo WhatsApp. Você pode:
    - aguardar o autorizador aprovar em **Administração › Autorizações**; ou
    - clicar em **Tenho o token**, digitar o token que o autorizador passar e clicar em **Confirmar com Token**.
 
 ## Resultado esperado
 
-O desconto ou o acréscimo é aplicado em **todos os itens**, e os totais do **Resumo Financeiro** são recalculados. Cada aplicação fica registrada no **Histórico** do orçamento.
+O desconto ou o acréscimo é aplicado em **todos os itens**, e os totais do **Resumo Financeiro** são recalculados. Aparece o botão **Reverter Desconto** ou **Reverter Acréscimo**. Cada aplicação fica registrada no **Histórico** do orçamento.
+
+![Resumo Financeiro depois do desconto, com o botão Reverter Desconto](./img/aplicar-desconto-ou-acrescimo/04.jpg)
+
+No **PDF / Preview**, cada item mostra o percentual de desconto, e o total mostra o desconto sobre o valor do orçamento.
+
+![Impressão do orçamento, com o percentual em cada item e o desconto no total](./img/aplicar-desconto-ou-acrescimo/03.jpg)
 
 ## Como o cálculo funciona
 
 - **Desconto:** o mesmo percentual vai para todos os itens. Um desconto em valor (R$) vira o percentual equivalente sobre o total bruto. Um desconto aplicado aqui **substitui** o **Desc. %** que cada item tinha.
+- **Frete:** fica fora do desconto. O desconto é calculado sobre o total dos itens, e o frete entra depois, no **TOTAL FINAL**.
 - **Acréscimo:** aumenta o **Preço Unit.** de cada item. O preço original fica guardado para poder ser restaurado. O desconto de cada item continua valendo sobre o novo preço.
 
 ## Desfazer

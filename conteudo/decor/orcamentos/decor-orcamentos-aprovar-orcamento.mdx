@@ -6,9 +6,9 @@ tipo: procedimento
 produto: [decor]
 modulo: orcamentos
 atividade: aprovacao
-features: [decor.comercial.orcamentos.item]
+features: [decor.comercial.orcamentos.item, decor.comercial.orcamentos.item.fluxos]
 perfis: [vendedor, gestor]
-tags: [aprovar, pedido, parcelas, contas-a-receber, boleto]
+tags: [aprovar, pedido, parcelas, contas-a-receber, boleto, pos-venda, fluxos]
 relacionados: [decor-orcamentos-como-funciona-o-orcamento, decor-orcamentos-liberar-e-faturar, decor-orcamentos-erro-nao-consigo-aprovar-ou-liberar, decor-orcamentos-cancelar-ou-reabrir]
 responsavel: heltonfarias
 revisado_em: 2026-11-06
@@ -23,14 +23,25 @@ ordem: 5
 - O orçamento precisa estar **Aberto**, na situação **Negociação**, e ter **Agente**, **Forma de Pagamento** e **Prazo de Entrega** preenchidos.
 - O cadastro do cliente, em **Comercial › Pessoas**, precisa ter CNPJ ou CPF, endereço e ao menos um contato (telefone, celular ou e-mail).
 - O frete precisa estar lançado. As parcelas são calculadas sobre o total líquido **mais o frete**.
+- Revise os itens: medidas, cor e especificações. É a partir do orçamento aprovado que a compra é feita.
 
 ## Passo a passo
 
 1. Abra o orçamento em **Comercial › Orçamentos**.
-2. Se a situação ainda não é **Negociação**, clique em **Editar**, mude o campo **Situação** e clique em **Salvar Alterações**.
+2. Clique em **Editar** e confira:
+   - **Situação** em **Negociação**. Veja [Mudar a situação do orçamento](/decor/orcamentos/mudar-situacao/);
+   - **Agente** e **Forma de Pagamento** de acordo com o combinado. Por exemplo, agente **BOLETO BANCARIO** e forma **2X - BOLETO** para duas parcelas no boleto.
+
+   Clique em **Salvar Alterações**.
+
+   ![Campos Agente e Forma de Pagamento preenchidos](./img/aprovar-orcamento/01.jpg)
+
 3. Confira o **TOTAL FINAL** no **Resumo Financeiro**. Para lançar ou corrigir o frete, clique no lápis ao lado de **Frete**, informe o tipo (ex.: CIF) e o valor e clique em **Salvar**.
 4. Em **Alterar Status**, clique em **✓ Aprovar**.
 5. A janela **Aprovar Orçamento** mostra o que vai acontecer e o **Valor a dividir (líquido + frete)**. Clique em **Confirmar Aprovação**.
+
+   ![Janela Aprovar Orçamento](./img/aprovar-orcamento/02.jpg)
+
 6. Se aparecer **Não foi possível aprovar:**, corrija cada item da lista e clique em **Tentar Novamente**. Veja o que cada mensagem significa em [Não consigo aprovar ou liberar o orçamento](/decor/orcamentos/erro-nao-consigo-aprovar-ou-liberar/).
 7. Em **✓ Orçamento aprovado com sucesso!**, anote o número em **Pedido gerado** e clique em **Fechar**.
 
@@ -39,7 +50,30 @@ ordem: 5
 - O status passa para **Aprovado** e a situação para **Fechado**.
 - É criado um pedido, e as parcelas entram no contas a receber. Os percentuais e os prazos vêm da **Forma de Pagamento**, e os vencimentos contam a partir da data da aprovação.
 - O quadro **Parcelas — Pedido …** aparece no orçamento.
-- O próximo passo é [criar a O.S. e liberar o orçamento](/decor/orcamentos/liberar-e-faturar/).
+
+  ![Quadro Parcelas, com duas parcelas no boleto](./img/aprovar-orcamento/03.jpg)
+
+- Os próximos passos são [iniciar os fluxos de pós-venda](#iniciar-os-fluxos-de-pos-venda) e [criar a O.S. e liberar o orçamento](/decor/orcamentos/liberar-e-faturar/).
+
+## Iniciar os fluxos de pós-venda
+
+A aprovação não cria as tarefas de pós-venda sozinha. Inicie os fluxos logo depois de aprovar:
+
+1. No orçamento aprovado, clique no ícone **Fluxos Pós-Venda**, no topo da tela.
+
+   ![Ícone Fluxos Pós-Venda no orçamento aprovado](./img/aprovar-orcamento/04.jpg)
+
+2. Clique em **Inicializar Todos**. O sistema cria os fluxos previstos para os tipos de produto do orçamento, cada um com as suas tarefas. Para incluir um fluxo avulso, use **+ Adicionar Fluxo**.
+3. Na tarefa em andamento, clique em **Responsável / Vencimento**, confira quem cuida dela e o prazo, e clique em **Salvar**.
+
+   ![Tela Fluxos Pós-Venda, com o fluxo e as tarefas](./img/aprovar-orcamento/05.jpg)
+
+As tarefas passam a aparecer em **Comercial › Fluxo de Venda**, para quem for responsável por elas.
+
+| Mensagem | O que significa |
+|---|---|
+| "Nenhum fluxo aplicável para os itens deste orçamento" | Nenhum fluxo está configurado para os tipos de produto do orçamento. Use **+ Adicionar Fluxo** ou peça ao administrador para configurar os fluxos em **Administração › Fluxos P.Venda**. |
+| "Todos os fluxos aplicáveis já foram inicializados" | Os fluxos já foram criados. Não é preciso fazer nada. |
 
 ## Ajustar as parcelas
 

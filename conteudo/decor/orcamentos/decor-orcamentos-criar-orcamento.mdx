@@ -9,7 +9,7 @@ atividade: elaboracao
 features: [decor.comercial.orcamentos, decor.comercial.orcamentos.novo, decor.comercial.orcamentos.item.editar]
 perfis: [vendedor]
 tags: [orcamento, novo, itens, ambiente, medidas, tabela-de-precos, fabricante]
-relacionados: [decor-orcamentos-como-funciona-o-orcamento, decor-orcamentos-aplicar-desconto-ou-acrescimo, decor-orcamentos-enviar-ao-cliente, decor-orcamentos-faq-nova-versao]
+relacionados: [decor-orcamentos-como-funciona-o-orcamento, decor-orcamentos-aplicar-desconto-ou-acrescimo, decor-orcamentos-enviar-ao-cliente, decor-orcamentos-faq-nova-versao, decor-orcamentos-importar-hunter-douglas, decor-pessoas-cadastrar-cliente]
 responsavel: heltonfarias
 revisado_em: 2026-11-06
 valido_desde: 1.0.0
@@ -26,27 +26,39 @@ ordem: 2
 ## Passo a passo
 
 1. Acesse **Comercial › Orçamentos** e clique em **+ Novo Orçamento**.
+
+   ![Botão Novo Orçamento na tela Orçamentos](./img/criar-orcamento/01.jpg)
+
 2. Em **Dados do Orçamento**, digite o código ou o nome em **Código / Nome do Cliente** e escolha na lista. **Nome do Cliente**, **Endereço**, **Telefone (WhatsApp)** e **E-mail** vêm do cadastro e podem ser ajustados.
    - Se o cliente ainda não existe, clique em **+ Cadastrar cliente "…"**. O cliente é criado só com o nome. Complete o cadastro em **Comercial › Pessoas** antes de aprovar.
-3. Se quiser, preencha **Agente**, **Situação**, **Procedência** e **Observações**.
+3. Se quiser, preencha **Agente**, **Situação**, **Procedência** e **Observações**. A **Procedência** registra como o cliente chegou à loja, por exemplo por indicação de um profissional ou passando na loja. Vale preencher sempre.
 4. Em **Condições Comerciais**, informe:
    - **Colaborador**, que é o vendedor responsável pelo orçamento (obrigatório);
    - **Colaborador Auxiliar**, se outra pessoa participou da venda;
-   - **Profissional / Arquiteto** (obrigatório);
+   - **Profissional / Arquiteto** (obrigatório). Se a venda não tem arquiteto, escolha o cadastro de profissional não identificado. Veja [Venda sem arquiteto](/decor/pessoas/cadastrar-profissional/#venda-sem-arquiteto);
    - **Forma de Pagamento**;
    - **Prazo de Entrega** (obrigatório).
+
+   ![Orçamento com os dados do cliente e as condições comerciais preenchidos](./img/criar-orcamento/02.jpg)
+
 5. Em **Adicionar Item**, lance cada item:
    1. Em **Buscar Produto**, digite o código ou a descrição e escolha o produto. Se o produto não existe no cadastro, preencha só a **Descrição**.
-   2. Escolha o **Tipo Produto**. Sem ele, o botão **+ Adicionar Item** fica desabilitado.
+   2. Escolha o **Tipo Produto**. Sem ele, o botão **+ Adicionar Item** fica desabilitado. Os tipos são cadastrados pela loja em **Comercial › Cadastro › Tipos de Produto**.
    3. Para usar o preço do fabricante, digite o código em **Fabricante** e escolha na lista. A tabela de preços desse fabricante abre. Filtre por referência, descrição, cor, tamanho ou composição e clique na linha. **Referência**, **Cor**, **Und.** e **Preço Unit.** são preenchidos.
    4. Informe **Qtd**, **Larg. (m)** e **Alt. (m)** e confira a **Fórmula**:
-      - **Qtd × Preço**: produtos vendidos por unidade;
+      - **Qtd × Preço**: produtos vendidos por unidade. A largura e a altura ficam só como informação e não mudam o total;
       - **M² × Preço**: cortinas e persianas cobradas por área (largura × altura);
       - **M linear × Preço**: itens cobrados pela largura, como trilhos.
    5. Se houver desconto só neste item, informe **Desc. %**.
-   6. Em **Ambiente**, escolha uma sugestão (Sala, Quarto, Suíte…) ou digite outro nome.
+   6. Em **Ambiente**, escolha uma sugestão (Sala, Quarto, Suíte…) ou digite outro nome. Informe sempre o ambiente: na impressão, os itens saem agrupados por ambiente, com o subtotal de cada um.
    7. Confira **Vlr. Desconto** e **Líquido** no topo do quadro e clique em **+ Adicionar Item**.
+
+   ![Item preenchido no quadro Adicionar Item](./img/criar-orcamento/03.jpg)
+
 6. Repita o passo 5 para cada item. Na tabela de itens, use os ícones de cada linha para **Editar**, **Duplicar item** ou **Remover**. Duplicar é útil para o mesmo produto em outro ambiente.
+
+   ![Lista de itens, cada um com o seu ambiente](./img/criar-orcamento/04.jpg)
+
 7. Confira o **Total** no topo da página e clique em **Salvar Orçamento**.
 
 ## Resultado esperado
@@ -55,12 +67,28 @@ O orçamento recebe um número e abre na tela de detalhe com o status **Aberto**
 
 ## Alterar um orçamento
 
-Enquanto o orçamento estiver **Aberto**, clique no ícone **Editar** (lápis) na lista ou no detalhe. Na edição, cada item adicionado, alterado ou removido é gravado na hora. Só a edição tem a opção **Importar CSV**, que lança vários itens de uma vez.
+Enquanto o orçamento estiver **Aberto**, clique no ícone **Editar** (lápis) na lista ou no detalhe.
+
+![Botão Editar no orçamento](./img/criar-orcamento/05.jpg)
+
+Na edição, cada item adicionado, alterado ou removido é gravado na hora. Os dados do orçamento, como cliente, situação, agente, forma de pagamento e prazo, só são gravados quando você clica em **Salvar Alterações**. Só a edição tem a opção **Importar CSV**, que lança vários itens de uma vez.
+
+## Conferir antes de enviar
+
+1. Se houver frete, lance no quadro **Resumo Financeiro**: clique no lápis ao lado de **Frete**, informe o valor e clique em **Salvar**. O frete entra no **TOTAL FINAL**.
+
+   ![Resumo Financeiro, com o lápis para editar o frete](./img/criar-orcamento/06.jpg)
+
+2. Clique em **PDF / Preview** para ver o orçamento como o cliente vai receber. Os itens aparecem agrupados por ambiente.
+
+   ![Impressão do orçamento, com os itens agrupados por ambiente](./img/criar-orcamento/07.jpg)
+
+3. Clique em **Voltar** para retornar ao orçamento.
 
 ## Outras formas de começar
 
 - **Copiar** um orçamento existente: veja [Como fazer uma nova versão de um orçamento?](/decor/orcamentos/faq-nova-versao/).
-- **Importar HD**: na lista, traz um orçamento feito no sistema do fabricante pelo número dele. Marque **Adicionar a um orçamento existente** para juntar os itens a um orçamento que já existe. Os itens que já estão no orçamento são atualizados e os novos são adicionados.
+- **Importar HD**: na lista, traz um orçamento feito no sistema do fabricante pelo número dele. Marque **Adicionar a um orçamento existente** para juntar os itens a um orçamento que já existe. Os itens que já estão no orçamento são atualizados e os novos são adicionados. Veja [Importar um orçamento da Hunter Douglas](/decor/orcamentos/importar-hunter-douglas/).
 
 ## Se algo der errado
 
