@@ -9,7 +9,7 @@ atividade: compras
 features: [decor.operacional.ordens-servico.item]
 perfis: [vendedor, servicos]
 tags: [ordem-de-servico, os, comprar, liberar-compra, fechada]
-relacionados: [decor-orcamentos-liberar-e-faturar, decor-fluxos-agendar-e-registrar-medicao]
+relacionados: [decor-orcamentos-liberar-e-faturar, decor-fluxos-agendar-e-registrar-medicao, decor-compras-ver-o-que-comprar, decor-ordens-servico-consultar]
 responsavel: heltonfarias
 revisado_em: 2026-11-11
 valido_desde: 1.0.0
@@ -46,7 +46,7 @@ ordem: 1
 
 ## Resultado esperado
 
-Cada item com **Sim** na coluna **Comprar** fica liberado para compra. Quando o último item recebe **Sim**, a OS passa sozinha para **Fechada**, e aparece o aviso de que ela não pode mais ser editada.
+Cada item com **Sim** na coluna **Comprar** fica liberado para compra e aparece no Painel de Compras. Veja [Ver o que precisa ser comprado](/decor/compras/ver-o-que-comprar/). Quando o último item recebe **Sim**, a OS passa sozinha para **Fechada**, e aparece o aviso de que ela não pode mais ser editada.
 
 ![OS Fechada, com o aviso no alto da tela](./img/liberar-compras/05.jpg)
 

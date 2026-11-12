@@ -65,6 +65,16 @@ decor:
     descricao: Iniciar os fluxos de pós-venda, acompanhar e concluir as tarefas.
     icone: git-branch
     area: Comercial
+  compras:
+    nome: Compras
+    descricao: Ver o que comprar, fazer os pedidos aos fornecedores e registrar a chegada do material.
+    icone: shopping-bag
+    area: Compras
+  logistica:
+    nome: Logística
+    descricao: Acompanhar o que falta entregar, agendar entregas e instalações e ver o retorno do instalador.
+    icone: truck
+    area: Logística
   pessoas:
     nome: Pessoas
     descricao: Cadastrar clientes, arquitetos e outros profissionais, fornecedores e colaboradores.
