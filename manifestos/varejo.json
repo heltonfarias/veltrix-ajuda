@@ -1299,7 +1299,7 @@
         "orcamentos:listar"
       ],
       "arquivos": [
-        "packages/frontend/src/pages/orcamento/OrcamentoList.tsx"
+        "packages/frontend/src/components/orcamento/VendedorSessaoGate.tsx"
       ]
     },
     {
@@ -1311,7 +1311,19 @@
       "contexto": "interno",
       "permissoes": [],
       "arquivos": [
-        "packages/frontend/src/pages/orcamento/OrcamentoEditor.tsx"
+        "packages/frontend/src/components/orcamento/VendedorSessaoGate.tsx"
+      ]
+    },
+    {
+      "id": "varejo.orcamentos.item.comprovante",
+      "rota": "/orcamentos/:numero/comprovante",
+      "titulo": "Orçamentos › detalhe › comprovante",
+      "modulo": "orcamentos",
+      "area": "Comercial",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/orcamento/OrcamentoComprovante.tsx"
       ]
     },
     {
@@ -1375,6 +1387,18 @@
       "permissoes": [],
       "arquivos": [
         "packages/frontend/src/pages/pdv/PdvCaixa.tsx"
+      ]
+    },
+    {
+      "id": "varejo.pdv.movimentos.item.comprovante",
+      "rota": "/pdv/movimentos/:numero/comprovante",
+      "titulo": "Caixa › movimentos › detalhe › comprovante",
+      "modulo": "pdv",
+      "area": "PDV",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/pdv/MovimentoCaixaComprovante.tsx"
       ]
     },
     {
@@ -1474,6 +1498,33 @@
       "arquivos": [
         "packages/backend/src/modules/vendas/",
         "packages/frontend/src/pages/vendas/ConsultaVendasPorProduto.tsx"
+      ]
+    },
+    {
+      "id": "varejo.vendas.devolucoes",
+      "rota": "/vendas/devolucoes",
+      "titulo": "Devoluções",
+      "modulo": "devolucoes",
+      "area": "Comercial",
+      "contexto": "interno",
+      "permissoes": [
+        "devolucoes:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/devolucoes/",
+        "packages/frontend/src/pages/vendas/Devolucoes.tsx"
+      ]
+    },
+    {
+      "id": "varejo.vendas.devolucoes.item.comprovante",
+      "rota": "/vendas/devolucoes/:numero/comprovante",
+      "titulo": "Devoluções › detalhe › comprovante",
+      "modulo": "vendas",
+      "area": "Comercial",
+      "contexto": "publico",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/vendas/DevolucaoComprovante.tsx"
       ]
     },
     {
