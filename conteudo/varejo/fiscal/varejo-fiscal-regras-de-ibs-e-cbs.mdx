@@ -1,0 +1,51 @@
+---
+id: varejo-fiscal-regras-de-ibs-e-cbs
+titulo: "Regras de IBS e CBS (Reforma Tributária): o que já existe e o que ainda não"
+resumo: Cadastre CST, classificação e alíquotas por NCM, UF e operação. O sistema já guarda os valores em cada item da nota, mas ainda não os envia no XML.
+tipo: conceito
+produto: [varejo]
+modulo: fiscal
+atividade: entender
+features: [varejo.fiscal.regras-ibscbs]
+perfis: [faturista, gestor]
+tags: [ibs, cbs, reforma-tributaria, regra-fiscal, cclasstrib, nota-fiscal, aliquota]
+relacionados: [varejo-fiscal-cadastrar-regra-de-ibs-e-cbs, varejo-fiscal-erro-nao-consigo-salvar-regra-de-ibs-e-cbs, varejo-fiscal-como-o-sistema-decide-cfop-e-cst]
+responsavel: heltonfarias
+revisado_em: 2026-11-17
+valido_desde: 1.0.0
+status: publicado
+ordem: 4
+---
+
+## Em que pé está
+
+A tela **Fiscal › Regras de IBS/CBS** prepara o sistema para a Reforma Tributária. Hoje ela faz duas coisas:
+
+- permite **cadastrar as regras** de CST, classificação tributária (**cClassTrib**) e alíquotas de CBS e IBS;
+- quando a chave da empresa está ligada, **grava em cada item da nota** a decisão e os valores calculados, para conferência.
+
+**O grupo de IBS/CBS ainda não é enviado no XML da NF-e.** Ligar a chave não muda nada para a SEFAZ nem para o cliente. A etapa de envio vem depois, e depende de confirmar com a contabilidade as regras de cada empresa.
+
+## Quando a regra se aplica
+
+Uma regra diz **quando** vale (regime, operação, UF de destino e NCM; campo em branco vale para qualquer valor) e **o que define** (CST, cClassTrib, alíquotas e redução). A escolha segue o mesmo critério das [regras de ICMS](/varejo/fiscal/como-o-sistema-decide-cfop-e-cst/): vence a regra mais específica, na ordem **NCM**, **UF de destino**, **operação** e **regime**. Em empate, vence a de menor **Prioridade** e, depois, a mais antiga.
+
+Como a transição da Reforma é por período, cada regra tem **Vigência: início** e **Vigência: fim**. Cadastre uma regra para cada período, com as alíquotas que a contabilidade informar. Regras **Inativas** ou fora da vigência são ignoradas.
+
+## Sem regra: os dados do produto
+
+Se nenhuma regra se aplicar, o sistema usa a seção **IBS / CBS — Reforma Tributária** do cadastro da mercadoria (aba **Fiscal**): **CST (IBS/CBS)**, **cClassTrib**, **Alíquota CBS (%)** e **Alíquota IBS (%)**. O cadastro tem uma só alíquota de IBS, que é tratada como a parcela da UF. Sem regra e sem esses dados no produto, o item não leva IBS/CBS.
+
+## Como o valor é calculado
+
+Para cada item, a **base** é o valor líquido do item (já com desconto). A alíquota efetiva é a alíquota informada reduzida pelo **Redução de alíquota (%)** da regra, e o valor de cada tributo é a base vezes a alíquota efetiva, com arredondamento em centavos:
+
+> Item de R$ 200,00, CBS de 8,8% e redução de 60%: alíquota efetiva de 3,52%, CBS de R$ 7,04.
+
+Este é o cálculo simples. As regras de base de cálculo do período de transição ainda precisam ser confirmadas antes do envio no XML.
+
+## A chave da empresa
+
+No topo da tela, a opção **Gravar IBS/CBS nas notas desta empresa** vem **Desligada**. Ligada, cada item das **notas novas** guarda CST, cClassTrib, base, alíquotas e valores de CBS e IBS. Notas já criadas não mudam. Desligada, nada é calculado nem gravado.
+
+Recomendação: cadastre e confira as regras com a chave desligada, e ligue primeiro numa empresa de teste.

@@ -50,6 +50,10 @@ varejo:
     nome: Mercadorias
     descricao: Cadastrar produtos, preços e dados fiscais, e montar KITs.
     icone: package
+  fiscal:
+    nome: Fiscal
+    descricao: Regras de CFOP, CST e ICMS da nota fiscal e preparação para IBS e CBS.
+    icone: file-text
 
 decor:
   orcamentos:

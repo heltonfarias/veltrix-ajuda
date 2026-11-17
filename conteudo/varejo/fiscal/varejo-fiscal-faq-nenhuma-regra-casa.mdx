@@ -1,0 +1,24 @@
+---
+id: varejo-fiscal-faq-nenhuma-regra-casa
+titulo: O que acontece quando nenhuma regra de ICMS se aplica ao item
+resumo: O sistema usa o padrão pela situação tributária do produto, como antes de existirem regras. Nada trava e nada muda.
+tipo: faq
+produto: [varejo]
+modulo: fiscal
+features: [varejo.fiscal.regras-icms]
+perfis: [faturista, gestor]
+tags: [icms, cfop, cst, regra-fiscal, padrao, nota-fiscal]
+relacionados: [varejo-fiscal-como-o-sistema-decide-cfop-e-cst]
+responsavel: heltonfarias
+revisado_em: 2026-11-17
+status: publicado
+---
+
+**Posso ter notas sem nenhuma regra cadastrada?**
+Sim. As regras são opcionais. Sem regra, ou quando nenhuma casa com o item, a nota sai com o CFOP, o CST e o ICMS **padrão pela situação tributária do produto**, exatamente como antes. Nenhuma venda ou faturamento é bloqueado por falta de regra.
+
+**Como vejo se um item usou uma regra ou o padrão?**
+No rascunho da nota, abaixo de **CST / CSOSN**, aparece **Decidido pela regra fiscal #N** quando uma regra decidiu o item. Sem essa indicação, valeu o padrão. Para testar antes, use o **Simulador** em **Fiscal › Regras de ICMS**.
+
+**Mudei a situação tributária do produto e a nota em rascunho não mudou. Por quê?**
+O CST fica gravado em cada item quando o rascunho é criado. Edite o item no rascunho ou gere a nota de novo. Veja [como o sistema decide o CFOP e o CST](/varejo/fiscal/como-o-sistema-decide-cfop-e-cst/).

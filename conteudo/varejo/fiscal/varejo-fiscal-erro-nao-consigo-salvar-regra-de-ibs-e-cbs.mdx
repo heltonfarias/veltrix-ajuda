@@ -1,0 +1,47 @@
+---
+id: varejo-fiscal-erro-nao-consigo-salvar-regra-de-ibs-e-cbs
+titulo: Não consigo salvar a regra de IBS/CBS ou ligar a gravação
+tipo: solucao
+produto: [varejo]
+modulo: fiscal
+features: [varejo.fiscal.regras-ibscbs]
+perfis: [faturista, gestor]
+tags: [ibs, cbs, reforma-tributaria, regra-fiscal, erro, salvar, cclasstrib]
+relacionados: [varejo-fiscal-cadastrar-regra-de-ibs-e-cbs, varejo-fiscal-regras-de-ibs-e-cbs]
+responsavel: heltonfarias
+revisado_em: 2026-11-17
+status: publicado
+---
+
+## Sintoma
+
+Ao clicar em **Salvar** na janela da regra, ou ao marcar **Gravar IBS/CBS nas notas desta empresa**, aparece uma mensagem em vermelho e a alteração não é gravada.
+
+## Causa e solução
+
+| Mensagem | Causa | Como resolver |
+|---|---|---|
+| "CST do IBS/CBS deve ter 3 dígitos." | **CST IBS/CBS** vazio, curto ou com letras. | Informe os 3 dígitos do CST. |
+| "Classificação tributária (cClassTrib) deve ter 6 dígitos." | **cClassTrib** vazio ou incompleto. | Informe os 6 dígitos. |
+| "Alíquota da CBS deve ficar entre 0 e 100." / "Alíquota do IBS (UF) …" / "Alíquota do IBS (município) …" / "Redução de alíquota …" | Percentual negativo ou acima de 100. | Corrija o valor, ou deixe o campo em branco. |
+| "UF de destino … inválida." | UF inexistente. | Escolha uma UF da lista. |
+| "NCM deve ter de 2 a 8 dígitos (prefixo)." | **NCM (prefixo)** com menos de 2 ou mais de 8 dígitos. | Informe de 2 a 8 dígitos, ou deixe em branco. |
+| "Fim da vigência anterior ao início." | **Vigência: fim** antes de **Vigência: início**. | Corrija as datas. |
+| "Já existe a regra #… ativa com os mesmos filtros, vigência e prioridade." | Outra regra ativa disputaria os mesmos itens no mesmo período. | Edite a regra existente, mude a **Prioridade** ou desative uma delas. |
+| "Configure os dados fiscais da empresa antes de ligar o IBS/CBS." | A empresa ainda não tem a configuração fiscal. | Preencha a configuração fiscal da empresa e tente de novo. |
+
+O sistema confere só o formato do CST e do cClassTrib, não se o código existe na tabela oficial. Confirme os códigos com a contabilidade.
+
+## A regra não está aparecendo nas notas
+
+Confira:
+
+1. A chave **Gravar IBS/CBS nas notas desta empresa** está **Ligada**? Desligada, nada é gravado.
+2. A nota é nova? Notas já criadas não mudam.
+3. A regra está **Ativa** e dentro da **Vigência**?
+4. O **NCM**, a **UF de destino**, a **Operação** e o **Regime** da regra batem com os da venda? O **Simulador** mostra qual regra vence.
+5. Lembre-se: o IBS/CBS fica guardado no item da nota, e **ainda não vai no XML**.
+
+## Quando acionar o suporte
+
+Acione o suporte se a mensagem não estiver nesta lista ou continuar depois da correção. Envie o número da regra, o NCM e a UF de destino do item e uma captura da janela com a mensagem.

@@ -1,0 +1,91 @@
+---
+id: varejo-fiscal-como-o-sistema-decide-cfop-e-cst
+titulo: Como o sistema decide o CFOP, o CST e o ICMS de cada item da nota
+resumo: Sem regra cadastrada, vale o padrão pela situação tributária do produto. Com regras, vence a mais específica por NCM, UF de destino, operação e regime.
+tipo: conceito
+produto: [varejo]
+modulo: fiscal
+atividade: entender
+features: [varejo.fiscal.regras-icms]
+perfis: [faturista, gestor]
+tags: [icms, cfop, cst, csosn, regra-fiscal, nota-fiscal, aliquota, ncm]
+relacionados: [varejo-fiscal-cadastrar-regra-de-icms, varejo-fiscal-erro-nao-consigo-salvar-regra-de-icms, varejo-fiscal-faq-nenhuma-regra-casa]
+responsavel: heltonfarias
+revisado_em: 2026-11-17
+valido_desde: 1.0.0
+status: publicado
+ordem: 1
+---
+
+## O que é decidido
+
+Para cada item da nota fiscal (NF-e ou NFC-e), o sistema define:
+
+- o **CFOP**;
+- o **CST** (regime normal) ou o **CSOSN** (Simples Nacional);
+- a **alíquota de ICMS**;
+- se **calcula base e valor** do ICMS.
+
+Isso vale para as notas geradas no **faturamento do orçamento** e nas vendas do **PDV**. A tela **Regras de ICMS** (menu **Fiscal**) permite cadastrar exceções ao padrão.
+
+## Sem regra: o padrão
+
+Se nenhuma regra se aplicar ao item, o sistema usa a **Situação Tributária** do cadastro do produto:
+
+| Situação do produto | CST (regime normal) | CSOSN (Simples Nacional) |
+|---|---|---|
+| **T** (Tributado) | 00 | 102 |
+| **F** (Substituição tributária) | 60 | 500 |
+| **I** (Isento) | 40 | 400 |
+| **N** (Não tributado) | 41 | 400 |
+| Em branco | 40 | 400 |
+
+O regime (normal ou Simples) vem do **CRT** da configuração fiscal da empresa.
+
+O CFOP padrão depende da situação do produto e de a venda ser dentro ou fora da UF da empresa:
+
+| Situação do produto | Dentro da UF | Fora da UF |
+|---|---|---|
+| **F** (Substituição tributária) | 5405 | 6404 |
+| Demais | 5102 | 6102 |
+
+Vendas por NFC-e, ou sem UF do emitente ou do destinatário, contam como dentro da UF. A UF do destinatário vem do **endereço principal** do cliente.
+
+A alíquota é a do cadastro do produto. A base e o valor do ICMS só são calculados para produto **Tributado**, no **regime normal**, quando a operação da fatura tem **Calcula ICMS**.
+
+## Com regra: a mais específica vence
+
+Uma regra diz **quando** se aplica (regime, operação, UF de destino, NCM, situação do produto; campo em branco vale para qualquer valor) e **o que define** (CFOP, CST/CSOSN, alíquota, se calcula base).
+
+Quando mais de uma regra se aplica ao mesmo item, vence a mais específica. Na ordem de peso:
+
+1. **NCM** (quanto mais dígitos do prefixo, mais específica);
+2. **UF de destino**;
+3. **Operação**;
+4. **Situação tributária do produto**;
+5. **Regime**.
+
+Se ainda houver empate, vence a de menor **Prioridade** e, depois, a mais antiga.
+
+> Exemplo: existem uma regra para o NCM `4901` e outra para o NCM `490199`. Um produto com NCM `49019900` usa a segunda.
+
+Regras **Inativas** ou fora da **Vigência** (início e fim) são ignoradas. Se nenhuma regra casar, vale o padrão acima: **nada muda** em relação a antes de existirem regras.
+
+## O CFOP escolhido no faturamento ainda manda
+
+Na **Fatura do Orçamento**, o CFOP sugerido por grupo de itens já vem da regra. Mas:
+
+- o CFOP que você escolher na janela de confirmação **prevalece** sobre a regra;
+- esse CFOP precisa existir, ativo, em **Natureza da Operação (CFOP)**, com a finalidade da operação.
+
+## O que fica gravado na nota
+
+O CST e o CFOP ficam gravados em cada item do rascunho da nota, e é esse CST que segue na transmissão. Se você mudar a **Situação Tributária** do produto depois de gerado o rascunho, **a nota não acompanha**: edite o item no rascunho ou gere a nota de novo.
+
+No rascunho, o item decidido por regra mostra **Decidido pela regra fiscal #N** abaixo do campo **CST / CSOSN**. Se você trocar o CST à mão, essa indicação some.
+
+## O que as regras ainda não fazem
+
+- **ICMS por substituição tributária (CST 10 e 70), redução de base (CST 20 e 70) e CSOSN 101 e 900** não podem ser escolhidos numa regra. A nota ainda não monta esses grupos.
+- **Notas de devolução** seguem o padrão por situação tributária, sem regras.
+- **Nota manual** (digitada no Monitor Fiscal) usa o que você informar, sem regras.

@@ -1,0 +1,69 @@
+---
+id: varejo-fiscal-cadastrar-regra-de-icms
+titulo: Cadastrar uma regra de ICMS (CFOP, CST e alíquota)
+resumo: Em Fiscal › Regras de ICMS, defina quando a regra vale e o que ela define. Use o Simulador para conferir qual regra um item usaria.
+tipo: procedimento
+produto: [varejo]
+modulo: fiscal
+atividade: cadastro
+features: [varejo.fiscal.regras-icms]
+perfis: [faturista, gestor]
+tags: [icms, cfop, cst, csosn, regra-fiscal, aliquota, ncm, uf, simulador]
+relacionados: [varejo-fiscal-como-o-sistema-decide-cfop-e-cst, varejo-fiscal-erro-nao-consigo-salvar-regra-de-icms, varejo-fiscal-faq-nenhuma-regra-casa]
+responsavel: heltonfarias
+revisado_em: 2026-11-17
+valido_desde: 1.0.0
+status: publicado
+ordem: 2
+---
+
+Cadastre uma regra quando o padrão por situação tributária não servir, por exemplo para um NCM com tratamento diferente ou para vendas a uma UF específica. Antes, leia [como o sistema decide o CFOP e o CST](/varejo/fiscal/como-o-sistema-decide-cfop-e-cst/).
+
+## Antes de começar
+
+- Permissão necessária: **Fiscal › Regras Fiscais (ICMS / CFOP / CST)**. Para **criar**, **editar** e **excluir**, é preciso também ter a permissão de configuração do módulo **Fiscal**.
+- O CFOP da regra precisa existir na tabela de CFOP. Para usá-lo no faturamento, ele também precisa estar **Ativo** em **Fiscal › Natureza da Operação**, com a finalidade da operação.
+- Confira o **NCM** e a **Situação Tributária** nos produtos que a regra vai atingir.
+
+## Passo a passo
+
+1. Abra **Fiscal › Regras de ICMS** e clique em **Nova Regra**.
+2. Em **Quando se aplica**, preencha só o que restringe a regra. Campo em branco (**Qualquer**) vale para qualquer valor:
+   - **Regime da empresa**: **Simples Nacional** ou **Regime normal**;
+   - **Operação**: uma das operações cadastradas;
+   - **UF de destino**;
+   - **NCM (prefixo)**: de 2 a 8 dígitos, como `4901`;
+   - **Situação tributária do produto**: T, F, I ou N.
+3. Em **O que a regra define**:
+   - **CFOP**: 4 dígitos, começando com 5 (dentro da UF) ou 6 (fora da UF);
+   - **CST / CSOSN**: a lista mostra só os códigos que a nota já sabe montar;
+   - **Alíquota ICMS (%)**: deixe em branco para usar a alíquota do cadastro do produto;
+   - **Calcular base e valor do ICMS**: só pode ser marcado com o CST **00**.
+4. Em **Controle**, se precisar:
+   - **Prioridade**: em empate entre regras igualmente específicas, vence o menor número;
+   - **Vigência: início** e **Vigência: fim**;
+   - **Situação**: **Ativa** ou **Inativa**;
+   - **Observação**.
+5. Clique em **Salvar** (ou use Ctrl+Enter).
+
+## Conferir com o Simulador
+
+No topo da tela, o **Simulador** mostra qual regra valeria para um item:
+
+1. Informe **Regime**, **UF emitente**, **UF destino**, **NCM**, **Situação do produto** e, se quiser, a **Operação**.
+2. Clique em **Simular**.
+3. O resultado mostra **Regra #N** (ou **Padrão (nenhuma regra casou)**), o **CFOP**, o **CST/CSOSN**, a **Alíquota** e se a **Base de ICMS** calcula.
+
+## Resultado esperado
+
+Aparece *"Regra cadastrada."* e a regra entra na lista. As próximas notas já usam a regra. Notas que já estão em rascunho **não** mudam.
+
+## Editar, desativar e excluir
+
+- Dê dois cliques na linha, ou clique no lápis, para editar. Aparece *"Regra atualizada."*.
+- Para parar de aplicar sem perder a regra, mude **Situação** para **Inativa**. Use os filtros **Ativas**, **Inativas** e **Todas** para achá-la depois.
+- A lixeira abre **Excluir regra fiscal**. Notas já geradas não são afetadas, e aparece *"Regra excluída."*.
+
+## Se algo der errado
+
+Veja [Não consigo salvar a regra de ICMS](/varejo/fiscal/erro-nao-consigo-salvar-regra-de-icms/).

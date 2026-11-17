@@ -240,6 +240,21 @@
       ]
     },
     {
+      "id": "varejo.cadastros.cores",
+      "rota": "/cadastros/cores",
+      "titulo": "Cores",
+      "modulo": "cadastros",
+      "area": "Comercial",
+      "submenu": "Cadastros",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:cores:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/cadastros/Cores.tsx"
+      ]
+    },
+    {
       "id": "varejo.cadastros.entregadores",
       "rota": "/cadastros/entregadores",
       "titulo": "Entregadores",
@@ -1175,6 +1190,34 @@
       ],
       "arquivos": [
         "packages/frontend/src/pages/fiscal/Operacoes.tsx"
+      ]
+    },
+    {
+      "id": "varejo.fiscal.regras-ibscbs",
+      "rota": "/fiscal/regras-ibscbs",
+      "titulo": "Regras de IBS/CBS",
+      "modulo": "cadastros",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:regras-ibscbs:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/fiscal/RegrasIbsCbs.tsx"
+      ]
+    },
+    {
+      "id": "varejo.fiscal.regras-icms",
+      "rota": "/fiscal/regras-icms",
+      "titulo": "Regras de ICMS",
+      "modulo": "cadastros",
+      "area": "Fiscal",
+      "contexto": "interno",
+      "permissoes": [
+        "cadastros:regras-fiscais:listar"
+      ],
+      "arquivos": [
+        "packages/frontend/src/pages/fiscal/RegrasFiscais.tsx"
       ]
     },
     {
