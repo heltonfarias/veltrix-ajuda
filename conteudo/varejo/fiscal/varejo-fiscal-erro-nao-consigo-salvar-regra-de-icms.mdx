@@ -1,0 +1,56 @@
+---
+id: varejo-fiscal-erro-nao-consigo-salvar-regra-de-icms
+titulo: Não consigo salvar a regra de ICMS ou o CFOP é recusado no faturamento
+tipo: solucao
+produto: [varejo]
+modulo: fiscal
+features: [varejo.fiscal.regras-icms]
+perfis: [faturista, gestor]
+tags: [icms, cfop, cst, regra-fiscal, erro, salvar, natureza-da-operacao, faturamento]
+relacionados: [varejo-fiscal-cadastrar-regra-de-icms, varejo-fiscal-como-o-sistema-decide-cfop-e-cst]
+responsavel: heltonfarias
+revisado_em: 2026-11-17
+status: publicado
+---
+
+## Sintoma
+
+Ao clicar em **Salvar** na janela da regra, aparece uma mensagem em vermelho e a regra não é gravada. Ou, no faturamento do orçamento, o CFOP sugerido pela regra é recusado.
+
+## Ao salvar a regra
+
+| Mensagem | Causa | Como resolver |
+|---|---|---|
+| "CFOP deve ter 4 dígitos e ser de saída (5xxx ou 6xxx)." | CFOP incompleto ou de entrada (1, 2 ou 3). | Use um CFOP de saída com 4 dígitos. |
+| "Destino … é a UF do emitente: use CFOP 5xxx." | A **UF de destino** é a mesma da empresa, mas o CFOP começa com 6. | Troque para um CFOP 5xxx, ou ajuste a **UF de destino**. |
+| "Destino … é outra UF: use CFOP 6xxx." | A **UF de destino** é diferente da empresa, mas o CFOP começa com 5. | Troque para um CFOP 6xxx, ou ajuste a **UF de destino**. |
+| "CFOP … não existe na tabela de CFOP." | O código não está no catálogo de CFOP. | Confira o número digitado. |
+| "CST/CSOSN … não é suportado pela emissão. Permitidos: …" | O código escolhido (por exemplo, 10, 20, 70, 101 ou 900) ainda não é montado na nota. | Escolha um dos códigos listados na mensagem. |
+| "CST 00 (tributada integralmente) exige alíquota maior que zero, ou em branco para usar a do produto." | **Alíquota ICMS (%)** preenchida com 0 e CST 00. | Informe uma alíquota maior que zero ou deixe o campo em branco. |
+| "Só o CST 00 calcula base e valor de ICMS." | **Calcular base e valor do ICMS** marcado com outro CST. | Desmarque a opção, ou use o CST 00. |
+| "Já existe a regra #… ativa com os mesmos filtros e prioridade." | Outra regra ativa disputaria os mesmos itens. | Edite a regra existente, mude a **Prioridade** ou desative uma delas. |
+| "UF de destino … inválida." | UF inexistente. | Escolha uma UF da lista. |
+| "NCM deve ter de 2 a 8 dígitos (prefixo)." | **NCM (prefixo)** com menos de 2 ou mais de 8 dígitos. | Informe de 2 a 8 dígitos, ou deixe em branco. |
+| "Fim da vigência anterior ao início." | **Vigência: fim** antes de **Vigência: início**. | Corrija as datas. |
+
+## No faturamento do orçamento
+
+| Mensagem | Causa | Como resolver |
+|---|---|---|
+| "CFOP … não está ativo no cadastro de Natureza da Operação para a finalidade … desta operação." | O CFOP da regra não existe, está **Inativo** ou tem outra finalidade em **Fiscal › Natureza da Operação**. | Cadastre ou ative o CFOP nessa tela, com a finalidade da operação. |
+| "CFOP … não combina com a operação interna (deve começar com 5)." / "… interestadual (deve começar com 6)." | O CFOP escolhido não bate com a UF do cliente. | Escolha um CFOP que comece com 5 (mesma UF) ou 6 (outra UF), ou corrija a regra ou o endereço do cliente. |
+
+## A regra não está sendo usada
+
+Confira, nesta ordem:
+
+1. A regra está **Ativa** e dentro da **Vigência**?
+2. O **NCM** do produto começa com o **NCM (prefixo)** da regra?
+3. A **UF de destino** da regra é a do **endereço principal** do cliente?
+4. O **Regime da empresa** da regra é o mesmo do **CRT** da empresa?
+5. Use o **Simulador** com os mesmos dados: ele mostra qual regra vence.
+6. A nota já estava em rascunho? Rascunhos antigos não mudam. Gere a nota de novo.
+
+## Quando acionar o suporte
+
+Acione o suporte se a mensagem não estiver nesta lista ou continuar depois da correção. Envie o número da regra, o NCM e a UF de destino do item e uma captura da janela com a mensagem.

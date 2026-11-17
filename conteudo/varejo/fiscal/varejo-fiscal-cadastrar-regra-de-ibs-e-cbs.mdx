@@ -1,0 +1,67 @@
+---
+id: varejo-fiscal-cadastrar-regra-de-ibs-e-cbs
+titulo: Cadastrar uma regra de IBS e CBS e ligar a gravação nas notas
+resumo: Em Fiscal › Regras de IBS/CBS, informe CST, cClassTrib e alíquotas por NCM, UF e vigência. Confira no Simulador e ligue a chave da empresa.
+tipo: procedimento
+produto: [varejo]
+modulo: fiscal
+atividade: cadastro
+features: [varejo.fiscal.regras-ibscbs]
+perfis: [faturista, gestor]
+tags: [ibs, cbs, reforma-tributaria, regra-fiscal, cclasstrib, vigencia, simulador]
+relacionados: [varejo-fiscal-regras-de-ibs-e-cbs, varejo-fiscal-erro-nao-consigo-salvar-regra-de-ibs-e-cbs]
+responsavel: heltonfarias
+revisado_em: 2026-11-17
+valido_desde: 1.0.0
+status: publicado
+ordem: 5
+---
+
+Antes de cadastrar, leia [o que já existe e o que ainda não](/varejo/fiscal/regras-de-ibs-e-cbs/). Os códigos e as alíquotas vêm da contabilidade, que confirma o que vale para cada empresa.
+
+## Antes de começar
+
+- Permissão necessária: **Fiscal › Regras Fiscais (IBS / CBS)**. Para **criar**, **editar**, **excluir** e **ligar a chave**, é preciso também ter a permissão de configuração do módulo **Fiscal**.
+- Tenha em mãos, por regra: CST de 3 dígitos, cClassTrib de 6 dígitos, alíquotas e o período de vigência.
+
+## Passo a passo
+
+1. Abra **Fiscal › Regras de IBS/CBS** e clique em **Nova Regra**.
+2. Em **Quando se aplica**, preencha só o que restringe a regra (**Qualquer** vale para tudo):
+   - **Regime da empresa**: **Simples Nacional** ou **Regime normal**;
+   - **Operação**;
+   - **UF de destino**;
+   - **NCM (prefixo)**: de 2 a 8 dígitos.
+3. Em **O que a regra define**:
+   - **CST IBS/CBS**: 3 dígitos;
+   - **cClassTrib**: 6 dígitos;
+   - **Redução de alíquota (%)**: deixe em branco se não houver;
+   - **Alíquota CBS (%)**, **Alíquota IBS UF (%)** e **Alíquota IBS município (%)**: em branco usa a do cadastro do produto (e o município, zero).
+4. Em **Controle**, defina **Prioridade**, **Vigência: início**, **Vigência: fim**, **Situação** (**Ativa** ou **Inativa**) e **Observação**. Para a transição por período, crie uma regra para cada período.
+5. Clique em **Salvar** (ou Ctrl+Enter).
+
+## Conferir com o Simulador
+
+1. No **Simulador**, informe **Regime**, **UF destino**, **NCM** e, se quiser, a **Operação**.
+2. Clique em **Simular**.
+3. O resultado mostra **Regra #N** com **CST**, **cClassTrib**, **CBS**, **IBS UF**, **IBS mun.** e **Redução**. Se nenhuma regra casar, aparece *"Nenhuma regra casou: o item usaria só os dados do produto, se houver"*.
+
+O Simulador não considera os dados do cadastro do produto.
+
+## Ligar a gravação nas notas
+
+1. No card do topo, marque **Gravar IBS/CBS nas notas desta empresa**.
+2. Aparece *"IBS/CBS será gravado nas notas novas."* e o selo muda para **Ligado**.
+3. Para desligar, desmarque a opção. Aparece *"IBS/CBS desligado para as notas novas."*.
+
+A empresa precisa ter a **configuração fiscal** preenchida. A opção vale só para as notas novas, e **nada é enviado à SEFAZ** por causa dela.
+
+## Editar, desativar e excluir
+
+- Dois cliques na linha, ou o lápis, abrem a edição. Aparece *"Regra atualizada."*.
+- Para parar de aplicar sem perder a regra, mude **Situação** para **Inativa**.
+- A lixeira abre **Excluir regra de IBS/CBS**. Notas já geradas não são afetadas.
+
+## Se algo der errado
+
+Veja [Não consigo salvar a regra de IBS/CBS](/varejo/fiscal/erro-nao-consigo-salvar-regra-de-ibs-e-cbs/).
