@@ -1433,6 +1433,21 @@
       ]
     },
     {
+      "id": "varejo.pdv.consulta-produtos",
+      "rota": "/pdv/consulta-produtos",
+      "titulo": "Consulta de Produtos",
+      "modulo": "pdv",
+      "area": "PDV",
+      "contexto": "interno",
+      "permissoes": [
+        "pdv:consulta-produtos:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pdv/",
+        "packages/frontend/src/pages/pdv/PdvConsultaProdutos.tsx"
+      ]
+    },
+    {
       "id": "varejo.pdv.movimentos.item.comprovante",
       "rota": "/pdv/movimentos/:numero/comprovante",
       "titulo": "Caixa › movimentos › detalhe › comprovante",
@@ -1548,7 +1563,7 @@
       "rota": "/vendas/devolucoes",
       "titulo": "Devoluções",
       "modulo": "devolucoes",
-      "area": "Comercial",
+      "area": "PDV",
       "contexto": "interno",
       "permissoes": [
         "devolucoes:listar"
@@ -1563,7 +1578,7 @@
       "rota": "/vendas/devolucoes/:numero/comprovante",
       "titulo": "Devoluções › detalhe › comprovante",
       "modulo": "vendas",
-      "area": "Comercial",
+      "area": "PDV",
       "contexto": "publico",
       "permissoes": [],
       "arquivos": [
