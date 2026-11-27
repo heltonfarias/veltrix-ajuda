@@ -741,6 +741,45 @@
       ]
     },
     {
+      "id": "varejo.estoque.etiquetas",
+      "rota": "/estoque/etiquetas",
+      "titulo": "Etiquetas",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [
+        "estoque:etiquetas:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/estoque/",
+        "packages/frontend/src/pages/estoque/Etiquetas.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.etiquetas.impressoes",
+      "rota": "/estoque/etiquetas/impressoes",
+      "titulo": "Etiquetas › impressoes",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/estoque/EtiquetaImpressoes.tsx"
+      ]
+    },
+    {
+      "id": "varejo.estoque.etiquetas.modelos",
+      "rota": "/estoque/etiquetas/modelos",
+      "titulo": "Etiquetas › modelos",
+      "modulo": "estoque",
+      "area": "Estoque",
+      "contexto": "interno",
+      "permissoes": [],
+      "arquivos": [
+        "packages/frontend/src/pages/estoque/EtiquetaModelos.tsx"
+      ]
+    },
+    {
       "id": "varejo.estoque.extrato",
       "rota": "/estoque/extrato",
       "titulo": "Extrato de Produto",
@@ -1433,6 +1472,36 @@
       ]
     },
     {
+      "id": "varejo.pdv.conferencia",
+      "rota": "/pdv/conferencia",
+      "titulo": "Conferência de Vendas",
+      "modulo": "pdv",
+      "area": "PDV",
+      "contexto": "interno",
+      "permissoes": [
+        "pdv:conferencia:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pdv/",
+        "packages/frontend/src/pages/pdv/ConferenciaVenda.tsx"
+      ]
+    },
+    {
+      "id": "varejo.pdv.consulta-produtos",
+      "rota": "/pdv/consulta-produtos",
+      "titulo": "Consulta de Produtos",
+      "modulo": "pdv",
+      "area": "PDV",
+      "contexto": "interno",
+      "permissoes": [
+        "pdv:consulta-produtos:visualizar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/pdv/",
+        "packages/frontend/src/pages/pdv/PdvConsultaProdutos.tsx"
+      ]
+    },
+    {
       "id": "varejo.pdv.movimentos.item.comprovante",
       "rota": "/pdv/movimentos/:numero/comprovante",
       "titulo": "Caixa › movimentos › detalhe › comprovante",
@@ -1548,7 +1617,7 @@
       "rota": "/vendas/devolucoes",
       "titulo": "Devoluções",
       "modulo": "devolucoes",
-      "area": "Comercial",
+      "area": "PDV",
       "contexto": "interno",
       "permissoes": [
         "devolucoes:listar"
@@ -1563,7 +1632,7 @@
       "rota": "/vendas/devolucoes/:numero/comprovante",
       "titulo": "Devoluções › detalhe › comprovante",
       "modulo": "vendas",
-      "area": "Comercial",
+      "area": "PDV",
       "contexto": "publico",
       "permissoes": [],
       "arquivos": [
@@ -1590,6 +1659,21 @@
       "permissoes": [],
       "arquivos": [
         "packages/frontend/src/pages/vendas/VendasImprimirProduto.tsx"
+      ]
+    },
+    {
+      "id": "varejo.vendas.notas-credito",
+      "rota": "/vendas/notas-credito",
+      "titulo": "Notas de Crédito",
+      "modulo": "devolucoes",
+      "area": "PDV",
+      "contexto": "interno",
+      "permissoes": [
+        "devolucoes:creditos:listar"
+      ],
+      "arquivos": [
+        "packages/backend/src/modules/devolucoes/",
+        "packages/frontend/src/pages/vendas/NotasCredito.tsx"
       ]
     }
   ]
